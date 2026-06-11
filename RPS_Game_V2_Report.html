@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rock Paper Scissors — Full Game Report & Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #5BBDE4;
+    --sky-dark: #2a6fa3;
+    --gold: #FFD700;
+    --gold-dark: #c9a800;
+    --green: #4CAF50;
+    --red: #e53935;
+    --purple: #7c3aed;
+    --bg: #0f1923;
+    --bg2: #162030;
+    --bg3: #1e2d3d;
+    --card: #1a2535;
+    --border: #2a3f58;
+    --text: #e8f4fd;
+    --muted: #7a9bb5;
+    --pixel: 'Press Start 2P', monospace;
+    --body: 'Rajdhani', sans-serif;
+    --mono: 'Share Tech Mono', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(180deg, #0d1b2a 0%, #1a3a5c 40%, #5BBDE4 100%);
+    padding: 60px 40px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.02) 3px, rgba(255,255,255,0.02) 4px);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: #000;
+    font-family: var(--pixel);
+    font-size: 9px;
+    padding: 6px 14px;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0 #000;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+  }
+  .hero h1 {
+    font-family: var(--pixel);
+    font-size: clamp(18px, 4vw, 32px);
+    color: #fff;
+    text-shadow: 4px 4px 0 var(--sky-dark), 6px 6px 0 #000;
+    line-height: 1.8;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.8);
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .icons-row {
+    display: flex; gap: 20px; justify-content: center; margin-top: 32px;
+    font-size: 36px; position: relative;
+  }
+  .icon-float { animation: float 3s ease-in-out infinite; }
+  .icon-float:nth-child(2) { animation-delay: 1s; }
+  .icon-float:nth-child(3) { animation-delay: 2s; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+
+  /* NAV */
+  .nav {
+    background: var(--bg2);
+    border-bottom: 3px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav a {
+    display: inline-block;
+    padding: 14px 16px;
+    color: var(--muted);
+    text-decoration: none;
+    font-family: var(--mono);
+    font-size: 12px;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+  }
+  .nav a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* CONTAINER */
+  .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+
+  /* SECTION HEADING */
+  .section-title {
+    font-family: var(--pixel);
+    font-size: 13px;
+    color: var(--gold);
+    padding: 10px 18px;
+    background: var(--bg3);
+    border-left: 4px solid var(--gold);
+    border: 3px solid var(--gold);
+    box-shadow: 4px 4px 0 var(--gold-dark);
+    display: inline-block;
+    margin-bottom: 28px;
+    margin-top: 48px;
+  }
+  .section-title:first-child { margin-top: 0; }
+
+  /* SUMMARY CARDS */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    padding: 24px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .stat-card.gold::after { background: var(--gold); }
+  .stat-card.green::after { background: var(--green); }
+  .stat-card.red::after { background: var(--red); }
+  .stat-card.blue::after { background: var(--sky); }
+  .stat-card .num {
+    font-family: var(--pixel);
+    font-size: 28px;
+    color: var(--gold);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .stat-card.green .num { color: var(--green); }
+  .stat-card.red .num { color: var(--red); }
+  .stat-card.blue .num { color: var(--sky); }
+  .stat-card .label {
+    font-size: 13px;
+    color: var(--muted);
+    font-family: var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .stat-card .desc {
+    font-size: 15px;
+    margin-top: 6px;
+    color: var(--text);
+  }
+
+  /* TABLES */
+  .table-wrap { overflow-x: auto; margin-bottom: 32px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  th {
+    background: var(--bg3);
+    color: var(--gold);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 12px 14px;
+    text-align: left;
+    border: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  td {
+    padding: 11px 14px;
+    border: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.5;
+    color: #cde4f7;
+    background: var(--card);
+  }
+  tr:nth-child(even) td { background: #1c2a3a; }
+  tr:hover td { background: #1f3248; }
+
+  /* BADGES */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 2px;
+    font-size: 11px;
+    font-family: var(--mono);
+    font-weight: 700;
+    border: 1px solid;
+    white-space: nowrap;
+  }
+  .badge-red { background: rgba(229,57,53,.15); color: #ff6b6b; border-color: #e53935; }
+  .badge-yellow { background: rgba(255,193,7,.15); color: #ffd54f; border-color: #ffc107; }
+  .badge-green { background: rgba(76,175,80,.15); color: #81c784; border-color: #4caf50; }
+  .badge-blue { background: rgba(91,189,228,.15); color: #7dd3f0; border-color: #5BBDE4; }
+  .badge-purple { background: rgba(124,58,237,.15); color: #c084fc; border-color: #7c3aed; }
+  .badge-gray { background: rgba(120,140,160,.15); color: #94a3b8; border-color: #475569; }
+
+  /* PRIORITY PILL */
+  .p1 { display:inline-block; background:#e53935; color:#fff; font-size:10px; font-family:var(--mono); padding:2px 8px; border-radius:2px; }
+  .p2 { display:inline-block; background:#f59e0b; color:#000; font-size:10px; font-family:var(--mono); padding:2px 8px; border-radius:2px; }
+  .p3 { display:inline-block; background:#3b82f6; color:#fff; font-size:10px; font-family:var(--mono); padding:2px 8px; border-radius:2px; }
+
+  /* ROADMAP PHASES */
+  .phases { display: flex; flex-direction: column; gap: 0; position: relative; margin-bottom: 40px; }
+  .phases::before {
+    content: '';
+    position: absolute;
+    left: 28px; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--gold), var(--sky), var(--green), var(--purple));
+  }
+  .phase {
+    display: flex;
+    gap: 24px;
+    padding: 24px 0;
+    position: relative;
+  }
+  .phase-num {
+    flex-shrink: 0;
+    width: 56px; height: 56px;
+    background: var(--bg);
+    border: 3px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--pixel);
+    font-size: 14px;
+    color: var(--gold);
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 0 4px var(--bg);
+  }
+  .phase:nth-child(2) .phase-num { border-color: var(--sky); color: var(--sky); }
+  .phase:nth-child(3) .phase-num { border-color: var(--green); color: var(--green); }
+  .phase:nth-child(4) .phase-num { border-color: var(--purple); color: var(--purple); }
+  .phase:nth-child(5) .phase-num { border-color: #f59e0b; color: #f59e0b; }
+  .phase-body { flex: 1; }
+  .phase-header {
+    font-family: var(--pixel);
+    font-size: 11px;
+    margin-bottom: 12px;
+    color: var(--gold);
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  }
+  .phase:nth-child(2) .phase-header { color: var(--sky); }
+  .phase:nth-child(3) .phase-header { color: var(--green); }
+  .phase:nth-child(4) .phase-header { color: var(--purple); }
+  .phase:nth-child(5) .phase-header { color: #f59e0b; }
+  .phase-dur {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: normal;
+  }
+  .phase-content { background: var(--card); border: 1px solid var(--border); padding: 20px; }
+
+  /* TECH STACK GRID */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .tech-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--sky);
+    padding: 20px;
+  }
+  .tech-card.backend { border-top-color: var(--green); }
+  .tech-card.infra { border-top-color: var(--purple); }
+  .tech-card.tools { border-top-color: var(--gold); }
+  .tech-card h4 {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+  .tech-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    gap: 12px;
+  }
+  .tech-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .tech-name {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text);
+  }
+  .tech-reason {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: right;
+    max-width: 140px;
+  }
+
+  /* CODE BLOCK */
+  .code-block {
+    background: #0a0f1a;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--sky);
+    padding: 16px 20px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: #7dd3f0;
+    overflow-x: auto;
+    margin: 12px 0 20px;
+    line-height: 1.8;
+    white-space: pre;
+  }
+  .code-comment { color: #4a6a80; }
+  .code-key { color: var(--gold); }
+  .code-val { color: #86efac; }
+
+  /* IMPROVEMENT CARD */
+  .improvements { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .improvement-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 20px;
+    position: relative;
+  }
+  .improvement-card::before {
+    content: attr(data-cat);
+    position: absolute;
+    top: -1px; right: 16px;
+    background: var(--sky);
+    color: #000;
+    font-family: var(--mono);
+    font-size: 9px;
+    padding: 3px 8px;
+    text-transform: uppercase;
+  }
+  .improvement-card[data-sev="high"]::before { background: var(--red); color: #fff; }
+  .improvement-card[data-sev="med"]::before { background: #f59e0b; color: #000; }
+  .improvement-card[data-sev="low"]::before { background: var(--sky); color: #000; }
+  .improvement-card h4 {
+    font-family: var(--pixel);
+    font-size: 9px;
+    color: var(--text);
+    margin-bottom: 10px;
+    padding-top: 8px;
+    line-height: 1.8;
+  }
+  .improvement-card p { font-size: 14px; color: var(--muted); }
+  .improvement-card ul { padding-left: 18px; margin-top: 8px; }
+  .improvement-card li { font-size: 13px; color: #adc8e0; margin-bottom: 4px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg2);
+    border-top: 3px solid var(--border);
+    padding: 32px 40px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 60px;
+  }
+
+  /* CALLOUT */
+  .callout {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    padding: 16px 20px;
+    margin: 16px 0 24px;
+    font-size: 14px;
+    color: #cde4f7;
+  }
+  .callout strong { color: var(--gold); font-family: var(--mono); }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; }
+  .checklist li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    display: flex; gap: 10px; align-items: flex-start;
+    color: #adc8e0;
+  }
+  .checklist li::before { content: '▸'; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+  .checklist li:last-child { border-bottom: none; }
+
+  /* ARCH DIAGRAM */
+  .arch-box {
+    background: var(--card);
+    border: 2px solid var(--border);
+    padding: 16px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  .arch-row {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+    margin: 8px 0;
+    flex-wrap: wrap;
+  }
+  .arch-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 20px;
+    padding: 0 4px;
+  }
+  .arch-box .title { color: var(--gold); font-size: 10px; margin-bottom: 6px; text-transform: uppercase; }
+  .arch-box .sub { color: var(--muted); font-size: 11px; }
+
+  h2.section { font-family: var(--pixel); font-size: 11px; color: var(--gold); margin: 32px 0 16px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+  p { margin-bottom: 12px; color: #adc8e0; font-size: 15px; }
+  strong { color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">✦ GAME DESIGN REPORT ✦</div>
+  <h1>ROCK PAPER SCISSORS<br><span>UI/UX REPORT & FULL-STACK ROADMAP</span></h1>
+  <p>Complete analysis of your existing screens, missing features, design improvements, and a full React Native development roadmap.</p>
+  <div class="icons-row">
+    <span class="icon-float">🪨</span>
+    <span class="icon-float">📄</span>
+    <span class="icon-float">✂️</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#audit">Screen Audit</a>
+  <a href="#missing">Missing Screens</a>
+  <a href="#improvements">Design Improvements</a>
+  <a href="#errors">Error States</a>
+  <a href="#techstack">Tech Stack</a>
+  <a href="#architecture">Architecture</a>
+  <a href="#roadmap">Dev Roadmap</a>
+  <a href="#folder">Folder Structure</a>
+  <a href="#priority">Priority Matrix</a>
+</nav>
+
+<div class="container">
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="section-title">📊 EXECUTIVE SUMMARY</div>
+
+  <div class="summary-grid">
+    <div class="stat-card gold">
+      <span class="num">15</span>
+      <div class="label">Screens Designed</div>
+      <div class="desc">Across login, gameplay, results, leaderboard, settings</div>
+    </div>
+    <div class="stat-card red">
+      <span class="num">18</span>
+      <div class="label">Missing Screens</div>
+      <div class="desc">Essential + recommended screens not yet designed</div>
+    </div>
+    <div class="stat-card blue">
+      <span class="num">11</span>
+      <div class="label">Design Issues</div>
+      <div class="desc">Spacing, depth, button states, accessibility gaps</div>
+    </div>
+    <div class="stat-card green">
+      <span class="num">5</span>
+      <div class="label">Dev Phases</div>
+      <div class="desc">Estimated 20–26 weeks to full production release</div>
+    </div>
+  </div>
+
+  <!-- SCREEN AUDIT -->
+  <div id="audit"></div>
+  <div class="section-title">🖥️ EXISTING SCREEN AUDIT</div>
+  <p>Full assessment of all 15 designed screens — what's working, what needs fixing.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Screen</th>
+          <th>File</th>
+          <th>Status</th>
+          <th>Strengths</th>
+          <th>Issues Found</th>
+          <th>Priority Fix</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>01</td>
+          <td><strong>Main Menu</strong></td>
+          <td><span class="badge badge-blue">MAIN_MENU.png</span></td>
+          <td><span class="badge badge-green">✓ GOOD</span></td>
+          <td>Character on platform, "Start Game", "VS Bot" clearly visible. Coin/gem HUD. Bottom nav bar.</td>
+          <td>The old simple version only had PLAY + SETTINGS. New concept adds much more. Typo: "SETINGS" (missing T)</td>
+          <td><span class="p1">P1</span> Fix typo</td>
+        </tr>
+        <tr>
+          <td>02</td>
+          <td><strong>Sign In</strong></td>
+          <td><span class="badge badge-blue">LOG-IN_PAGE.png</span></td>
+          <td><span class="badge badge-yellow">⚠ NEEDS WORK</span></td>
+          <td>Clean layout, Google Sign-in present, Create Account link</td>
+          <td>Too much vertical dead space at top. No "Forgot Password" link. No input validation indicators. No error state designed.</td>
+          <td><span class="p1">P1</span> Add forgot password</td>
+        </tr>
+        <tr>
+          <td>03</td>
+          <td><strong>Sign Up</strong></td>
+          <td><span class="badge badge-blue">SIGN-UP_PAGE.png</span></td>
+          <td><span class="badge badge-yellow">⚠ NEEDS WORK</span></td>
+          <td>Mirrors sign in layout consistently</td>
+          <td>No email field — only username+password. No confirm password field. No T&C checkbox. Missing real-time validation feedback.</td>
+          <td><span class="p1">P1</span> Add email + confirm password</td>
+        </tr>
+        <tr>
+          <td>04</td>
+          <td><strong>Gender Selection</strong></td>
+          <td><span class="badge badge-blue">Gender_Section.png</span></td>
+          <td><span class="badge badge-yellow">⚠ NEEDS WORK</span></td>
+          <td>Simple, clear radio buttons, consistent pixel style</td>
+          <td>Only Male/Female options — lacks "Other/Prefer Not To Say" which is a modern accessibility requirement. No character preview change.</td>
+          <td><span class="p2">P2</span> Add third option</td>
+        </tr>
+        <tr>
+          <td>05</td>
+          <td><strong>Game Mode Select</strong></td>
+          <td><span class="badge badge-blue">Game_Mode.png</span></td>
+          <td><span class="badge badge-green">✓ GOOD</span></td>
+          <td>Clear Best of 3 / Best of 5 options. Sky background consistent.</td>
+          <td>No "back" button. No description of what Best of 3 vs 5 means for new players.</td>
+          <td><span class="p2">P2</span> Add back button</td>
+        </tr>
+        <tr>
+          <td>06</td>
+          <td><strong>Start of Game</strong></td>
+          <td><span class="badge badge-blue">Start_of_the_game.png</span></td>
+          <td><span class="badge badge-green">✓ GOOD</span></td>
+          <td>Green arena feel, both hands visible, BOT/PLAYER labels, move icons at bottom</td>
+          <td>No countdown shown in start state. The "SHOOT" text mid-screen needs framing/animation context. Win/loss circles layout on sides needs clearer framing.</td>
+          <td><span class="p2">P2</span> Add round counter</td>
+        </tr>
+        <tr>
+          <td>07</td>
+          <td><strong>Game Page (Result)</strong></td>
+          <td><span class="badge badge-blue">Game_page.png</span></td>
+          <td><span class="badge badge-green">✓ GOOD</span></td>
+          <td>Shows both chosen gestures. Score circles on sides. Clear who is PLAYER vs BOT.</td>
+          <td>No "round X of Y" indicator. No visual flash to indicate win/lose for the round. Scissors vs Paper result not highlighted.</td>
+          <td><span class="p2">P2</span> Add round flash effect</td>
+        </tr>
+        <tr>
+          <td>08</td>
+          <td><strong>Victory Page</strong></td>
+          <td><span class="badge badge-blue">VICTORY_PAGE.png</span></td>
+          <td><span class="badge badge-green">✓ EXCELLENT</span></td>
+          <td>Crown character, gold pedestal, floating stars, VICTORY title, Score + Streak shown, Share button</td>
+          <td>Share button is small/easy to miss. No coin/XP earned shown. No confetti animation.</td>
+          <td><span class="p3">P3</span> Show XP earned</td>
+        </tr>
+        <tr>
+          <td>09</td>
+          <td><strong>Defeat Page</strong></td>
+          <td><span class="badge badge-blue">DEFEAT_PAGE.png</span></td>
+          <td><span class="badge badge-green">✓ EXCELLENT</span></td>
+          <td>Jester hat, crying expression, balloons, sad mood consistent. Score shown.</td>
+          <td>No "what went wrong" summary. No consolation reward shown. Same layout as victory which may feel too identical.</td>
+          <td><span class="p3">P3</span> Add consolation XP</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><strong>Post Victory</strong></td>
+          <td><span class="badge badge-blue">POST_VICTORY_PAGE.png</span></td>
+          <td><span class="badge badge-green">✓ GOOD</span></td>
+          <td>Rematch + Main Menu options clear. Victory title carries over.</td>
+          <td>Could show "New personal best!" if streak record broken. No share option on this screen.</td>
+          <td><span class="p3">P3</span> Add achievement trigger</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td><strong>Post Defeat</strong></td>
+          <td><span class="badge badge-blue">POST_DEFEAT_PAGE.png</span></td>
+          <td><span class="badge badge-green">✓ GOOD</span></td>
+          <td>Rematch + Main Menu. Consistent with post-victory.</td>
+          <td>No "Watch Ad for Bonus" prompt (common monetization). No encouragement text.</td>
+          <td><span class="p3">P3</span> Optional ad prompt</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td><strong>Leaderboard</strong></td>
+          <td><span class="badge badge-blue">LEADERBOARD_PAGE.png</span></td>
+          <td><span class="badge badge-yellow">⚠ NEEDS WORK</span></td>
+          <td>Crowns for top 3, gold/silver/bronze colors, star banner. Scrollable list.</td>
+          <td>First entry has an offensive username — needs profanity filter in implementation. No tab for Friends vs Global. No "Your rank" sticky row at bottom. No search.</td>
+          <td><span class="p1">P1</span> Profanity filter system</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td><strong>Settings Page 1</strong></td>
+          <td><span class="badge badge-blue">SETTINGS_PAGE_-_1.png</span></td>
+          <td><span class="badge badge-yellow">⚠ NEEDS WORK</span></td>
+          <td>Username, gender toggle, sound/music sliders, logout button</td>
+          <td>Volume sliders use circular +/- approach — inconsistent with standard mobile UX. No language setting. No notification toggle. Logout is red but no confirm dialog shown.</td>
+          <td><span class="p1">P1</span> Add confirm logout dialog</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td><strong>Settings Page 2</strong></td>
+          <td><span class="badge badge-blue">SETTINGS_PAGE_-_2.png</span></td>
+          <td><span class="badge badge-yellow">⚠ NEEDS WORK</span></td>
+          <td>Alternative arrow-style sliders for sound/music</td>
+          <td>Appears to be a design variant — must pick one final slider style. Having two versions creates inconsistency.</td>
+          <td><span class="p1">P1</span> Consolidate to one design</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td><strong>Share Page</strong></td>
+          <td><span class="badge badge-blue">SHARE_PAGE.png</span></td>
+          <td><span class="badge badge-green">✓ GOOD</span></td>
+          <td>Phone mockup with victory screen, social share context</td>
+          <td>No actual share targets shown (WhatsApp, Instagram etc.). This appears to be a design mockup view, not the actual in-app share sheet.</td>
+          <td><span class="p3">P3</span> Clarify share flow</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- MISSING SCREENS -->
+  <div id="missing"></div>
+  <div class="section-title">🚨 MISSING SCREENS — COMPLETE LIST</div>
+  <p>All screens you still need to design and implement, grouped by priority.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Screen Name</th>
+          <th>Priority</th>
+          <th>Category</th>
+          <th>Status in Concept Art</th>
+          <th>Why It's Needed</th>
+          <th>Key UI Elements</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>01</td>
+          <td><strong>Loading / Splash Screen</strong></td>
+          <td><span class="p1">P1 CRITICAL</span></td>
+          <td><span class="badge badge-red">Core Flow</span></td>
+          <td><span class="badge badge-blue">Shown in concept</span></td>
+          <td>First screen ever seen. Sets tone. Required for app store submission.</td>
+          <td>Logo, animated RPS icons, loading bar, studio name</td>
+        </tr>
+        <tr>
+          <td>02</td>
+          <td><strong>Tutorial / How To Play</strong></td>
+          <td><span class="p1">P1 CRITICAL</span></td>
+          <td><span class="badge badge-red">Core Flow</span></td>
+          <td><span class="badge badge-blue">Shown in concept</span></td>
+          <td>Required for new users. App stores may reject without onboarding.</td>
+          <td>3 swipeable slides, rule diagrams, "Tap to continue", skip button</td>
+        </tr>
+        <tr>
+          <td>03</td>
+          <td><strong>Match Countdown</strong></td>
+          <td><span class="p1">P1 CRITICAL</span></td>
+          <td><span class="badge badge-red">Core Flow</span></td>
+          <td><span class="badge badge-blue">Shown in concept</span></td>
+          <td>Creates anticipation before each round. "3…2…1…SHOOT!" sequence.</td>
+          <td>Large animated numbers, "READY?", floating RPS icons, sound SFX</td>
+        </tr>
+        <tr>
+          <td>04</td>
+          <td><strong>Pause Menu</strong></td>
+          <td><span class="p1">P1 CRITICAL</span></td>
+          <td><span class="badge badge-red">Core Flow</span></td>
+          <td><span class="badge badge-blue">Shown in concept</span></td>
+          <td>Players will need to pause. Without this, rage-quitting destroys UX.</td>
+          <td>Resume, Restart, Sound toggle, Quit Match (red)</td>
+        </tr>
+        <tr>
+          <td>05</td>
+          <td><strong>Match Result Transition</strong></td>
+          <td><span class="p1">P1 CRITICAL</span></td>
+          <td><span class="badge badge-red">Core Flow</span></td>
+          <td><span class="badge badge-blue">Shown in concept</span></td>
+          <td>Bridge between game end and result screen. "YOU WIN!" + coins/XP.</td>
+          <td>Result text, animated coins, XP bar fill, character celebration</td>
+        </tr>
+        <tr>
+          <td>06</td>
+          <td><strong>Profile Page</strong></td>
+          <td><span class="p1">P1 CRITICAL</span></td>
+          <td><span class="badge badge-red">Core Flow</span></td>
+          <td><span class="badge badge-blue">Shown in concept</span></td>
+          <td>Bottom nav has "Profile" tab — must be built.</td>
+          <td>Avatar, username, wins/losses, win rate, rank badge, favorite move, match history</td>
+        </tr>
+        <tr>
+          <td>07</td>
+          <td><strong>Stats / Dashboard</strong></td>
+          <td><span class="p1">P1 CRITICAL</span></td>
+          <td><span class="badge badge-red">Core Flow</span></td>
+          <td><span class="badge badge-blue">Shown in concept</span></td>
+          <td>Bottom nav has "Stats" tab — must be built. Players love data.</td>
+          <td>Win rate chart, RPS usage pie chart, weekly bar chart, total matches, best streak</td>
+        </tr>
+        <tr>
+          <td>08</td>
+          <td><strong>Achievements Page</strong></td>
+          <td><span class="p1">P1 CRITICAL</span></td>
+          <td><span class="badge badge-red">Core Flow</span></td>
+          <td><span class="badge badge-blue">Shown in concept</span></td>
+          <td>Bottom nav has "Achievements" tab — must be built. Core retention loop.</td>
+          <td>Achievement grid, progress bars, locked/unlocked states, filter tabs (All/In Progress/Done)</td>
+        </tr>
+        <tr>
+          <td>09</td>
+          <td><strong>Avatar Customization</strong></td>
+          <td><span class="p1">P1 HIGH</span></td>
+          <td><span class="badge badge-yellow">Progression</span></td>
+          <td><span class="badge badge-blue">Shown in concept</span></td>
+          <td>Core monetization + engagement driver. Differentiates players.</td>
+          <td>Character preview, category tabs (Hats/Shirts/Effects), locked items, EQUIP button</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><strong>Daily Reward Screen</strong></td>
+          <td><span class="p1">P1 HIGH</span></td>
+          <td><span class="badge badge-yellow">Progression</span></td>
+          <td><span class="badge badge-blue">Shown in concept</span></td>
+          <td>Day 1–7 calendar rewards. Drives daily app opens. Critical retention.</td>
+          <td>7-day calendar strip, reward reveal animation, CLAIM button, countdown timer</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td><strong>Shop Screen</strong></td>
+          <td><span class="p2">P2 MED</span></td>
+          <td><span class="badge badge-yellow">Progression</span></td>
+          <td><span class="badge badge-blue">Shown in concept</span></td>
+          <td>Monetization hub. Sell hats, balloons, emotes, effects with gems/coins.</td>
+          <td>Currency display, category tabs (Featured/Hats/Balloons/Emotes), item grid, price tags</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td><strong>Online Matchmaking</strong></td>
+          <td><span class="p2">P2 MED</span></td>
+          <td><span class="badge badge-purple">Multiplayer</span></td>
+          <td><span class="badge badge-blue">Shown in concept</span></td>
+          <td>"VS Player" mode requires an opponent search screen.</td>
+          <td>Spinning search animation, "Finding opponent…", player avatars, cancel button, ETA</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td><strong>Lobby / Friend Invite</strong></td>
+          <td><span class="p2">P2 MED</span></td>
+          <td><span class="badge badge-purple">Multiplayer</span></td>
+          <td><span class="badge badge-blue">Shown in concept</span></td>
+          <td>Friends play together with room code. Boosts social viral loop.</td>
+          <td>Room code display, copy button, player slots (waiting), READY button, invite friends</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td><strong>Season Pass Screen</strong></td>
+          <td><span class="p2">P2 MED</span></td>
+          <td><span class="badge badge-yellow">Progression</span></td>
+          <td><span class="badge badge-blue">Shown in concept</span></td>
+          <td>Major monetization. Free vs Premium track. Season timer drives urgency.</td>
+          <td>XP progress bar, tier rewards row, free/premium track, countdown, upgrade CTA</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td><strong>Error Popup System</strong></td>
+          <td><span class="p1">P1 CRITICAL</span></td>
+          <td><span class="badge badge-red">System UI</span></td>
+          <td><span class="badge badge-blue">Shown in concept</span></td>
+          <td>Every failure state in the app needs a designed error popup.</td>
+          <td>Pixel dialog box, error icon, message text, OK/Retry button, close X</td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td><strong>Confirmation Dialogs</strong></td>
+          <td><span class="p1">P1 CRITICAL</span></td>
+          <td><span class="badge badge-red">System UI</span></td>
+          <td><span class="badge badge-blue">Shown in concept</span></td>
+          <td>Logout, quit match, delete account — all need confirmation prompts.</td>
+          <td>Dialog overlay, question text, NO (left) + YES (right) buttons, pixel border</td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td><strong>No Internet Screen</strong></td>
+          <td><span class="p1">P1 CRITICAL</span></td>
+          <td><span class="badge badge-red">System UI</span></td>
+          <td><span class="badge badge-blue">Shown in concept</span></td>
+          <td>Mobile apps must handle offline gracefully. Required for app store guidelines.</td>
+          <td>WiFi icon with X, message text, RETRY button, pixel styling</td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td><strong>Credits / About</strong></td>
+          <td><span class="p3">P3 LOW</span></td>
+          <td><span class="badge badge-gray">Polish</span></td>
+          <td><span class="badge badge-blue">Shown in concept</span></td>
+          <td>Professional touch. Required in some regions for app submission.</td>
+          <td>Game logo, studio name, designer credits, music credits, version number, BACK</td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td><strong>Forgot Password</strong></td>
+          <td><span class="p1">P1 CRITICAL</span></td>
+          <td><span class="badge badge-red">Core Flow</span></td>
+          <td><span class="badge badge-red">NOT in concept</span></td>
+          <td>Auth requirement. Without this, locked-out users churn permanently.</td>
+          <td>Email input, "Send Reset Link" button, confirmation message screen</td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td><strong>Notification Permission Screen</strong></td>
+          <td><span class="p2">P2 MED</span></td>
+          <td><span class="badge badge-red">System UI</span></td>
+          <td><span class="badge badge-red">NOT in concept</span></td>
+          <td>iOS requires a pre-permission screen before native dialog. Boosts opt-in rate.</td>
+          <td>Bell icon, benefit text ("Don't miss daily rewards!"), Allow/Skip buttons</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- DESIGN IMPROVEMENTS -->
+  <div id="improvements"></div>
+  <div class="section-title">🎨 DESIGN IMPROVEMENTS — EXISTING SCREENS</div>
+
+  <div class="improvements">
+    <div class="improvement-card" data-cat="CRITICAL" data-sev="high">
+      <h4>TYPO: "SETINGS" → "SETTINGS"</h4>
+      <p>Main menu button has a missing T. Fix immediately before any screenshots or demos.</p>
+    </div>
+    <div class="improvement-card" data-cat="HIGH" data-sev="high">
+      <h4>PROFANITY FILTER REQUIRED</h4>
+      <p>Leaderboard contains an offensive username. Implement server-side username validation with a blocklist. Never trust user-submitted display names.</p>
+    </div>
+    <div class="improvement-card" data-cat="HIGH" data-sev="high">
+      <h4>MISSING BUTTON STATES</h4>
+      <p>Design 3 states for every button:</p>
+      <ul>
+        <li>Default — normal yellow</li>
+        <li>Pressed — slightly darker, shifted down 2px (pixel push effect)</li>
+        <li>Disabled — gray, non-interactive</li>
+      </ul>
+    </div>
+    <div class="improvement-card" data-cat="HIGH" data-sev="high">
+      <h4>INPUT VALIDATION FEEDBACK</h4>
+      <p>Sign In / Sign Up have no error states. Design red border + error text for:</p>
+      <ul>
+        <li>Wrong password</li>
+        <li>Username taken</li>
+        <li>Weak password</li>
+        <li>Passwords don't match</li>
+      </ul>
+    </div>
+    <div class="improvement-card" data-cat="MEDIUM" data-sev="med">
+      <h4>VERTICAL SPACING (Login/Settings)</h4>
+      <p>Login and settings screens have cramped vertical rhythm. Add 8–16px more breathing room between elements. Settings particularly feels dense.</p>
+    </div>
+    <div class="improvement-card" data-cat="MEDIUM" data-sev="med">
+      <h4>CONSOLIDATE SETTINGS SLIDER DESIGN</h4>
+      <p>Settings Page 1 uses +/- circles; Settings Page 2 uses arrow triangles. Pick one. Recommendation: arrow style (more pixel-art native) consistently throughout.</p>
+    </div>
+    <div class="improvement-card" data-cat="MEDIUM" data-sev="med">
+      <h4>ROUND INDICATOR IN GAMEPLAY</h4>
+      <p>No "Round 1/3" or "Round 2/5" indicator during game. Players can't tell where they are in the match. Add a small round tracker at top center of the game screen.</p>
+    </div>
+    <div class="improvement-card" data-cat="MEDIUM" data-sev="med">
+      <h4>GENDER SELECTION — ADD "OTHER"</h4>
+      <p>Binary Male/Female only. Add "Other / Prefer not to say" option for inclusivity. This also affects character skin selection scope.</p>
+    </div>
+    <div class="improvement-card" data-cat="MEDIUM" data-sev="med">
+      <h4>LEADERBOARD — MY RANK ROW</h4>
+      <p>Add a sticky row at the bottom of the leaderboard showing "YOUR RANK: #24" even if you're not in the visible top 8. This is standard UX in competitive mobile games.</p>
+    </div>
+    <div class="improvement-card" data-cat="LOW" data-sev="low">
+      <h4>ADD DEPTH TO FLAT SCREENS</h4>
+      <p>Some screens (game mode, gender select) feel flat. Add:</p>
+      <ul>
+        <li>Subtle cloud parallax movement</li>
+        <li>Small floating particles</li>
+        <li>Light pixel scanline overlay</li>
+      </ul>
+    </div>
+    <div class="improvement-card" data-cat="LOW" data-sev="low">
+      <h4>VICTORY/DEFEAT DIFFERENTIATION</h4>
+      <p>Both screens share very similar layout. Strengthen contrast: Victory should feel warm and bright (more gold, stars, confetti), Defeat should feel distinctly different (darker sky, rain effect, muted colors).</p>
+    </div>
+    <div class="improvement-card" data-cat="LOW" data-sev="low">
+      <h4>BACK NAVIGATION</h4>
+      <p>Multiple screens missing an explicit back button (Game Mode, Gender Selection). While Android has hardware back, iOS does not. Add visible back arrows to all non-root screens.</p>
+    </div>
+  </div>
+
+  <!-- ERROR STATES -->
+  <div id="errors"></div>
+  <div class="section-title">⚠️ ERROR STATES — COMPLETE CATALOG</div>
+  <p>Every error state that needs a designed UI response. These are often the most neglected part of mobile game development.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Trigger</th>
+          <th>Screen Context</th>
+          <th>Error Type</th>
+          <th>Recommended UX Response</th>
+          <th>Priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Wrong password entered</td>
+          <td>Sign In</td>
+          <td><span class="badge badge-red">Auth Error</span></td>
+          <td>Red border on password field + "Wrong password. Try again." text below field. Don't clear username.</td>
+          <td><span class="p1">P1</span></td>
+        </tr>
+        <tr>
+          <td>Username doesn't exist</td>
+          <td>Sign In</td>
+          <td><span class="badge badge-red">Auth Error</span></td>
+          <td>Red border on username field + "Account not found." message. Show "Create Account" CTA.</td>
+          <td><span class="p1">P1</span></td>
+        </tr>
+        <tr>
+          <td>Username already taken</td>
+          <td>Sign Up</td>
+          <td><span class="badge badge-red">Auth Error</span></td>
+          <td>Inline red message: "Username taken. Try [username]2?" with auto-suggestion.</td>
+          <td><span class="p1">P1</span></td>
+        </tr>
+        <tr>
+          <td>Passwords don't match</td>
+          <td>Sign Up</td>
+          <td><span class="badge badge-red">Validation</span></td>
+          <td>Red border on confirm field + "Passwords don't match" inline text.</td>
+          <td><span class="p1">P1</span></td>
+        </tr>
+        <tr>
+          <td>Password too weak</td>
+          <td>Sign Up</td>
+          <td><span class="badge badge-yellow">Validation</span></td>
+          <td>Pixel strength meter below field: WEAK / OKAY / STRONG with color fill.</td>
+          <td><span class="p2">P2</span></td>
+        </tr>
+        <tr>
+          <td>No internet connection</td>
+          <td>Any screen</td>
+          <td><span class="badge badge-red">Network</span></td>
+          <td>Full-screen offline popup (already designed in concept). WiFi X icon + RETRY button.</td>
+          <td><span class="p1">P1</span></td>
+        </tr>
+        <tr>
+          <td>Opponent disconnected mid-match</td>
+          <td>Game Screen (vs Player)</td>
+          <td><span class="badge badge-red">Network</span></td>
+          <td>Popup: "Opponent disconnected. You win by default!" with Main Menu button.</td>
+          <td><span class="p1">P1</span></td>
+        </tr>
+        <tr>
+          <td>Connection lost mid-match</td>
+          <td>Game Screen</td>
+          <td><span class="badge badge-red">Network</span></td>
+          <td>"Reconnecting…" overlay with spinner. Auto-rejoin on reconnect. After 30s: forfeit + return to menu.</td>
+          <td><span class="p1">P1</span></td>
+        </tr>
+        <tr>
+          <td>Matchmaking timeout</td>
+          <td>Matchmaking Screen</td>
+          <td><span class="badge badge-yellow">Network</span></td>
+          <td>After 60s: "No opponent found. Play vs Bot instead?" with Yes/Keep Waiting buttons.</td>
+          <td><span class="p2">P2</span></td>
+        </tr>
+        <tr>
+          <td>Google Sign-In fails</td>
+          <td>Sign In / Sign Up</td>
+          <td><span class="badge badge-red">Auth Error</span></td>
+          <td>Toast: "Google sign-in failed. Try again or use username/password."</td>
+          <td><span class="p1">P1</span></td>
+        </tr>
+        <tr>
+          <td>Empty username on submit</td>
+          <td>Sign In / Sign Up</td>
+          <td><span class="badge badge-yellow">Validation</span></td>
+          <td>Shake animation on empty field + "This field is required" text.</td>
+          <td><span class="p1">P1</span></td>
+        </tr>
+        <tr>
+          <td>Username contains profanity</td>
+          <td>Sign Up</td>
+          <td><span class="badge badge-red">Validation</span></td>
+          <td>"Username not allowed. Please choose another." Never reveal the filter list.</td>
+          <td><span class="p1">P1</span></td>
+        </tr>
+        <tr>
+          <td>Insufficient coins for shop item</td>
+          <td>Shop Screen</td>
+          <td><span class="badge badge-yellow">Economy</span></td>
+          <td>Button shows "NOT ENOUGH COINS" in gray. Tap → popup showing how many more coins needed + "Earn More" CTA.</td>
+          <td><span class="p2">P2</span></td>
+        </tr>
+        <tr>
+          <td>Server down / 500 error</td>
+          <td>Any API call</td>
+          <td><span class="badge badge-red">Server</span></td>
+          <td>"Something went wrong. Please try again later." Pixel error dialog. Log error silently.</td>
+          <td><span class="p1">P1</span></td>
+        </tr>
+        <tr>
+          <td>Session expired</td>
+          <td>Any authenticated screen</td>
+          <td><span class="badge badge-red">Auth Error</span></td>
+          <td>Auto-redirect to Sign In with toast: "Session expired. Please sign in again."</td>
+          <td><span class="p1">P1</span></td>
+        </tr>
+        <tr>
+          <td>Daily reward already claimed</td>
+          <td>Daily Reward Screen</td>
+          <td><span class="badge badge-yellow">Game Logic</span></td>
+          <td>Show claimed state with checkmark + "Come back tomorrow!" + countdown timer to next reset.</td>
+          <td><span class="p2">P2</span></td>
+        </tr>
+        <tr>
+          <td>Force update required</td>
+          <td>App launch</td>
+          <td><span class="badge badge-red">System</span></td>
+          <td>Full-screen modal: "Update required to continue playing." Update button only. No dismiss option.</td>
+          <td><span class="p2">P2</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TECH STACK -->
+  <div id="techstack"></div>
+  <div class="section-title">⚙️ FULL-STACK TECHNOLOGY RECOMMENDATIONS</div>
+  <p>React Native is the right call for this game. Here's the complete stack for a production-grade native app on both iOS and Android.</p>
+
+  <div class="tech-grid">
+    <div class="tech-card">
+      <h4>📱 Frontend (React Native)</h4>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">React Native (Expo)</div>
+          <div class="tech-reason">iOS + Android from one codebase</div>
+        </div>
+        <span class="badge badge-green">CORE</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">Expo Router v3</div>
+          <div class="tech-reason">File-based navigation</div>
+        </div>
+        <span class="badge badge-green">CORE</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">React Native Reanimated 3</div>
+          <div class="tech-reason">60fps animations</div>
+        </div>
+        <span class="badge badge-green">CORE</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">Zustand</div>
+          <div class="tech-reason">Global state management</div>
+        </div>
+        <span class="badge badge-blue">STATE</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">React Query (TanStack)</div>
+          <div class="tech-reason">Server state + caching</div>
+        </div>
+        <span class="badge badge-blue">DATA</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">Expo AV</div>
+          <div class="tech-reason">Sound effects + music</div>
+        </div>
+        <span class="badge badge-yellow">AUDIO</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">React Native Share</div>
+          <div class="tech-reason">Native share sheet</div>
+        </div>
+        <span class="badge badge-yellow">SOCIAL</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">AsyncStorage</div>
+          <div class="tech-reason">Local persistent data</div>
+        </div>
+        <span class="badge badge-gray">STORAGE</span>
+      </div>
+    </div>
+
+    <div class="tech-card backend">
+      <h4>🖥️ Backend</h4>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">Node.js + Express</div>
+          <div class="tech-reason">REST API server</div>
+        </div>
+        <span class="badge badge-green">CORE</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">Socket.io</div>
+          <div class="tech-reason">Real-time multiplayer</div>
+        </div>
+        <span class="badge badge-red">REALTIME</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">PostgreSQL</div>
+          <div class="tech-reason">User data, matches, scores</div>
+        </div>
+        <span class="badge badge-blue">DATABASE</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">Redis</div>
+          <div class="tech-reason">Leaderboard, sessions, cache</div>
+        </div>
+        <span class="badge badge-blue">CACHE</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">Firebase Auth</div>
+          <div class="tech-reason">Google OAuth + email auth</div>
+        </div>
+        <span class="badge badge-yellow">AUTH</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">Prisma ORM</div>
+          <div class="tech-reason">Type-safe DB queries</div>
+        </div>
+        <span class="badge badge-gray">ORM</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">JWT + Refresh Tokens</div>
+          <div class="tech-reason">Secure session management</div>
+        </div>
+        <span class="badge badge-yellow">AUTH</span>
+      </div>
+    </div>
+
+    <div class="tech-card infra">
+      <h4>☁️ Infrastructure & DevOps</h4>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">Railway / Render</div>
+          <div class="tech-reason">Backend hosting</div>
+        </div>
+        <span class="badge badge-green">HOSTING</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">Supabase (Postgres)</div>
+          <div class="tech-reason">Managed DB + storage</div>
+        </div>
+        <span class="badge badge-green">DATABASE</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">Upstash Redis</div>
+          <div class="tech-reason">Serverless Redis</div>
+        </div>
+        <span class="badge badge-blue">CACHE</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">EAS Build (Expo)</div>
+          <div class="tech-reason">App Store + Play Store builds</div>
+        </div>
+        <span class="badge badge-purple">CI/CD</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">GitHub Actions</div>
+          <div class="tech-reason">Automated testing + builds</div>
+        </div>
+        <span class="badge badge-purple">CI/CD</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">Sentry</div>
+          <div class="tech-reason">Error monitoring</div>
+        </div>
+        <span class="badge badge-gray">MONITORING</span>
+      </div>
+    </div>
+
+    <div class="tech-card tools">
+      <h4>🛠️ Dev Tools & Services</h4>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">Expo Notifications</div>
+          <div class="tech-reason">Push notifications</div>
+        </div>
+        <span class="badge badge-yellow">ENGAGEMENT</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">React Native IAP</div>
+          <div class="tech-reason">In-app purchases (shop)</div>
+        </div>
+        <span class="badge badge-red">MONETIZE</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">Google AdMob</div>
+          <div class="tech-reason">Rewarded + interstitial ads</div>
+        </div>
+        <span class="badge badge-red">MONETIZE</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">TypeScript</div>
+          <div class="tech-reason">Type safety everywhere</div>
+        </div>
+        <span class="badge badge-green">CORE</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">Zod</div>
+          <div class="tech-reason">Schema validation</div>
+        </div>
+        <span class="badge badge-gray">VALIDATION</span>
+      </div>
+      <div class="tech-item">
+        <div>
+          <div class="tech-name">Victory Native XL</div>
+          <div class="tech-reason">Stats charts/graphs</div>
+        </div>
+        <span class="badge badge-blue">CHARTS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARCHITECTURE -->
+  <div id="architecture"></div>
+  <div class="section-title">🏗️ SYSTEM ARCHITECTURE</div>
+
+  <div class="callout">
+    <strong>Architecture Pattern:</strong> Client (React Native) ↔ REST API (Node/Express) + WebSocket (Socket.io) ↔ PostgreSQL + Redis. Firebase handles auth tokens; the backend verifies them. All game logic is server-authoritative to prevent cheating.
+  </div>
+
+  <h2 class="section">Data Models (Core)</h2>
+
+  <div class="code-block"><span class="code-comment">// PostgreSQL Schema — Core Tables</span>
+
+<span class="code-key">TABLE</span> <span class="code-val">users</span> {
+  id          UUID PRIMARY KEY
+  username    VARCHAR(20) UNIQUE NOT NULL
+  email       VARCHAR(255) UNIQUE
+  gender      ENUM('male', 'female', 'other')
+  avatar_hat  VARCHAR(50) DEFAULT 'default'
+  avatar_shirt VARCHAR(50) DEFAULT 'default'
+  coins       INT DEFAULT 100
+  gems        INT DEFAULT 0
+  rank_points INT DEFAULT 0
+  win_streak  INT DEFAULT 0
+  created_at  TIMESTAMP
+}
+
+<span class="code-key">TABLE</span> <span class="code-val">matches</span> {
+  id          UUID PRIMARY KEY
+  player1_id  UUID REFERENCES users(id)
+  player2_id  UUID REFERENCES users(id)  <span class="code-comment">-- NULL if vs bot</span>
+  mode        ENUM('best_of_3', 'best_of_5')
+  winner_id   UUID REFERENCES users(id)
+  score_p1    INT
+  score_p2    INT
+  duration_ms INT
+  created_at  TIMESTAMP
+}
+
+<span class="code-key">TABLE</span> <span class="code-val">rounds</span> {
+  id         UUID PRIMARY KEY
+  match_id   UUID REFERENCES matches(id)
+  round_num  INT
+  move_p1    ENUM('rock', 'paper', 'scissors')
+  move_p2    ENUM('rock', 'paper', 'scissors')
+  winner     ENUM('p1', 'p2', 'draw')
+}
+
+<span class="code-key">TABLE</span> <span class="code-val">achievements</span> {
+  id          UUID PRIMARY KEY
+  user_id     UUID REFERENCES users(id)
+  key         VARCHAR(50)     <span class="code-comment">-- e.g. 'first_win', 'streak_5'</span>
+  progress    INT DEFAULT 0
+  unlocked_at TIMESTAMP
+}</div>
+
+  <h2 class="section">WebSocket Events (Multiplayer)</h2>
+
+  <div class="code-block"><span class="code-comment">// Client → Server Events</span>
+<span class="code-key">join_matchmaking</span>  { mode: 'best_of_3' | 'best_of_5' }
+<span class="code-key">submit_move</span>       { match_id: string, move: 'rock'|'paper'|'scissors' }
+<span class="code-key">leave_match</span>       { match_id: string }
+<span class="code-key">join_lobby</span>        { room_code: string }
+
+<span class="code-comment">// Server → Client Events</span>
+<span class="code-key">match_found</span>       { match_id, opponent: { username, avatar, rank } }
+<span class="code-key">round_result</span>      { round_num, move_p1, move_p2, winner, scores }
+<span class="code-key">match_end</span>         { winner_id, final_score, xp_gained, coins_gained }
+<span class="code-key">opponent_left</span>     { reason: 'disconnect' | 'forfeit' }
+<span class="code-key">matchmaking_timeout</span> {}</div>
+
+  <!-- ROADMAP -->
+  <div id="roadmap"></div>
+  <div class="section-title">🗺️ DEVELOPMENT ROADMAP — 5 PHASES</div>
+
+  <div class="phases">
+
+    <div class="phase">
+      <div class="phase-num">01</div>
+      <div class="phase-body">
+        <div class="phase-header">PHASE 1 — FOUNDATION <span class="phase-dur">Weeks 1–4</span></div>
+        <div class="phase-content">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Task</th><th>Details</th><th>Est. Days</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Project Setup</strong></td><td>Expo + TypeScript init, ESLint, Prettier, Git repo, branch strategy (main/dev/feature)</td><td>1</td></tr>
+                <tr><td><strong>Navigation Structure</strong></td><td>Expo Router setup — auth stack (Login/Signup), main tab navigator (Home/Profile/Stats/Achievements/Settings), game stack (Mode/Countdown/Game/Result)</td><td>2</td></tr>
+                <tr><td><strong>Design System</strong></td><td>Pixel art theme constants, font (Press Start 2P), color palette, reusable PixelButton, PixelInput, PixelDialog components</td><td>3</td></tr>
+                <tr><td><strong>Backend Init</strong></td><td>Node/Express project, Prisma + PostgreSQL setup, Redis connection, Supabase bucket for assets</td><td>2</td></tr>
+                <tr><td><strong>Auth System</strong></td><td>Firebase Auth integration, Sign In / Sign Up screens, Google OAuth, JWT middleware, Forgot Password flow</td><td>4</td></tr>
+                <tr><td><strong>Splash + Onboarding</strong></td><td>Loading screen (animated), Tutorial (3 swipeable pages), Gender selection, Notification permission screen</td><td>3</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><strong>Phase 1 Deliverable:</strong> Working auth flow from splash → sign in/up → gender select → main menu. No gameplay yet.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-num">02</div>
+      <div class="phase-body">
+        <div class="phase-header">PHASE 2 — CORE GAMEPLAY <span class="phase-dur">Weeks 5–9</span></div>
+        <div class="phase-content">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Task</th><th>Details</th><th>Est. Days</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Game Mode Screen</strong></td><td>Best of 3 / Best of 5 selection, VS Bot / VS Player routing</td><td>1</td></tr>
+                <tr><td><strong>Countdown Screen</strong></td><td>Animated 3→2→1→SHOOT sequence, sound effects trigger points</td><td>2</td></tr>
+                <tr><td><strong>Bot Game Logic</strong></td><td>Client-side RPS game engine (deterministic), bot AI (random + difficulty levels), round tracking, win condition check</td><td>4</td></tr>
+                <tr><td><strong>Game Screen UI</strong></td><td>Both hands (pixel art), bottom action bar (Rock/Paper/Scissors), score circles, BOT/PLAYER labels, round indicator</td><td>3</td></tr>
+                <tr><td><strong>Pause Menu</strong></td><td>Overlay pause screen, resume/restart/quit functionality, sound toggle in-match</td><td>2</td></tr>
+                <tr><td><strong>Result Transition</strong></td><td>Animated "YOU WIN/LOSE" overlay, coin/XP counter animation</td><td>2</td></tr>
+                <tr><td><strong>Victory/Defeat Screens</strong></td><td>Full pixel victory + defeat screens with share, post-match options</td><td>2</td></tr>
+                <tr><td><strong>Match API</strong></td><td>POST /matches (save result), GET /matches/:id, score calculation, XP formula, coin reward</td><td>3</td></tr>
+                <tr><td><strong>Leaderboard API + Screen</strong></td><td>Redis sorted set for global leaderboard, GET /leaderboard, "My Rank" query, Friends tab (v2)</td><td>3</td></tr>
+                <tr><td><strong>Sound System</strong></td><td>Expo AV setup, background music loop, button click SFX, victory/defeat jingles, countdown beeps</td><td>2</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><strong>Phase 2 Deliverable:</strong> Fully playable single-player game vs bot with working leaderboard. First testable build.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-num">03</div>
+      <div class="phase-body">
+        <div class="phase-header">PHASE 3 — PROGRESSION & PROFILE <span class="phase-dur">Weeks 10–14</span></div>
+        <div class="phase-content">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Task</th><th>Details</th><th>Est. Days</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Profile Screen</strong></td><td>Avatar display, username, total wins/losses/win rate, rank badge, favorite move, match history list (paginated)</td><td>3</td></tr>
+                <tr><td><strong>Stats Dashboard</strong></td><td>Win rate donut chart, RPS usage pie chart, 7-day wins bar chart (Victory Native XL), overview stats grid</td><td>4</td></tr>
+                <tr><td><strong>Achievements System</strong></td><td>20 achievements defined (DB), progress tracking (increment on game events), unlock notifications, achievement screen with filter tabs</td><td>5</td></tr>
+                <tr><td><strong>Daily Reward System</strong></td><td>7-day calendar UI, server-side claim validation (prevent double-claim), reward types (coins/gems/cosmetics), streak reset logic</td><td>4</td></tr>
+                <tr><td><strong>Avatar Customization</strong></td><td>Equip screen, category navigation (hats/shirts/balloons), equip items (apply to user record), preview render in real-time</td><td>4</td></tr>
+                <tr><td><strong>Settings Completion</strong></td><td>Finalize settings screen — username edit, gender, sound/music sliders, logout + confirm dialog, notifications toggle</td><td>2</td></tr>
+                <tr><td><strong>Error State System</strong></td><td>Global error handler, all designed error popups implemented, toast notification system, network connectivity listener</td><td>3</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><strong>Phase 3 Deliverable:</strong> Complete progression loop — players can earn XP, unlock achievements, customize avatars, check stats. Beta-ready.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-num">04</div>
+      <div class="phase-body">
+        <div class="phase-header">PHASE 4 — MULTIPLAYER & MONETIZATION <span class="phase-dur">Weeks 15–19</span></div>
+        <div class="phase-content">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Task</th><th>Details</th><th>Est. Days</th></tr></thead>
+              <tbody>
+                <tr><td><strong>WebSocket Server</strong></td><td>Socket.io server, matchmaking queue (Redis pub/sub), room management, game state synchronization, anti-cheat (server-side move resolution)</td><td>7</td></tr>
+                <tr><td><strong>Matchmaking Screen</strong></td><td>Animated "finding opponent" UI, cancel button, fallback to bot after timeout</td><td>2</td></tr>
+                <tr><td><strong>Lobby / Room System</strong></td><td>Room code generation, share invite link (deep link), friend join flow, "Ready" state, countdown start</td><td>4</td></tr>
+                <tr><td><strong>Multiplayer Game Flow</strong></td><td>Synchronized countdown, move submission timeout (10s auto-random), disconnection handling, result sync</td><td>5</td></tr>
+                <tr><td><strong>Shop Screen</strong></td><td>Item catalog UI, category tabs, gem/coin price display, "Not Enough Coins" state, purchase confirmation dialog</td><td>3</td></tr>
+                <tr><td><strong>In-App Purchases</strong></td><td>React Native IAP setup, gem pack products (iOS + Android), purchase validation server-side, receipt verification</td><td>4</td></tr>
+                <tr><td><strong>AdMob Integration</strong></td><td>Rewarded ads (earn coins), interstitial between matches, ad-free option if purchased</td><td>3</td></tr>
+                <tr><td><strong>Season Pass</strong></td><td>Free/Premium track UI, XP per match awards season progress, season timer countdown, premium upgrade purchase</td><td>4</td></tr>
+                <tr><td><strong>Push Notifications</strong></td><td>Daily reward reminder, friend invite notification, season end warning, Expo Notifications + server-side trigger</td><td>3</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><strong>Phase 4 Deliverable:</strong> Full multiplayer working. Monetization live. Push notifications active. Ready for soft launch.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-num">05</div>
+      <div class="phase-body">
+        <div class="phase-header">PHASE 5 — POLISH & LAUNCH <span class="phase-dur">Weeks 20–26</span></div>
+        <div class="phase-content">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Task</th><th>Details</th><th>Est. Days</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Animation Pass</strong></td><td>All screens get: button press bounce, page transition animations, character idle animations, cloud parallax, confetti on victory</td><td>7</td></tr>
+                <tr><td><strong>Performance Audit</strong></td><td>JS bundle size, image optimization (WebP), memoization audit (React.memo, useMemo), FlatList optimization for leaderboard</td><td>4</td></tr>
+                <tr><td><strong>Accessibility</strong></td><td>Screen reader labels (accessibilityLabel), minimum touch targets (44px), color contrast check, font scaling support</td><td>3</td></tr>
+                <tr><td><strong>QA & Bug Bash</strong></td><td>Full flow testing on physical devices (iOS + Android), edge cases (slow network, old devices), regression testing all features</td><td>7</td></tr>
+                <tr><td><strong>App Store Assets</strong></td><td>Icon (1024x1024), splash screen, screenshots (6.5", 5.5" iPhone + tablet), description copy, keywords, privacy policy URL</td><td>3</td></tr>
+                <tr><td><strong>EAS Build + Submit</strong></td><td>Production EAS build, Apple App Store submission, Google Play submission, TestFlight / internal track testing</td><td>4</td></tr>
+                <tr><td><strong>Credits + About Screen</strong></td><td>Final credits page, version display, privacy policy link, terms of service link</td><td>1</td></tr>
+                <tr><td><strong>Force Update System</strong></td><td>Remote config version check on app launch, force update modal for breaking changes</td><td>2</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout"><strong>Phase 5 Deliverable:</strong> Shipped to App Store and Google Play. 🎉</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOLDER STRUCTURE -->
+  <div id="folder"></div>
+  <div class="section-title">📁 RECOMMENDED FOLDER STRUCTURE</div>
+
+  <div class="code-block">rps-game/
+├── <span class="code-key">app/</span>                          <span class="code-comment">← Expo Router screens</span>
+│   ├── (auth)/
+│   │   ├── splash.tsx
+│   │   ├── login.tsx
+│   │   ├── signup.tsx
+│   │   ├── forgot-password.tsx
+│   │   └── gender-select.tsx
+│   ├── (tabs)/
+│   │   ├── index.tsx            <span class="code-comment">← Home / Main Menu</span>
+│   │   ├── profile.tsx
+│   │   ├── stats.tsx
+│   │   ├── achievements.tsx
+│   │   └── settings.tsx
+│   ├── game/
+│   │   ├── mode-select.tsx
+│   │   ├── countdown.tsx
+│   │   ├── [matchId].tsx        <span class="code-comment">← Live game screen</span>
+│   │   ├── victory.tsx
+│   │   └── defeat.tsx
+│   ├── shop/
+│   │   └── index.tsx
+│   ├── customize/
+│   │   └── index.tsx
+│   ├── leaderboard.tsx
+│   ├── matchmaking.tsx
+│   ├── lobby.tsx
+│   ├── daily-reward.tsx
+│   ├── tutorial.tsx
+│   └── _layout.tsx
+│
+├── <span class="code-key">src/</span>
+│   ├── components/
+│   │   ├── ui/
+│   │   │   ├── PixelButton.tsx
+│   │   │   ├── PixelInput.tsx
+│   │   │   ├── PixelDialog.tsx   <span class="code-comment">← Error + confirm popups</span>
+│   │   │   ├── Toast.tsx
+│   │   │   └── LoadingOverlay.tsx
+│   │   ├── game/
+│   │   │   ├── HandDisplay.tsx
+│   │   │   ├── MoveSelector.tsx
+│   │   │   ├── ScoreCircles.tsx
+│   │   │   └── CountdownTimer.tsx
+│   │   └── profile/
+│   │       ├── AvatarPreview.tsx
+│   │       └── StatCard.tsx
+│   │
+│   ├── store/                    <span class="code-comment">← Zustand stores</span>
+│   │   ├── authStore.ts
+│   │   ├── gameStore.ts
+│   │   └── uiStore.ts
+│   │
+│   ├── hooks/
+│   │   ├── useMatch.ts
+│   │   ├── useSocket.ts
+│   │   ├── useLeaderboard.ts
+│   │   └── useAchievements.ts
+│   │
+│   ├── services/
+│   │   ├── api.ts               <span class="code-comment">← Axios instance</span>
+│   │   ├── auth.service.ts
+│   │   ├── match.service.ts
+│   │   └── socket.service.ts
+│   │
+│   ├── constants/
+│   │   ├── theme.ts             <span class="code-comment">← Colors, fonts, spacing</span>
+│   │   ├── achievements.ts
+│   │   └── sounds.ts
+│   │
+│   └── utils/
+│       ├── gameLogic.ts         <span class="code-comment">← RPS rules, winner calc</span>
+│       ├── profanityFilter.ts
+│       └── formatters.ts
+│
+├── <span class="code-key">server/</span>                       <span class="code-comment">← Node.js backend</span>
+│   ├── src/
+│   │   ├── routes/
+│   │   │   ├── auth.routes.ts
+│   │   │   ├── match.routes.ts
+│   │   │   ├── leaderboard.routes.ts
+│   │   │   └── shop.routes.ts
+│   │   ├── socket/
+│   │   │   ├── matchmaking.ts
+│   │   │   └── gameRoom.ts
+│   │   ├── middleware/
+│   │   │   ├── auth.middleware.ts
+│   │   │   └── rateLimiter.ts
+│   │   └── db/
+│   │       └── prisma.ts
+│   └── prisma/
+│       └── schema.prisma
+│
+└── assets/
+    ├── fonts/
+    ├── images/                  <span class="code-comment">← All pixel art sprites</span>
+    └── sounds/</div>
+
+  <!-- PRIORITY MATRIX -->
+  <div id="priority"></div>
+  <div class="section-title">📋 MASTER PRIORITY MATRIX</div>
+  <p>Everything in one view, sorted by what to build first.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Priority</th>
+          <th>Item</th>
+          <th>Type</th>
+          <th>Phase</th>
+          <th>Estimated Effort</th>
+          <th>Impact</th>
+          <th>Blocks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="p1">P1</span></td><td>Fix "SETINGS" typo</td><td><span class="badge badge-yellow">Design Fix</span></td><td>1</td><td>5 min</td><td>Professionalism</td><td>Nothing</td></tr>
+        <tr><td><span class="p1">P1</span></td><td>Splash / Loading Screen</td><td><span class="badge badge-red">Missing Screen</span></td><td>1</td><td>1 day</td><td>First impression</td><td>App Store submission</td></tr>
+        <tr><td><span class="p1">P1</span></td><td>Tutorial (3 screens)</td><td><span class="badge badge-red">Missing Screen</span></td><td>1</td><td>2 days</td><td>New user retention</td><td>App Store review</td></tr>
+        <tr><td><span class="p1">P1</span></td><td>Auth + Forgot Password</td><td><span class="badge badge-red">Missing Screen</span></td><td>1</td><td>1 day</td><td>User recovery</td><td>Every logged-in feature</td></tr>
+        <tr><td><span class="p1">P1</span></td><td>Input validation states</td><td><span class="badge badge-yellow">Design Fix</span></td><td>1</td><td>2 days</td><td>Auth UX</td><td>Sign up completion rate</td></tr>
+        <tr><td><span class="p1">P1</span></td><td>Error popup system</td><td><span class="badge badge-red">Missing Screen</span></td><td>3</td><td>2 days</td><td>Reliability</td><td>Every API call</td></tr>
+        <tr><td><span class="p1">P1</span></td><td>No Internet screen</td><td><span class="badge badge-red">Missing Screen</span></td><td>3</td><td>0.5 day</td><td>Offline UX</td><td>App Store guideline</td></tr>
+        <tr><td><span class="p1">P1</span></td><td>Confirmation dialogs</td><td><span class="badge badge-red">Missing Screen</span></td><td>3</td><td>1 day</td><td>Prevent accidents</td><td>Logout, quit match</td></tr>
+        <tr><td><span class="p1">P1</span></td><td>Countdown screen</td><td><span class="badge badge-red">Missing Screen</span></td><td>2</td><td>1 day</td><td>Game feel</td><td>Multiplayer sync</td></tr>
+        <tr><td><span class="p1">P1</span></td><td>Pause menu</td><td><span class="badge badge-red">Missing Screen</span></td><td>2</td><td>1 day</td><td>Core gameplay</td><td>Nothing</td></tr>
+        <tr><td><span class="p1">P1</span></td><td>Profile screen</td><td><span class="badge badge-red">Missing Screen</span></td><td>3</td><td>3 days</td><td>Identity + retention</td><td>Leaderboard enrichment</td></tr>
+        <tr><td><span class="p1">P1</span></td><td>Stats dashboard</td><td><span class="badge badge-red">Missing Screen</span></td><td>3</td><td>4 days</td><td>Engagement</td><td>Bottom nav complete</td></tr>
+        <tr><td><span class="p1">P1</span></td><td>Achievements screen + system</td><td><span class="badge badge-red">Missing Screen</span></td><td>3</td><td>5 days</td><td>Retention loop</td><td>Bottom nav complete</td></tr>
+        <tr><td><span class="p1">P1</span></td><td>Profanity filter</td><td><span class="badge badge-red">Backend</span></td><td>2</td><td>1 day</td><td>Safety/compliance</td><td>App Store policy</td></tr>
+        <tr><td><span class="p2">P2</span></td><td>Match result transition</td><td><span class="badge badge-red">Missing Screen</span></td><td>2</td><td>1.5 days</td><td>Game feel</td><td>Nothing</td></tr>
+        <tr><td><span class="p2">P2</span></td><td>Round indicator in-game</td><td><span class="badge badge-yellow">Design Fix</span></td><td>2</td><td>0.5 day</td><td>Game clarity</td><td>Nothing</td></tr>
+        <tr><td><span class="p2">P2</span></td><td>Leaderboard "My Rank" row</td><td><span class="badge badge-yellow">Design Fix</span></td><td>2</td><td>0.5 day</td><td>Engagement</td><td>Nothing</td></tr>
+        <tr><td><span class="p2">P2</span></td><td>Button states (3 variants)</td><td><span class="badge badge-yellow">Design Fix</span></td><td>1</td><td>2 days</td><td>Polish</td><td>Entire UI</td></tr>
+        <tr><td><span class="p2">P2</span></td><td>Avatar customization</td><td><span class="badge badge-red">Missing Screen</span></td><td>3</td><td>4 days</td><td>Retention + monetize</td><td>Shop</td></tr>
+        <tr><td><span class="p2">P2</span></td><td>Daily reward screen</td><td><span class="badge badge-red">Missing Screen</span></td><td>3</td><td>3 days</td><td>Daily opens</td><td>Progression</td></tr>
+        <tr><td><span class="p2">P2</span></td><td>Online matchmaking</td><td><span class="badge badge-red">Missing Screen</span></td><td>4</td><td>7 days</td><td>Core multiplayer</td><td>Lobby, VS Player</td></tr>
+        <tr><td><span class="p2">P2</span></td><td>Shop screen</td><td><span class="badge badge-red">Missing Screen</span></td><td>4</td><td>3 days</td><td>Revenue</td><td>IAP</td></tr>
+        <tr><td><span class="p2">P2</span></td><td>Gender "Other" option</td><td><span class="badge badge-yellow">Design Fix</span></td><td>1</td><td>0.5 day</td><td>Inclusivity</td><td>Nothing</td></tr>
+        <tr><td><span class="p3">P3</span></td><td>Lobby / friend invite</td><td><span class="badge badge-red">Missing Screen</span></td><td>4</td><td>4 days</td><td>Social virality</td><td>Multiplayer</td></tr>
+        <tr><td><span class="p3">P3</span></td><td>Season pass</td><td><span class="badge badge-red">Missing Screen</span></td><td>4</td><td>4 days</td><td>Revenue</td><td>IAP</td></tr>
+        <tr><td><span class="p3">P3</span></td><td>XP shown on victory/defeat</td><td><span class="badge badge-yellow">Design Fix</span></td><td>3</td><td>0.5 day</td><td>Progression feel</td><td>Nothing</td></tr>
+        <tr><td><span class="p3">P3</span></td><td>Depth/particles on flat screens</td><td><span class="badge badge-gray">Polish</span></td><td>5</td><td>3 days</td><td>Visual polish</td><td>Nothing</td></tr>
+        <tr><td><span class="p3">P3</span></td><td>Credits / About screen</td><td><span class="badge badge-red">Missing Screen</span></td><td>5</td><td>1 day</td><td>Professional</td><td>Nothing</td></tr>
+        <tr><td><span class="p3">P3</span></td><td>Victory vs Defeat differentiation</td><td><span class="badge badge-yellow">Design Fix</span></td><td>5</td><td>2 days</td><td>Emotion clarity</td><td>Nothing</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <strong>Total Estimated Timeline:</strong> 20–26 weeks for a solo developer working full-time. With a 2-person team (1 frontend dev + 1 backend dev), reduce to 12–16 weeks. Design-complete mockups already save approximately 3–4 weeks of design time.
+  </div>
+
+  <h2 class="section">Final Assessment</h2>
+  <p>Your pixel art game already has an exceptionally strong visual identity. The consistency across all 15 screens is genuinely impressive — the color palette, character design, and retro arcade feel are all coherent and polished. Most indie games fail here. You haven't.</p>
+
+  <p>The critical gap is the <strong>missing system screens</strong> (errors, offline, confirmation dialogs) and the <strong>progression layer</strong> (achievements, profile, daily rewards). These are what transform a fun prototype into an addictive mobile game people return to daily.</p>
+
+  <p>With React Native + Expo, your existing designs will translate almost 1:1 to native. The biggest technical challenge will be the real-time multiplayer via WebSockets — invest time getting that architecture right before going to production.</p>
+
+  <ul class="checklist">
+    <li>Design the 20 missing screens before writing any frontend code</li>
+    <li>Build auth and navigation in Week 1 — it unlocks everything</li>
+    <li>Get bot gameplay working before touching multiplayer</li>
+    <li>Implement the error state system early — don't leave it for last</li>
+    <li>Use EAS Build from day one for easy device testing</li>
+    <li>Set up Sentry before beta — you need crash data from real users</li>
+    <li>Test on a real low-end Android device throughout — don't just use simulators</li>
+  </ul>
+
+</div>
+
+<footer>
+  <div style="font-family:'Press Start 2P',monospace; font-size:10px; color:#5BBDE4; margin-bottom:12px;">ROCK PAPER SCISSORS — GAME DESIGN REPORT</div>
+  Prepared as a comprehensive UI/UX audit and full-stack development roadmap. All screen counts and timelines are estimates based on the provided design assets.
+</footer>
+
+</body>
+</html>

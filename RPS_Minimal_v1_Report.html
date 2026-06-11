@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RPS Game — v1 Build Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky:    #0081E8;
+    --sky2:   #36A9F5;
+    --gold:   #FFD700;
+    --goldd:  #C9A800;
+    --golds:  #FFF176;
+    --green:  #22c55e;
+    --red:    #ef4444;
+    --purple: #a855f7;
+    --teal:   #14b8a6;
+    --coral:  #f97316;
+    --amber:  #f59e0b;
+    --bg:     #0a1628;
+    --bg2:    #0f1f3d;
+    --bg3:    #152847;
+    --card:   #1a2f4a;
+    --border: rgba(255,255,255,0.08);
+    --text:   #e8f4fd;
+    --muted:  #7aadcc;
+    --pixel:  'Press Start 2P', monospace;
+    --mono:   'IBM Plex Mono', monospace;
+    --sans:   'IBM Plex Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── SCANLINE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(0,0,0,0.07) 3px,
+      rgba(0,0,0,0.07) 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    background: linear-gradient(180deg, #04122a 0%, #0a2048 35%, #0e3470 65%, #1a5fa8 100%);
+    padding: 70px 32px 80px;
+    text-align: center;
+    overflow: hidden;
+    border-bottom: 4px solid var(--gold);
+  }
+
+  /* pixel dot pattern */
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px);
+    background-size: 8px 8px;
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    font-family: var(--pixel);
+    font-size: 8px;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    padding: 6px 14px;
+    margin-bottom: 28px;
+    box-shadow: 3px 3px 0 var(--goldd);
+    position: relative;
+    letter-spacing: 1px;
+  }
+
+  .hero h1 {
+    font-family: var(--pixel);
+    font-size: clamp(14px, 3vw, 22px);
+    line-height: 2;
+    color: #fff;
+    text-shadow: 3px 3px 0 #003080, 5px 5px 0 #001840;
+    position: relative;
+    margin-bottom: 10px;
+  }
+  .hero h1 span { color: var(--gold); }
+
+  .hero-sub {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+    position: relative;
+    margin-bottom: 32px;
+  }
+
+  .hero-icons {
+    display: flex; gap: 24px; justify-content: center;
+    position: relative; margin-top: 4px;
+    font-size: 32px;
+  }
+  .fi { animation: float 3s ease-in-out infinite; display: inline-block; }
+  .fi:nth-child(2) { animation-delay: 1s; }
+  .fi:nth-child(3) { animation-delay: 2s; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+
+  /* ── NAV ── */
+  .nav {
+    background: var(--bg2);
+    border-bottom: 2px solid var(--border);
+    padding: 0 32px;
+    display: flex; gap: 0;
+    overflow-x: auto;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav a {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 14px 16px;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: all .2s;
+    display: inline-block;
+  }
+  .nav a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* ── LAYOUT ── */
+  .page { max-width: 1100px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  /* ── SECTION TITLE ── */
+  .sec-title {
+    font-family: var(--pixel);
+    font-size: 11px;
+    color: var(--gold);
+    background: var(--bg3);
+    border: 2px solid var(--gold);
+    box-shadow: 3px 3px 0 var(--goldd);
+    display: inline-block;
+    padding: 8px 16px;
+    margin-bottom: 24px;
+    margin-top: 52px;
+    letter-spacing: 1px;
+  }
+  .sec-title:first-child { margin-top: 0; }
+
+  /* ── CALLOUT BOX ── */
+  .callout {
+    background: rgba(255,215,0,0.07);
+    border: 1px solid rgba(255,215,0,0.25);
+    border-left: 4px solid var(--gold);
+    padding: 16px 20px;
+    margin: 16px 0 28px;
+    font-size: 14px;
+    color: #d4eaf8;
+    border-radius: 0 4px 4px 0;
+  }
+  .callout strong { color: var(--gold); font-family: var(--mono); }
+
+  .callout-red {
+    background: rgba(239,68,68,0.07);
+    border-color: rgba(239,68,68,0.3);
+    border-left-color: var(--red);
+  }
+  .callout-red strong { color: #fca5a5; }
+
+  .callout-green {
+    background: rgba(34,197,94,0.07);
+    border-color: rgba(34,197,94,0.3);
+    border-left-color: var(--green);
+  }
+  .callout-green strong { color: #86efac; }
+
+  /* ── STAT CARDS ── */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 24px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-card::after {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .stat-card.gold::after { background: var(--gold); }
+  .stat-card.green::after { background: var(--green); }
+  .stat-card.red::after { background: var(--red); }
+  .stat-card.blue::after { background: var(--sky2); }
+  .stat-num {
+    font-family: var(--pixel);
+    font-size: 30px;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .stat-card.gold .stat-num { color: var(--gold); }
+  .stat-card.green .stat-num { color: var(--green); }
+  .stat-card.red .stat-num { color: var(--red); }
+  .stat-card.blue .stat-num { color: var(--sky2); }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .stat-desc { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+  /* ── SCREEN CARDS ── */
+  .screens-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .screen-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 0;
+    overflow: hidden;
+    transition: border-color .2s;
+  }
+  .screen-card:hover { border-color: rgba(255,215,0,0.3); }
+
+  .screen-num-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .screen-num {
+    font-family: var(--pixel);
+    font-size: 10px;
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid;
+    flex-shrink: 0;
+  }
+  .screen-num.gold { color: var(--gold); border-color: var(--gold); }
+  .screen-num.teal { color: var(--teal); border-color: var(--teal); }
+  .screen-num.coral { color: var(--coral); border-color: var(--coral); }
+  .screen-num.purple { color: var(--purple); border-color: var(--purple); }
+  .screen-num.green { color: var(--green); border-color: var(--green); }
+  .screen-num.amber { color: var(--amber); border-color: var(--amber); }
+  .screen-num.blue { color: var(--sky2); border-color: var(--sky2); }
+
+  .screen-name {
+    font-family: var(--pixel);
+    font-size: 9px;
+    color: var(--text);
+    line-height: 1.8;
+  }
+  .screen-body { padding: 16px 18px 18px; }
+  .screen-body p { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+  .screen-body p:last-child { margin-bottom: 0; }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    border: 1px solid;
+    margin: 2px 2px 6px 0;
+  }
+  .tag-gold  { color: var(--gold);   border-color: rgba(255,215,0,.35);  background: rgba(255,215,0,.08); }
+  .tag-green { color: #86efac;       border-color: rgba(34,197,94,.35);  background: rgba(34,197,94,.08); }
+  .tag-red   { color: #fca5a5;       border-color: rgba(239,68,68,.35);  background: rgba(239,68,68,.08); }
+  .tag-blue  { color: #93c5fd;       border-color: rgba(96,165,250,.35); background: rgba(96,165,250,.08); }
+  .tag-gray  { color: var(--muted);  border-color: rgba(120,173,204,.2); background: rgba(120,173,204,.05); }
+
+  /* ── FLOW DIAGRAM ── */
+  .flow-wrap {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 32px 24px;
+    margin-bottom: 32px;
+    overflow-x: auto;
+  }
+
+  /* ── TABLE ── */
+  .table-wrap { overflow-x: auto; margin-bottom: 32px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    background: var(--bg3);
+    color: var(--gold);
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 11px 14px;
+    text-align: left;
+    border: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  td {
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    vertical-align: top;
+    background: var(--card);
+    color: #b8d8ef;
+    line-height: 1.5;
+  }
+  tr:nth-child(even) td { background: #16263e; }
+  tr:hover td { background: #1c3050; }
+
+  /* PRIORITY PILLS */
+  .p1 { display:inline-block; background:#ef4444; color:#fff; font-size:9px; font-family:var(--mono); padding:2px 8px; }
+  .p2 { display:inline-block; background:#f59e0b; color:#000; font-size:9px; font-family:var(--mono); padding:2px 8px; }
+  .p3 { display:inline-block; background:#3b82f6; color:#fff; font-size:9px; font-family:var(--mono); padding:2px 8px; }
+
+  /* ── CUT SECTION ── */
+  .cut-section {
+    border: 2px dashed rgba(239,68,68,0.4);
+    padding: 24px;
+    margin: 32px 0;
+    position: relative;
+  }
+  .cut-label {
+    position: absolute;
+    top: -13px; left: 20px;
+    background: var(--bg);
+    font-family: var(--pixel);
+    font-size: 8px;
+    color: var(--red);
+    padding: 0 10px;
+    letter-spacing: 1px;
+  }
+
+  .cut-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .cut-item {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: rgba(252,165,165,0.6);
+    padding: 6px 12px;
+    border: 1px solid rgba(239,68,68,0.2);
+    text-decoration: line-through;
+    text-decoration-color: rgba(239,68,68,0.4);
+  }
+
+  /* ── TECH STACK ── */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .tech-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--sky2);
+    padding: 20px;
+  }
+  .tech-card.backend { border-top-color: var(--green); }
+  .tech-card.other   { border-top-color: var(--purple); }
+  .tech-card h4 {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+  }
+  .tech-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    gap: 10px;
+  }
+  .tech-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .tech-name { font-family: var(--mono); font-size: 13px; color: var(--text); }
+  .tech-why  { font-size: 11px; color: var(--muted); text-align: right; max-width: 130px; }
+
+  /* ── ROADMAP ── */
+  .phases { position: relative; margin-bottom: 40px; }
+  .phases::before {
+    content: '';
+    position: absolute;
+    left: 22px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), var(--sky2), var(--green), var(--purple));
+  }
+  .phase { display: flex; gap: 20px; padding: 20px 0; }
+  .phase-dot {
+    flex-shrink: 0;
+    width: 44px; height: 44px;
+    border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--pixel);
+    font-size: 12px;
+    color: var(--gold);
+    background: var(--bg);
+    position: relative; z-index: 1;
+    box-shadow: 0 0 0 4px var(--bg);
+  }
+  .phase:nth-child(2) .phase-dot { border-color: var(--sky2); color: var(--sky2); }
+  .phase:nth-child(3) .phase-dot { border-color: var(--green); color: var(--green); }
+  .phase:nth-child(4) .phase-dot { border-color: var(--purple); color: var(--purple); }
+  .phase-body { flex: 1; }
+  .phase-title {
+    font-family: var(--pixel);
+    font-size: 10px;
+    color: var(--gold);
+    margin-bottom: 4px;
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .phase:nth-child(2) .phase-title { color: var(--sky2); }
+  .phase:nth-child(3) .phase-title { color: var(--green); }
+  .phase:nth-child(4) .phase-title { color: var(--purple); }
+  .phase-weeks {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: normal;
+  }
+  .phase-content {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 18px;
+    margin-top: 12px;
+  }
+
+  /* ── CHECKLIST ── */
+  .checklist { list-style: none; }
+  .checklist li {
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    display: flex; gap: 10px; align-items: flex-start;
+    color: #b8d8ef;
+  }
+  .checklist li::before { content: '▸'; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+  .checklist li:last-child { border-bottom: none; }
+
+  /* ── FOLDER STRUCTURE ── */
+  .code {
+    background: #040d1c;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--sky2);
+    padding: 20px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: #7dd3f0;
+    overflow-x: auto;
+    white-space: pre;
+    line-height: 1.9;
+    margin: 12px 0 24px;
+  }
+  .cc { color: #2e5060; }
+  .ck { color: var(--gold); }
+  .cv { color: #86efac; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg2);
+    border-top: 2px solid var(--border);
+    padding: 32px 40px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 60px;
+  }
+  footer .logo {
+    font-family: var(--pixel);
+    font-size: 9px;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  /* ── PROSE ── */
+  p { margin-bottom: 12px; color: #9ec8e0; font-size: 14px; }
+  strong { color: var(--text); }
+  h3 { font-family: var(--pixel); font-size: 9px; color: var(--sky2); margin: 28px 0 14px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-eyebrow">✦ V1 BUILD PLAN ✦</div>
+  <h1>ROCK <span>PAPER</span> SCISSORS<br>MINIMAL FIRST APP</h1>
+  <p class="hero-sub">10 screens. No fluff. Ship it.</p>
+  <div class="hero-icons">
+    <span class="fi">🪨</span>
+    <span class="fi">📄</span>
+    <span class="fi">✂️</span>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#philosophy">Philosophy</a>
+  <a href="#screens">10 Screens</a>
+  <a href="#cut">What to Cut</a>
+  <a href="#errors">Error States</a>
+  <a href="#techstack">Tech Stack</a>
+  <a href="#roadmap">Roadmap</a>
+  <a href="#folder">Folder Structure</a>
+</nav>
+
+<main class="page">
+
+  <!-- PHILOSOPHY -->
+  <div id="philosophy"></div>
+  <div class="sec-title">🎯 THE PHILOSOPHY</div>
+
+  <div class="stat-row">
+    <div class="stat-card gold">
+      <span class="stat-num">10</span>
+      <div class="stat-label">Total Screens</div>
+      <div class="stat-desc">Everything your first version needs</div>
+    </div>
+    <div class="stat-card red">
+      <span class="stat-num">0</span>
+      <div class="stat-label">Leaderboards</div>
+      <div class="stat-desc">Not now. You don't have users yet.</div>
+    </div>
+    <div class="stat-card blue">
+      <span class="stat-num">2</span>
+      <div class="stat-label">Game Modes</div>
+      <div class="stat-desc">VS Bot and VS Friend via room code</div>
+    </div>
+    <div class="stat-card green">
+      <span class="stat-num">~8wk</span>
+      <div class="stat-label">To Ship v1</div>
+      <div class="stat-desc">Solo dev working consistently</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Rule #1:</strong> Every feature you don't build is a bug you can't have. Your only goal for v1 is to let two people play Rock Paper Scissors — against a bot, or against each other using a room code. That's it. Everything else is v2 and beyond.
+  </div>
+
+  <div class="callout callout-red">
+    <strong>Why so few screens?</strong> Most first apps fail because the developer tries to build everything at once, burns out, and ships nothing. 10 screens is completable. The design you already have is beautiful — now you need working code in people's hands.
+  </div>
+
+  <!-- 10 SCREENS -->
+  <div id="screens"></div>
+  <div class="sec-title">📱 THE 10 SCREENS</div>
+
+  <p>These are the only screens that matter for v1. Everything is already in your existing designs — you just don't need to build the other 20+ right now.</p>
+
+  <div class="screens-grid">
+
+    <div class="screen-card">
+      <div class="screen-num-bar">
+        <div class="screen-num gold">01</div>
+        <div class="screen-name">SPLASH / LOADING</div>
+      </div>
+      <div class="screen-body">
+        <p>Game logo, the three floating icons, a loading bar filling up. Shows for 2–3 seconds while the app boots and checks if the user is already logged in.</p>
+        <span class="tag tag-gold">Already designed</span>
+        <span class="tag tag-green">Easy to build</span>
+        <p><strong>Keep it:</strong> Logo + loading bar + auto-navigate to Home if logged in, or Sign In if not.</p>
+      </div>
+    </div>
+
+    <div class="screen-card">
+      <div class="screen-num-bar">
+        <div class="screen-num blue">02</div>
+        <div class="screen-name">SIGN IN / SIGN UP</div>
+      </div>
+      <div class="screen-body">
+        <p>One screen with a toggle between Sign In and Sign Up. Username + password only. No Google OAuth for v1 — it adds complexity and app store review friction.</p>
+        <span class="tag tag-gold">Already designed</span>
+        <span class="tag tag-blue">Simplify</span>
+        <p><strong>Cut from your design:</strong> Google sign-in button. Add later once the base works.</p>
+        <p><strong>Add:</strong> A simple toggle ("Already have an account? Sign In") — you already have this.</p>
+      </div>
+    </div>
+
+    <div class="screen-card">
+      <div class="screen-num-bar">
+        <div class="screen-num teal">03</div>
+        <div class="screen-name">HOME / MAIN MENU</div>
+      </div>
+      <div class="screen-body">
+        <p>Your character on the platform. Two buttons: <strong>VS Bot</strong> and <strong>VS Friend</strong>. A gear icon in the corner for Settings. That's the whole screen.</p>
+        <span class="tag tag-gold">Already designed</span>
+        <span class="tag tag-blue">Strip it down</span>
+        <p><strong>Cut from your concept:</strong> Daily rewards badge, Rank badge, Friends button, Shop button, coin/gem HUD, bottom nav bar. All v2. Just the character and two play buttons.</p>
+      </div>
+    </div>
+
+    <div class="screen-card">
+      <div class="screen-num-bar">
+        <div class="screen-num teal">04</div>
+        <div class="screen-name">MODE SELECT</div>
+      </div>
+      <div class="screen-body">
+        <p>Only shown when VS Bot is tapped. Two buttons: Best of 3 or Best of 5. Back arrow at the top left.</p>
+        <span class="tag tag-gold">Already designed</span>
+        <span class="tag tag-green">Ship as-is</span>
+        <p><strong>This screen is perfect.</strong> No changes needed — it's already minimal and clean.</p>
+      </div>
+    </div>
+
+    <div class="screen-card">
+      <div class="screen-num-bar">
+        <div class="screen-num purple">05</div>
+        <div class="screen-name">ROOM CODE</div>
+      </div>
+      <div class="screen-body">
+        <p>Shown when VS Friend is tapped. Replaces matchmaking, lobby, and friends list all in one. Host sees a 6-digit code to share. Guest enters a code to join.</p>
+        <span class="tag tag-gold">Already designed</span>
+        <span class="tag tag-green">Simplest multiplayer possible</span>
+        <p><strong>Two states, one screen:</strong> "Create room" (shows your code) and "Join room" (text input for a code). A share button sends the code via native share sheet. No friends list. No server queue. Just a code.</p>
+      </div>
+    </div>
+
+    <div class="screen-card">
+      <div class="screen-num-bar">
+        <div class="screen-num coral">06</div>
+        <div class="screen-name">GAME SCREEN</div>
+      </div>
+      <div class="screen-body">
+        <p>The actual gameplay. Bot's hand at top, your hand at bottom, three buttons to pick Rock/Paper/Scissors. Score circles on the sides. Round counter at top.</p>
+        <span class="tag tag-gold">Already designed</span>
+        <span class="tag tag-green">Core of the app</span>
+        <p><strong>Add one thing:</strong> A round indicator ("Round 2 of 3") so players know where they are. Everything else in your existing design is already correct.</p>
+      </div>
+    </div>
+
+    <div class="screen-card">
+      <div class="screen-num-bar">
+        <div class="screen-num amber">07</div>
+        <div class="screen-name">ROUND RESULT FLASH</div>
+      </div>
+      <div class="screen-body">
+        <p>Not a full screen — an overlay on the game screen that appears for 1.5 seconds after each round. Shows who won the round and what each player picked, then auto-advances.</p>
+        <span class="tag tag-red">Not yet designed</span>
+        <span class="tag tag-green">Simple to build</span>
+        <p><strong>Implementation:</strong> A semi-transparent overlay on the game screen. Text like "You won this round!" with a tick or X, then fade out and reset for next round.</p>
+      </div>
+    </div>
+
+    <div class="screen-card">
+      <div class="screen-num-bar">
+        <div class="screen-num gold">08</div>
+        <div class="screen-name">MATCH RESULT</div>
+      </div>
+      <div class="screen-body">
+        <p>Victory or Defeat screen with final score and win streak. Your character with crown (win) or jester hat (loss). Share button.</p>
+        <span class="tag tag-gold">Already designed</span>
+        <span class="tag tag-green">Ship as-is</span>
+        <p><strong>This is one of your strongest screens.</strong> No changes needed for v1.</p>
+      </div>
+    </div>
+
+    <div class="screen-card">
+      <div class="screen-num-bar">
+        <div class="screen-num green">09</div>
+        <div class="screen-name">POST-MATCH</div>
+      </div>
+      <div class="screen-body">
+        <p>Two buttons: Rematch and Main Menu. Same character as the result screen. Simple.</p>
+        <span class="tag tag-gold">Already designed</span>
+        <span class="tag tag-green">Ship as-is</span>
+        <p><strong>Already perfect.</strong> Rematch resets the game with the same mode and opponent. Main Menu navigates home.</p>
+      </div>
+    </div>
+
+    <div class="screen-card">
+      <div class="screen-num-bar">
+        <div class="screen-num blue">10</div>
+        <div class="screen-name">SETTINGS</div>
+      </div>
+      <div class="screen-body">
+        <p>Sound volume, music volume, logout button. That's all. Accessible via gear icon on the home screen — not a full tab.</p>
+        <span class="tag tag-gold">Already designed</span>
+        <span class="tag tag-blue">Strip it down</span>
+        <p><strong>Cut from your design:</strong> Username edit, gender toggle. Keep only the two sliders and logout. Username only needs to change if someone asks for it — add it in v2.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FLOW TABLE -->
+  <h3>Complete User Flow</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Screen</th>
+          <th>Enters from</th>
+          <th>Exits to</th>
+          <th>State to track</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>01</td><td><strong>Splash</strong></td><td>App launch</td><td>Home (if logged in) or Sign In</td><td>Auth token in storage</td></tr>
+        <tr><td>02</td><td><strong>Sign In / Sign Up</strong></td><td>Splash (first time)</td><td>Home</td><td>Username, JWT token</td></tr>
+        <tr><td>03</td><td><strong>Home</strong></td><td>Sign In, Post-match</td><td>Mode Select, Room Code, Settings</td><td>Current user object</td></tr>
+        <tr><td>04</td><td><strong>Mode Select</strong></td><td>Home → VS Bot</td><td>Game Screen</td><td>Selected mode (3 or 5)</td></tr>
+        <tr><td>05</td><td><strong>Room Code</strong></td><td>Home → VS Friend</td><td>Game Screen (once both joined)</td><td>Room code, host/guest role</td></tr>
+        <tr><td>06</td><td><strong>Game Screen</strong></td><td>Mode Select or Room Code</td><td>Match Result (when match ends)</td><td>Round scores, current round, moves</td></tr>
+        <tr><td>07</td><td><strong>Round Result Flash</strong></td><td>Game Screen (overlay)</td><td>Game Screen (auto)</td><td>This round's winner</td></tr>
+        <tr><td>08</td><td><strong>Match Result</strong></td><td>Game Screen (match end)</td><td>Post-Match</td><td>Winner, final score, streak</td></tr>
+        <tr><td>09</td><td><strong>Post-Match</strong></td><td>Match Result</td><td>Home or Game Screen (rematch)</td><td>Same mode + opponent for rematch</td></tr>
+        <tr><td>10</td><td><strong>Settings</strong></td><td>Home (gear icon)</td><td>Home</td><td>Sound level, music level</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- WHAT TO CUT -->
+  <div id="cut"></div>
+  <div class="sec-title">✂️ WHAT YOU'RE CUTTING (AND WHY)</div>
+
+  <p>All of these came up in the previous report. They're great ideas. Build them after you have real users giving you feedback. Not before.</p>
+
+  <div class="cut-section">
+    <div class="cut-label">DO NOT BUILD IN V1</div>
+    <div class="cut-grid">
+      <div class="cut-item">Leaderboard</div>
+      <div class="cut-item">Achievements</div>
+      <div class="cut-item">Daily Rewards</div>
+      <div class="cut-item">Shop</div>
+      <div class="cut-item">Avatar Customisation</div>
+      <div class="cut-item">Season Pass</div>
+      <div class="cut-item">Profile Page</div>
+      <div class="cut-item">Stats Dashboard</div>
+      <div class="cut-item">Friends List</div>
+      <div class="cut-item">Matchmaking Queue</div>
+      <div class="cut-item">Push Notifications</div>
+      <div class="cut-item">In-App Purchases</div>
+      <div class="cut-item">Google Sign-In</div>
+      <div class="cut-item">Bottom Nav Bar</div>
+      <div class="cut-item">Coin / Gem HUD</div>
+      <div class="cut-item">Rank Badges</div>
+      <div class="cut-item">Ad Integration</div>
+      <div class="cut-item">Credits Screen</div>
+    </div>
+  </div>
+
+  <div class="callout callout-green">
+    <strong>The room code replaces three complex features:</strong> matchmaking queue + lobby screen + friends list. One player shares a 6-digit code over WhatsApp. The other types it in. Done. No complex queue infrastructure, no friend system, no persistent connections to manage.
+  </div>
+
+  <!-- ERROR STATES -->
+  <div id="errors"></div>
+  <div class="sec-title">⚠️ ERROR STATES YOU MUST BUILD</div>
+
+  <p>These are not optional. Every one of these will happen to real users. Design and implement them before calling v1 done.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Error</th>
+          <th>Screen</th>
+          <th>Priority</th>
+          <th>What to show</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Wrong password</strong></td>
+          <td>Sign In</td>
+          <td><span class="p1">MUST HAVE</span></td>
+          <td>Red border on password field. Text: "Wrong password. Try again." Don't clear the username field.</td>
+        </tr>
+        <tr>
+          <td><strong>Username already taken</strong></td>
+          <td>Sign Up</td>
+          <td><span class="p1">MUST HAVE</span></td>
+          <td>Red border on username field. Text: "Username taken. Choose another."</td>
+        </tr>
+        <tr>
+          <td><strong>Empty fields on submit</strong></td>
+          <td>Sign In / Sign Up</td>
+          <td><span class="p1">MUST HAVE</span></td>
+          <td>Red border on the empty field. Text: "This field is required." Shake animation helps.</td>
+        </tr>
+        <tr>
+          <td><strong>No internet</strong></td>
+          <td>Any</td>
+          <td><span class="p1">MUST HAVE</span></td>
+          <td>A pixel-art popup: WiFi icon with X, message, RETRY button. Required by app stores.</td>
+        </tr>
+        <tr>
+          <td><strong>Invalid room code</strong></td>
+          <td>Room Code</td>
+          <td><span class="p1">MUST HAVE</span></td>
+          <td>Text below input: "Code not found. Check and try again." The code might be expired or mistyped.</td>
+        </tr>
+        <tr>
+          <td><strong>Room code expired</strong></td>
+          <td>Room Code</td>
+          <td><span class="p1">MUST HAVE</span></td>
+          <td>Text: "Code expired. Create a new one." with a Generate New Code button.</td>
+        </tr>
+        <tr>
+          <td><strong>Opponent disconnected mid-match</strong></td>
+          <td>Game Screen</td>
+          <td><span class="p1">MUST HAVE</span></td>
+          <td>Popup: "Opponent left the match." with just a Main Menu button. Don't give a win by default for v1 — it's complex to cheat-proof.</td>
+        </tr>
+        <tr>
+          <td><strong>Lost connection mid-match</strong></td>
+          <td>Game Screen</td>
+          <td><span class="p1">MUST HAVE</span></td>
+          <td>"Reconnecting…" overlay. If fails after 10s: "Connection lost" popup with Main Menu button.</td>
+        </tr>
+        <tr>
+          <td><strong>Server error (500)</strong></td>
+          <td>Any API call</td>
+          <td><span class="p1">MUST HAVE</span></td>
+          <td>Generic pixel popup: "Something went wrong. Try again." OK button. Log the error silently.</td>
+        </tr>
+        <tr>
+          <td><strong>Confirm logout</strong></td>
+          <td>Settings</td>
+          <td><span class="p2">SHOULD HAVE</span></td>
+          <td>A pixel dialog: "Are you sure you want to log out?" with NO and YES buttons. Prevents accidental logout.</td>
+        </tr>
+        <tr>
+          <td><strong>Session expired</strong></td>
+          <td>Any authenticated screen</td>
+          <td><span class="p2">SHOULD HAVE</span></td>
+          <td>Auto-redirect to Sign In with a small message: "Session expired. Please sign in again."</td>
+        </tr>
+        <tr>
+          <td><strong>Profanity in username</strong></td>
+          <td>Sign Up</td>
+          <td><span class="p2">SHOULD HAVE</span></td>
+          <td>Text: "Username not allowed. Please choose another." Never reveal the blocklist.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <strong>Build these as reusable components:</strong> A <code>PixelDialog</code> component (error message + one or two buttons) and a <code>FieldError</code> component (red text below an input) cover 90% of these cases. Build them once, use everywhere.
+  </div>
+
+  <!-- TECH STACK -->
+  <div id="techstack"></div>
+  <div class="sec-title">⚙️ TECH STACK — MINIMAL VERSION</div>
+
+  <p>React Native with Expo is the right call. Here's the minimal stack to build v1 — nothing extra, nothing fancy.</p>
+
+  <div class="tech-grid">
+    <div class="tech-card">
+      <h4>📱 Frontend</h4>
+      <div class="tech-row">
+        <div class="tech-name">React Native + Expo</div>
+        <div class="tech-why">iOS + Android from one codebase</div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-name">Expo Router</div>
+        <div class="tech-why">File-based navigation, easiest to learn</div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-name">Reanimated 3</div>
+        <div class="tech-why">Smooth 60fps animations</div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-name">Zustand</div>
+        <div class="tech-why">Simple global state (user, game)</div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-name">AsyncStorage</div>
+        <div class="tech-why">Store auth token locally</div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-name">Expo AV</div>
+        <div class="tech-why">Sound effects + music</div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-name">TypeScript</div>
+        <div class="tech-why">Catch bugs before they ship</div>
+      </div>
+    </div>
+
+    <div class="tech-card backend">
+      <h4>🖥️ Backend</h4>
+      <div class="tech-row">
+        <div class="tech-name">Node.js + Express</div>
+        <div class="tech-why">REST API for auth + game results</div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-name">Socket.io</div>
+        <div class="tech-why">Real-time moves for VS Friend mode</div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-name">PostgreSQL</div>
+        <div class="tech-why">Store users + match history</div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-name">Redis</div>
+        <div class="tech-why">Store room codes (expire after 5 mins)</div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-name">Prisma ORM</div>
+        <div class="tech-why">Type-safe database queries</div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-name">JWT</div>
+        <div class="tech-why">Auth tokens — simple and standard</div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-name">bcrypt</div>
+        <div class="tech-why">Hash passwords, never store plain text</div>
+      </div>
+    </div>
+
+    <div class="tech-card other">
+      <h4>☁️ Hosting (free tiers work for v1)</h4>
+      <div class="tech-row">
+        <div class="tech-name">Railway</div>
+        <div class="tech-why">Deploy Node server + Postgres + Redis</div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-name">EAS Build</div>
+        <div class="tech-why">Build .ipa and .apk for app stores</div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-name">Sentry (free tier)</div>
+        <div class="tech-why">See crashes from real users</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Bot logic lives on the client — no server needed.</strong> VS Bot mode is just a random choice generator on the phone. No WebSocket, no server round-trip. The server only gets involved when saving the final match result. This makes VS Bot mode work even with bad internet.
+  </div>
+
+  <!-- ROADMAP -->
+  <div id="roadmap"></div>
+  <div class="sec-title">🗺️ DEVELOPMENT ROADMAP</div>
+
+  <p>Four phases. Each phase ends with something you can actually play.</p>
+
+  <div class="phases">
+
+    <div class="phase">
+      <div class="phase-dot">01</div>
+      <div class="phase-body">
+        <div class="phase-title">AUTH + NAVIGATION <span class="phase-weeks">Weeks 1–2</span></div>
+        <div class="phase-content">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Task</th><th>What it involves</th><th>Days</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Project setup</strong></td><td>Expo + TypeScript init, folder structure, ESLint, Git repo</td><td>0.5</td></tr>
+                <tr><td><strong>Navigation</strong></td><td>Expo Router — auth stack (Sign In/Up) and app stack (Home → Game → Result)</td><td>1</td></tr>
+                <tr><td><strong>Design system</strong></td><td>Press Start 2P font, color constants, reusable PixelButton and PixelInput components</td><td>2</td></tr>
+                <tr><td><strong>Splash screen</strong></td><td>Logo, loading bar, auto-navigate on auth check</td><td>0.5</td></tr>
+                <tr><td><strong>Sign in / Sign up</strong></td><td>UI + form validation + error states (wrong password, username taken, empty fields)</td><td>2</td></tr>
+                <tr><td><strong>Backend: Auth API</strong></td><td>POST /auth/signup, POST /auth/signin, JWT generation, bcrypt, basic Postgres user table</td><td>3</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-green"><strong>End of Phase 1:</strong> You can create an account, sign in, see the home screen, and sign out. Nothing else works yet — that's fine.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-dot">02</div>
+      <div class="phase-body">
+        <div class="phase-title">VS BOT GAMEPLAY <span class="phase-weeks">Weeks 3–5</span></div>
+        <div class="phase-content">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Task</th><th>What it involves</th><th>Days</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Home screen</strong></td><td>Character on platform, VS Bot + VS Friend buttons, gear icon for settings</td><td>1</td></tr>
+                <tr><td><strong>Mode select</strong></td><td>Best of 3 / Best of 5 buttons, back navigation</td><td>0.5</td></tr>
+                <tr><td><strong>Countdown</strong></td><td>Animated 3→2→1→SHOOT sequence before each round</td><td>1</td></tr>
+                <tr><td><strong>Game screen UI</strong></td><td>Both hands (pixel art), 3 move buttons, score circles, round counter, bot label</td><td>3</td></tr>
+                <tr><td><strong>Bot game logic</strong></td><td>Random move generator, win/loss/draw check, round tracking, match-end detection</td><td>2</td></tr>
+                <tr><td><strong>Round result flash</strong></td><td>Overlay on game screen — "You won this round!" — auto-dismisses after 1.5s</td><td>1</td></tr>
+                <tr><td><strong>Victory / Defeat screens</strong></td><td>Both result screens with score + streak display + share button</td><td>1</td></tr>
+                <tr><td><strong>Post-match screen</strong></td><td>Rematch + Main Menu buttons</td><td>0.5</td></tr>
+                <tr><td><strong>Sound system</strong></td><td>Button tap SFX, countdown beep, victory / defeat jingles (Expo AV)</td><td>1</td></tr>
+                <tr><td><strong>Settings screen</strong></td><td>Sound + music sliders, logout with confirm dialog</td><td>1</td></tr>
+                <tr><td><strong>Save match to server</strong></td><td>POST /matches when a match ends — save winner, score, mode</td><td>1</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-green"><strong>End of Phase 2:</strong> A fully playable single-player game. Real people can install it, create an account, and play against the bot. This alone is worth sharing.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-dot">03</div>
+      <div class="phase-body">
+        <div class="phase-title">VS FRIEND (ROOM CODE) <span class="phase-weeks">Weeks 6–8</span></div>
+        <div class="phase-content">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Task</th><th>What it involves</th><th>Days</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Room code screen</strong></td><td>Two states: "Create room" (show code + share button) and "Join room" (text input). Auto-detect which state to show.</td><td>2</td></tr>
+                <tr><td><strong>WebSocket server</strong></td><td>Socket.io server: create room, join room, submit move, receive opponent move, handle disconnect</td><td>5</td></tr>
+                <tr><td><strong>Redis room storage</strong></td><td>Store room code → socket IDs in Redis, expire after 5 minutes of inactivity</td><td>1</td></tr>
+                <tr><td><strong>Multiplayer game flow</strong></td><td>Sync moves between two clients, server-side winner calculation, handle timeout (10s auto-random move), disconnect popup</td><td>4</td></tr>
+                <tr><td><strong>Error states</strong></td><td>Invalid code, expired code, opponent disconnected, lost connection — all designed popups implemented</td><td>2</td></tr>
+                <tr><td><strong>No internet detection</strong></td><td>React Native NetInfo — watch connection state, show offline popup when needed</td><td>1</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-green"><strong>End of Phase 3:</strong> Two people anywhere in the world can play against each other using a room code. This is your v1. Submit to the app stores.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-dot">04</div>
+      <div class="phase-body">
+        <div class="phase-title">POLISH + LAUNCH <span class="phase-weeks">Weeks 9–10</span></div>
+        <div class="phase-content">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Task</th><th>What it involves</th><th>Days</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Animation pass</strong></td><td>Button press bounce, page transitions, character idle animation, confetti on victory</td><td>3</td></tr>
+                <tr><td><strong>Performance check</strong></td><td>Test on a real low-end Android device. Fix any janky screens. Optimize image sizes.</td><td>2</td></tr>
+                <tr><td><strong>QA on real devices</strong></td><td>Full flow test: iOS + Android. Test all error states manually. Ask 3 friends to try it.</td><td>3</td></tr>
+                <tr><td><strong>App store assets</strong></td><td>App icon (1024×1024), screenshots for iPhone + Android, description copy, privacy policy page</td><td>2</td></tr>
+                <tr><td><strong>EAS build + submit</strong></td><td>Production build via EAS, Apple App Store submission, Google Play submission</td><td>2</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-green"><strong>End of Phase 4:</strong> Shipped to App Store and Google Play. 🎉 Then you get real feedback and start planning v2.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOLDER STRUCTURE -->
+  <div id="folder"></div>
+  <div class="sec-title">📁 FOLDER STRUCTURE</div>
+
+  <p>Keep it simple. You don't need a complex monorepo for a first app. Two folders: the app and the server.</p>
+
+  <div class="code">rps-game/
+├── <span class="ck">app/</span>                          <span class="cc">← Expo Router screens</span>
+│   ├── (auth)/
+│   │   ├── index.tsx              <span class="cc">← Sign in / sign up toggle</span>
+│   │   └── _layout.tsx
+│   ├── (game)/
+│   │   ├── home.tsx               <span class="cc">← Main menu</span>
+│   │   ├── mode-select.tsx        <span class="cc">← Best of 3 / 5</span>
+│   │   ├── room-code.tsx          <span class="cc">← VS Friend room code screen</span>
+│   │   ├── game.tsx               <span class="cc">← The actual gameplay</span>
+│   │   ├── result.tsx             <span class="cc">← Victory / Defeat</span>
+│   │   ├── post-match.tsx         <span class="cc">← Rematch / Main Menu</span>
+│   │   ├── settings.tsx           <span class="cc">← Sound, music, logout</span>
+│   │   └── _layout.tsx
+│   └── _layout.tsx                <span class="cc">← Root layout, auth guard</span>
+│
+├── <span class="ck">src/</span>
+│   ├── components/
+│   │   ├── PixelButton.tsx        <span class="cc">← Reusable yellow pixel button</span>
+│   │   ├── PixelInput.tsx         <span class="cc">← Reusable text input with error state</span>
+│   │   ├── PixelDialog.tsx        <span class="cc">← Error popup + confirm dialog</span>
+│   │   ├── OfflineBar.tsx         <span class="cc">← Shown when no internet</span>
+│   │   ├── RoundFlash.tsx         <span class="cc">← Round result overlay</span>
+│   │   └── HandDisplay.tsx        <span class="cc">← Rock / Paper / Scissors hand art</span>
+│   │
+│   ├── store/
+│   │   ├── authStore.ts           <span class="cc">← User + token (Zustand)</span>
+│   │   └── gameStore.ts           <span class="cc">← Current match state (Zustand)</span>
+│   │
+│   ├── services/
+│   │   ├── api.ts                 <span class="cc">← Axios instance with auth headers</span>
+│   │   ├── auth.service.ts        <span class="cc">← signIn(), signUp(), signOut()</span>
+│   │   ├── match.service.ts       <span class="cc">← saveMatch()</span>
+│   │   └── socket.service.ts      <span class="cc">← WebSocket connection for VS Friend</span>
+│   │
+│   ├── utils/
+│   │   ├── gameLogic.ts           <span class="cc">← getWinner(move1, move2)</span>
+│   │   └── botAI.ts               <span class="cc">← getRandomMove()</span>
+│   │
+│   └── constants/
+│       ├── theme.ts               <span class="cc">← Colors, fonts, spacing</span>
+│       └── sounds.ts              <span class="cc">← Sound file paths</span>
+│
+├── <span class="ck">server/</span>                        <span class="cc">← Node.js backend</span>
+│   ├── src/
+│   │   ├── routes/
+│   │   │   ├── auth.ts            <span class="cc">← POST /auth/signup, /auth/signin</span>
+│   │   │   └── matches.ts         <span class="cc">← POST /matches (save result)</span>
+│   │   ├── socket/
+│   │   │   └── gameRoom.ts        <span class="cc">← All Socket.io logic</span>
+│   │   ├── middleware/
+│   │   │   └── auth.ts            <span class="cc">← JWT verification</span>
+│   │   └── index.ts               <span class="cc">← Express app + Socket.io init</span>
+│   └── prisma/
+│       └── schema.prisma          <span class="cc">← User + Match tables only</span>
+│
+└── assets/
+    ├── fonts/PressStart2P.ttf
+    ├── images/                    <span class="cc">← All your pixel art sprites</span>
+    └── sounds/                    <span class="cc">← SFX + music files</span></div>
+
+  <h3>Database Schema (Just Two Tables for v1)</h3>
+  <div class="code"><span class="cc">// prisma/schema.prisma</span>
+
+<span class="ck">model</span> <span class="cv">User</span> {
+  id         String   @id @default(uuid())
+  username   String   @unique
+  password   String   <span class="cc">// bcrypt hashed — never plain text</span>
+  createdAt  DateTime @default(now())
+  matches    Match[]
+}
+
+<span class="ck">model</span> <span class="cv">Match</span> {
+  id         String   @id @default(uuid())
+  player1Id  String
+  player2Id  String?  <span class="cc">// NULL if vs bot</span>
+  mode       String   <span class="cc">// "best_of_3" | "best_of_5"</span>
+  winnerId   String?
+  scoreP1    Int
+  scoreP2    Int
+  createdAt  DateTime @default(now())
+  player1    User     @relation(fields: [player1Id], references: [id])
+}</div>
+
+  <h3>The Only API Endpoints You Need</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Method</th><th>Endpoint</th><th>What it does</th><th>Auth required</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="tag tag-green">POST</span></td><td><code>/auth/signup</code></td><td>Create account, return JWT</td><td>No</td></tr>
+        <tr><td><span class="tag tag-green">POST</span></td><td><code>/auth/signin</code></td><td>Check password, return JWT</td><td>No</td></tr>
+        <tr><td><span class="tag tag-green">POST</span></td><td><code>/matches</code></td><td>Save completed match result</td><td>Yes</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>The WebSocket events handle all the multiplayer — no extra REST endpoints needed for VS Friend mode.</p>
+
+  <h3>Key Rules to Follow</h3>
+  <ul class="checklist">
+    <li>Never store passwords as plain text. Always bcrypt hash them on the server.</li>
+    <li>All game logic for VS Friend mode runs on the server. Never trust the client's claimed winner.</li>
+    <li>Bot game logic runs entirely on the client. No server call until the match is finished.</li>
+    <li>Test on a real physical Android device every week. The simulator lies about performance.</li>
+    <li>Build the error states at the same time as the happy path — not after.</li>
+    <li>Use EAS Build from day one. Building locally for iOS requires a Mac with Xcode.</li>
+    <li>Set up Sentry before your first real user. You need crash reports from the start.</li>
+    <li>Room codes expire after 5 minutes in Redis. Always show a countdown on the room code screen.</li>
+    <li>Add a 10-second move timeout in multiplayer — if a player doesn't pick, auto-pick a random move.</li>
+    <li>Ship Phase 2 (VS Bot) to TestFlight and let friends test it before starting Phase 3.</li>
+  </ul>
+
+</main>
+
+<footer>
+  <div class="logo">✦ ROCK PAPER SCISSORS — V1 BUILD PLAN ✦</div>
+  10 screens. Real users. Then v2. Good luck — the design is already great.
+</footer>
+
+</body>
+</html>
