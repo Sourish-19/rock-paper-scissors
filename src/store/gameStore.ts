@@ -16,11 +16,14 @@ export interface MatchState {
 export interface GameStore {
   userSession: any | null;
   matchState: MatchState;
+  winStreak: number;
   setUserSession: (session: any) => void;
   makeChoice: (choice: 'rock' | 'paper' | 'scissors') => void;
   resetMatch: () => void;
   resetScore: () => void;
   setGameMode: (mode: 'single' | 'multi') => void;
+  incrementStreak: () => void;
+  resetStreak: () => void;
 }
 
 const initialMatchState: MatchState = {
@@ -36,6 +39,7 @@ const initialMatchState: MatchState = {
 export const useGameStore = create<GameStore>((set) => ({
   userSession: null,
   matchState: initialMatchState,
+  winStreak: 0,
   setUserSession: (session) => set({ userSession: session }),
   makeChoice: (userChoice) => set((state) => {
     const choices: ('rock' | 'paper' | 'scissors')[] = ['rock', 'paper', 'scissors'];
@@ -54,14 +58,17 @@ export const useGameStore = create<GameStore>((set) => ({
       }
     }
 
+    const nextUserScore = result === 'win' ? state.matchState.userScore + 1 : state.matchState.userScore;
+    const nextComputerScore = result === 'lose' ? state.matchState.computerScore + 1 : state.matchState.computerScore;
+
     return {
       matchState: {
         ...state.matchState,
         userChoice,
         computerChoice,
         result,
-        userScore: result === 'win' ? state.matchState.userScore + 1 : state.matchState.userScore,
-        computerScore: result === 'lose' ? state.matchState.computerScore + 1 : state.matchState.computerScore,
+        userScore: nextUserScore,
+        computerScore: nextComputerScore,
         round: state.matchState.round + 1,
       }
     };
@@ -86,4 +93,6 @@ export const useGameStore = create<GameStore>((set) => ({
       gameMode,
     }
   })),
+  incrementStreak: () => set((state) => ({ winStreak: state.winStreak + 1 })),
+  resetStreak: () => set({ winStreak: 0 }),
 }));
