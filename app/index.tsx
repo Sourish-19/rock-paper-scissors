@@ -1,24 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { StyleSheet, View, Text, SafeAreaView, Animated, Pressable } from 'react-native';
+import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { useGameStore } from '@/store/gameStore';
 import { useMusic } from '@/components/MusicProvider';
-import { CheckerboardBackground } from '@/components/CheckboardBackground';
 import { RetroButton } from '@/components/RetroButton';
+import { PixelText } from '@/components/PixelText';
 
 export default function HomeScreen() {
   const router = useRouter();
-  const { setGameMode, resetScore } = useGameStore();
+  const { setGameMode, resetScore, userProfile } = useGameStore();
   const { isMuted, toggleMute } = useMusic();
-
   const [showMultiModal, setShowMultiModal] = useState(false);
 
   // Animations
   const floatAnim = useRef(new Animated.Value(0)).current;
-  const titleScale = useRef(new Animated.Value(0.95)).current;
 
   useEffect(() => {
-    // Floating island idle animation
     Animated.loop(
       Animated.sequence([
         Animated.timing(floatAnim, {
@@ -29,22 +27,6 @@ export default function HomeScreen() {
         Animated.timing(floatAnim, {
           toValue: 0,
           duration: 1500,
-          useNativeDriver: true,
-        }),
-      ])
-    ).start();
-
-    // Pulse title scale animation
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(titleScale, {
-          toValue: 1.03,
-          duration: 1200,
-          useNativeDriver: true,
-        }),
-        Animated.timing(titleScale, {
-          toValue: 0.97,
-          duration: 1200,
           useNativeDriver: true,
         }),
       ])
@@ -62,43 +44,63 @@ export default function HomeScreen() {
   };
 
   return (
-    <CheckerboardBackground>
+    <View style={styles.background}>
       <SafeAreaView style={styles.container}>
         {/* Top Header Row */}
         <View style={styles.header}>
-          <Pressable style={styles.settingsIcon} onPress={toggleMute}>
-            <Text style={styles.settingsText}>{isMuted ? '🔇' : '🔊'}</Text>
+          {/* Profile Badge */}
+          <View style={styles.profileBadge}>
+            <View style={styles.profileImageContainer}>
+              <Image 
+                source={require('../assets/images/characters/char_avatar_idle.png')} 
+                style={styles.profileImage} 
+                contentFit="cover" 
+              />
+            </View>
+            <View style={styles.profileInfo}>
+              <View style={styles.profileNameBox}>
+                <Text style={styles.profileName}>{userProfile.username}</Text>
+              </View>
+              <View style={styles.crownBox}>
+                 <Text style={styles.crownIcon}>👑</Text>
+                 <Text style={styles.crownText}>{userProfile.crowns}</Text>
+              </View>
+            </View>
+          </View>
+
+          {/* Settings Icon */}
+          <Pressable onPress={toggleMute} style={{ opacity: isMuted ? 0.5 : 1 }}>
+            <Image 
+              source={require('../assets/images/buttons/btn_settings.png')} 
+              style={styles.settingsIcon} 
+              contentFit="contain" 
+            />
           </Pressable>
         </View>
 
         {/* Title Section */}
-        <Animated.View style={[styles.titleContainer, { transform: [{ scale: titleScale }] }]}>
-          <Text style={styles.titleShadow}>ROCK{'\n'}PAPER{'\n'}SCISSORS</Text>
-          <Text style={styles.titleText}>ROCK{'\n'}PAPER{'\n'}SCISSORS</Text>
-        </Animated.View>
+        <View style={styles.titleContainer}>
+           <PixelText style={styles.titleText} strokeColor="#000000" fillColor="#FFFFFF">
+             ROCK{'\n'}PAPER{'\n'}SCISSORS
+           </PixelText>
+        </View>
 
         {/* Center Character Area (Floating Island & Idle Avatar) */}
         <View style={styles.avatarSection}>
           <Animated.View style={{ transform: [{ translateY: floatAnim }], alignItems: 'center' }}>
-            {/* The Avatar */}
-            <View style={styles.characterContainer}>
-              {/* Hair/Cap */}
-              <View style={styles.hair} />
-              {/* Face */}
-              <View style={styles.face}>
-                {/* Sunglasses */}
-                <View style={styles.sunglasses} />
-                {/* Smile */}
-                <View style={styles.mouth} />
-              </View>
-              {/* Shirt */}
-              <View style={styles.shirt} />
-            </View>
-
-            {/* Floating Island */}
-            <View style={styles.islandContainer}>
-              <View style={styles.islandGrass} />
-              <View style={styles.islandDirt} />
+            {/* Floating Island (rendered behind the character by ordering) */}
+            <View style={styles.islandGroup}>
+              <Image 
+                source={require('../assets/images/decorations/floating_island.png')} 
+                style={styles.island} 
+                contentFit="contain" 
+              />
+              {/* The Avatar */}
+              <Image 
+                source={require('../assets/images/characters/char_avatar_idle.png')} 
+                style={styles.character} 
+                contentFit="contain" 
+              />
             </View>
           </Animated.View>
         </View>
@@ -110,11 +112,10 @@ export default function HomeScreen() {
             onPress={handlePlayVsBot}
             backgroundColor="#FFDE4D"
           />
-          <View style={{ height: 16 }} />
           <RetroButton
             title="PLAY VS FRIEND"
             onPress={handlePlayVsFriend}
-            backgroundColor="#4DCEFF"
+            backgroundColor="#FFDE4D"
           />
         </View>
 
@@ -122,9 +123,9 @@ export default function HomeScreen() {
         {showMultiModal && (
           <View style={styles.modalOverlay}>
             <View style={styles.modalBox}>
-              <Text style={styles.modalTitle}>ONLINE DUEL</Text>
+              <PixelText style={styles.modalTitle}>ONLINE DUEL</PixelText>
               <Text style={styles.modalBody}>
-                MULTIPLAYER MODE IS COMING SOON IN V2!{'\n'}{'\n'}
+                MULTIPLAYER MODE IS COMING SOON!{'\n'}{'\n'}
                 CHALLENGE THE BOT FOR NOW!
               </Text>
               <View style={{ height: 20 }} />
@@ -132,17 +133,20 @@ export default function HomeScreen() {
                 title="OK"
                 onPress={() => setShowMultiModal(false)}
                 backgroundColor="#FFDE4D"
-                style={{ height: 45 }}
               />
             </View>
           </View>
         )}
       </SafeAreaView>
-    </CheckerboardBackground>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    backgroundColor: '#4DB8FF', // matching the blue sky from design
+  },
   container: {
     flex: 1,
     justifyContent: 'space-between',
@@ -151,125 +155,110 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
     width: '100%',
+    marginTop: 10,
   },
-  settingsIcon: {
-    width: 44,
-    height: 44,
+  profileBadge: {
+    flexDirection: 'row',
+    backgroundColor: '#FFDE4D',
     borderWidth: 3,
     borderColor: '#000000',
     borderRadius: 8,
-    backgroundColor: '#FFFFFF',
+    padding: 4,
+    alignItems: 'center',
+  },
+  profileImageContainer: {
+    width: 40,
+    height: 40,
+    borderWidth: 2,
+    borderColor: '#000000',
+    backgroundColor: '#4DB8FF',
+    borderRadius: 4,
+    overflow: 'hidden',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  settingsText: {
-    fontSize: 20,
+  profileImage: {
+    width: 32,
+    height: 32,
+    marginTop: 8,
+  },
+  profileInfo: {
+    marginLeft: 6,
+    justifyContent: 'space-between',
+    height: 40,
+  },
+  profileNameBox: {
+    backgroundColor: '#FFFFFF',
+    borderWidth: 2,
+    borderColor: '#000000',
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 4,
+  },
+  profileName: {
+    fontFamily: 'PressStart2P_400Regular',
+    fontSize: 8,
+    color: '#000000',
+  },
+  crownBox: {
+    flexDirection: 'row',
+    backgroundColor: '#FFDE4D',
+    borderWidth: 2,
+    borderColor: '#000000',
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 4,
+    alignItems: 'center',
+  },
+  crownIcon: {
+    fontSize: 10,
+    marginRight: 4,
+  },
+  crownText: {
+    fontFamily: 'PressStart2P_400Regular',
+    fontSize: 8,
+    color: '#000000',
+  },
+  settingsIcon: {
+    width: 48,
+    height: 48,
   },
   titleContainer: {
     alignItems: 'center',
-    marginTop: 10,
-    position: 'relative',
+    marginTop: 20,
   },
   titleText: {
-    fontFamily: 'PressStart2P_400Regular',
-    fontSize: 28,
-    lineHeight: 38,
-    color: '#FFDE4D',
+    fontSize: 36,
+    lineHeight: 44,
     textAlign: 'center',
-    textShadowColor: '#FF9F00',
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 1,
-  },
-  titleShadow: {
-    position: 'absolute',
-    top: 4,
-    left: 4,
-    fontFamily: 'PressStart2P_400Regular',
-    fontSize: 28,
-    lineHeight: 38,
-    color: '#000000',
-    textAlign: 'center',
-    width: '100%',
   },
   avatarSection: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  characterContainer: {
-    alignItems: 'center',
-    zIndex: 10,
-    marginBottom: -10,
-  },
-  hair: {
-    width: 40,
-    height: 12,
-    backgroundColor: '#3E2723',
-    borderTopLeftRadius: 6,
-    borderTopRightRadius: 6,
-    borderWidth: 3,
-    borderColor: '#000000',
-  },
-  face: {
-    width: 46,
-    height: 34,
-    backgroundColor: '#FFCC80',
-    borderLeftWidth: 3,
-    borderRightWidth: 3,
-    borderColor: '#000000',
+  islandGroup: {
     alignItems: 'center',
     justifyContent: 'center',
+    width: 250,
+    height: 250,
   },
-  sunglasses: {
-    width: 36,
-    height: 8,
-    backgroundColor: '#000000',
-    borderRadius: 2,
-    position: 'absolute',
-    top: 8,
-  },
-  mouth: {
-    width: 12,
-    height: 3,
-    backgroundColor: '#000000',
-    position: 'absolute',
-    bottom: 8,
-  },
-  shirt: {
-    width: 36,
-    height: 20,
-    backgroundColor: '#29B6F6',
-    borderWidth: 3,
-    borderColor: '#000000',
-    borderTopWidth: 0,
-    borderBottomLeftRadius: 4,
-    borderBottomRightRadius: 4,
-  },
-  islandContainer: {
+  character: {
     width: 140,
-    height: 50,
-    alignItems: 'center',
+    height: 180,
+    position: 'absolute',
+    bottom: 50,
+    zIndex: 2,
   },
-  islandGrass: {
-    width: '100%',
-    height: 16,
-    backgroundColor: '#81C784',
-    borderWidth: 4,
-    borderColor: '#000000',
-    borderTopLeftRadius: 16,
-    borderTopRightRadius: 16,
-  },
-  islandDirt: {
-    width: '90%',
-    height: 20,
-    backgroundColor: '#8D6E63',
-    borderWidth: 4,
-    borderColor: '#000000',
-    borderTopWidth: 0,
-    borderBottomLeftRadius: 12,
-    borderBottomRightRadius: 12,
+  island: {
+    width: 250,
+    height: 120,
+    position: 'absolute',
+    bottom: 0,
+    zIndex: 1,
   },
   buttonsContainer: {
     width: '100%',
@@ -296,10 +285,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalTitle: {
-    fontFamily: 'PressStart2P_400Regular',
-    fontSize: 16,
-    color: '#000000',
-    marginBottom: 16,
+    fontSize: 20,
+    marginBottom: 20,
     textAlign: 'center',
   },
   modalBody: {

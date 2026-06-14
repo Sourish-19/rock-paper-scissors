@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import {
   Pressable,
-  Text,
   StyleSheet,
   View,
   StyleProp,
@@ -9,6 +8,7 @@ import {
   TextStyle,
   Animated,
 } from 'react-native';
+import { PixelText } from './PixelText';
 
 interface RetroButtonProps {
   onPress?: () => void;
@@ -34,7 +34,7 @@ export function RetroButton({
   const handlePressIn = () => {
     if (disabled) return;
     Animated.spring(pushAnim, {
-      toValue: 4, // shift down by 4px (the shadow height)
+      toValue: 6, // shift down by 6px (the shadow height)
       useNativeDriver: true,
       speed: 100,
       bounciness: 0,
@@ -72,9 +72,16 @@ export function RetroButton({
           },
         ]}
       >
-        <Text style={[styles.buttonText, textStyle, disabled && styles.disabledText]}>
+        {/* Subtle highlight for depth */}
+        <View style={styles.highlight} />
+        
+        <PixelText 
+          fillColor="#FFFFFF" 
+          strokeColor="#000000" 
+          style={[styles.buttonText, textStyle]}
+        >
           {title}
-        </Text>
+        </PixelText>
       </Animated.View>
     </Pressable>
   );
@@ -82,18 +89,20 @@ export function RetroButton({
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    height: 60,
+    height: 64,
     position: 'relative',
     alignSelf: 'stretch',
-    marginBottom: 4,
+    marginBottom: 8,
   },
   buttonShadow: {
     position: 'absolute',
-    top: 4,
-    left: 4,
-    right: -4,
-    bottom: -4,
-    borderRadius: 8,
+    top: 6,
+    left: 0,
+    right: 0,
+    bottom: -6,
+    borderRadius: 16,
+    borderWidth: 4,
+    borderColor: '#000000',
   },
   buttonFace: {
     position: 'absolute',
@@ -103,17 +112,22 @@ const styles = StyleSheet.create({
     bottom: 0,
     borderWidth: 4,
     borderColor: '#000000',
-    borderRadius: 8,
+    borderRadius: 16,
     justifyContent: 'center',
     alignItems: 'center',
+    overflow: 'hidden',
+  },
+  highlight: {
+    position: 'absolute',
+    top: 4,
+    left: 8,
+    width: 20,
+    height: 8,
+    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+    borderRadius: 4,
   },
   buttonText: {
-    fontFamily: 'PressStart2P_400Regular',
-    fontSize: 14,
-    color: '#000000',
+    fontSize: 16,
     textAlign: 'center',
-  },
-  disabledText: {
-    color: '#666666',
   },
 });

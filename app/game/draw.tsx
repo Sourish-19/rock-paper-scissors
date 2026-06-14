@@ -6,14 +6,14 @@ import { useGameStore } from '@/store/gameStore';
 import { RetroButton } from '@/components/RetroButton';
 import { PixelText } from '@/components/PixelText';
 
-export default function DefeatScreen() {
+export default function DrawScreen() {
   const router = useRouter();
   const { matchState, winStreak, resetScore, resetMatch } = useGameStore();
   const { userScore, computerScore } = matchState;
 
   const [shareStatus, setShareStatus] = useState('');
 
-  const handleTryAgain = () => {
+  const handlePlayAgain = () => {
     resetScore();
     resetMatch();
     router.replace('/game');
@@ -28,7 +28,7 @@ export default function DefeatScreen() {
   const handleShare = async () => {
     try {
       const result = await Share.share({
-        message: `I played a tough match in Retro Rock Paper Scissors but lost! 😢 Score: ${userScore}-${computerScore}. My streak is reset. Can you avenge me?`,
+        message: `I just tied a game of Retro Rock Paper Scissors! 🤝 Score: ${userScore}-${computerScore}. Current Streak: ${winStreak} wins!`,
       });
       if (result.action === Share.sharedAction) {
         setShareStatus('SHARED SUCCESSFULLY!');
@@ -42,10 +42,10 @@ export default function DefeatScreen() {
   return (
     <View style={styles.background}>
       <SafeAreaView style={styles.container}>
-        {/* Defeat Header */}
+        {/* Draw Header */}
         <View style={styles.titleContainer}>
-          <PixelText style={styles.titleText} fillColor="#FF6B6B" strokeColor="#000000">
-            DEFEAT...
+          <PixelText style={styles.titleText} fillColor="#FFFFFF" strokeColor="#000000">
+            DRAW
           </PixelText>
         </View>
 
@@ -58,7 +58,7 @@ export default function DefeatScreen() {
           </View>
           <View style={styles.statsBox}>
             <PixelText style={styles.statsText} fillColor="#FFFFFF" strokeColor="#000000">
-              STREAK   0
+              STREAK   {winStreak}
             </PixelText>
           </View>
         </View>
@@ -89,8 +89,8 @@ export default function DefeatScreen() {
         {/* Action Buttons */}
         <View style={styles.buttonsContainer}>
           <RetroButton
-            title="TRY AGAIN"
-            onPress={handleTryAgain}
+            title="PLAY AGAIN"
+            onPress={handlePlayAgain}
             backgroundColor="#FFDE4D"
           />
           <RetroButton
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   titleText: {
-    fontSize: 40,
+    fontSize: 48,
     textAlign: 'center',
   },
   statsContainer: {

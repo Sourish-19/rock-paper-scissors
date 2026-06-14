@@ -13,11 +13,18 @@ export interface MatchState {
   gameMode: 'single' | 'multi';
 }
 
+export interface UserProfile {
+  username: string;
+  crowns: number;
+}
+
 export interface GameStore {
   userSession: any | null;
+  userProfile: UserProfile;
   matchState: MatchState;
   winStreak: number;
   setUserSession: (session: any) => void;
+  setUserProfile: (profile: UserProfile) => void;
   makeChoice: (choice: 'rock' | 'paper' | 'scissors') => void;
   resetMatch: () => void;
   resetScore: () => void;
@@ -38,9 +45,11 @@ const initialMatchState: MatchState = {
 
 export const useGameStore = create<GameStore>((set) => ({
   userSession: null,
+  userProfile: { username: "SOURISH", crowns: 106 },
   matchState: initialMatchState,
   winStreak: 0,
   setUserSession: (session) => set({ userSession: session }),
+  setUserProfile: (profile) => set({ userProfile: profile }),
   makeChoice: (userChoice) => set((state) => {
     const choices: ('rock' | 'paper' | 'scissors')[] = ['rock', 'paper', 'scissors'];
     const computerChoice = choices[Math.floor(Math.random() * choices.length)];
