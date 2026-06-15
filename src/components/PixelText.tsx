@@ -8,6 +8,55 @@ interface PixelTextProps {
   strokeColor?: string;
 }
 
+const StrokeText = ({ children, style, color, strokeColor, offsetX = 0, offsetY = 0 }: any) => {
+  const strokeSize = 2;
+  const positions = [
+    [-strokeSize, -strokeSize],
+    [0, -strokeSize],
+    [strokeSize, -strokeSize],
+    [-strokeSize, 0],
+    [strokeSize, 0],
+    [-strokeSize, strokeSize],
+    [0, strokeSize],
+    [strokeSize, strokeSize],
+  ];
+
+  return (
+    <View style={[StyleSheet.absoluteFill, { transform: [{ translateX: offsetX }, { translateY: offsetY }] }]} pointerEvents="none">
+      {positions.map((pos, i) => (
+        <Text
+          key={i}
+          style={[
+            styles.baseText,
+            style,
+            {
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              color: strokeColor,
+              transform: [{ translateX: pos[0] }, { translateY: pos[1] }],
+            },
+          ]}
+        >
+          {children}
+        </Text>
+      ))}
+      <Text style={[
+        styles.baseText, 
+        style, 
+        { 
+          position: 'absolute', 
+          width: '100%',
+          height: '100%',
+          color: color 
+        }
+      ]}>
+        {children}
+      </Text>
+    </View>
+  );
+};
+
 export const PixelText: React.FC<PixelTextProps> = ({ 
   children, 
   style, 
@@ -16,21 +65,30 @@ export const PixelText: React.FC<PixelTextProps> = ({
 }) => {
   return (
     <View style={styles.container}>
-      {/* Stroke layers */}
-      <Text style={[styles.baseText, style, styles.strokeTopLeft, { color: strokeColor }]}>{children}</Text>
-      <Text style={[styles.baseText, style, styles.strokeTop, { color: strokeColor }]}>{children}</Text>
-      <Text style={[styles.baseText, style, styles.strokeTopRight, { color: strokeColor }]}>{children}</Text>
-      <Text style={[styles.baseText, style, styles.strokeLeft, { color: strokeColor }]}>{children}</Text>
-      <Text style={[styles.baseText, style, styles.strokeRight, { color: strokeColor }]}>{children}</Text>
-      <Text style={[styles.baseText, style, styles.strokeBottomLeft, { color: strokeColor }]}>{children}</Text>
-      <Text style={[styles.baseText, style, styles.strokeBottom, { color: strokeColor }]}>{children}</Text>
-      <Text style={[styles.baseText, style, styles.strokeBottomRight, { color: strokeColor }]}>{children}</Text>
+      {/* Hidden layout text to properly size the container and provide wrapping constraints */}
+      <Text style={[styles.baseText, style, { color: 'transparent' }]}>{children}</Text>
       
-      {/* Bottom layer (3D shadow shifted 2px down and 2px right) */}
-      <Text style={[styles.baseText, style, styles.shadowText, { color: strokeColor }]}>{children}</Text>
+      {/* 3D shadow layer (shifted +4, +4 as per retro design) */}
+      <StrokeText 
+        style={style} 
+        color={strokeColor} 
+        strokeColor={strokeColor} 
+        offsetX={4} 
+        offsetY={4} 
+      >
+        {children}
+      </StrokeText>
       
-      {/* Top layer (fill) */}
-      <Text style={[styles.baseText, style, { color: fillColor }]}>{children}</Text>
+      {/* Top layer (normal position) */}
+      <StrokeText 
+        style={style} 
+        color={fillColor} 
+        strokeColor={strokeColor} 
+        offsetX={0} 
+        offsetY={0} 
+      >
+        {children}
+      </StrokeText>
     </View>
   );
 };
@@ -39,23 +97,8 @@ const styles = StyleSheet.create({
   container: {
     position: 'relative',
     justifyContent: 'center',
-    alignItems: 'center',
   },
   baseText: {
     fontFamily: 'PressStart2P_400Regular',
   },
-  shadowText: {
-    position: 'absolute',
-    top: 2,
-    left: 2,
-  },
-  // Stroke styles (approx 2px thick)
-  strokeTopLeft: { position: 'absolute', top: -2, left: -2 },
-  strokeTop: { position: 'absolute', top: -2, left: 0 },
-  strokeTopRight: { position: 'absolute', top: -2, left: 2 },
-  strokeLeft: { position: 'absolute', top: 0, left: -2 },
-  strokeRight: { position: 'absolute', top: 0, left: 2 },
-  strokeBottomLeft: { position: 'absolute', top: 2, left: -2 },
-  strokeBottom: { position: 'absolute', top: 2, left: 0 },
-  strokeBottomRight: { position: 'absolute', top: 2, left: 2 },
 });

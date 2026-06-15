@@ -134,6 +134,7 @@ export default function GameScreen() {
              let text = '';
              if (res === 'win') { color = '#4CAF50'; text = '✓'; }
              if (res === 'lose') { color = '#E53935'; text = '✗'; }
+             if (res === 'draw') { color = '#9E9E9E'; text = '-'; }
              return (
                <View key={i} style={[styles.indicatorCircle, { backgroundColor: color }]}>
                  {text ? <Text style={styles.indicatorText}>{text}</Text> : null}
@@ -150,6 +151,7 @@ export default function GameScreen() {
              let text = '';
              if (res === 'win') { color = '#4CAF50'; text = '✓'; }
              if (res === 'lose') { color = '#E53935'; text = '✗'; }
+             if (res === 'draw') { color = '#9E9E9E'; text = '-'; }
              return (
                <View key={i} style={[styles.indicatorCircle, { backgroundColor: color }]}>
                  {text ? <Text style={styles.indicatorText}>{text}</Text> : null}
