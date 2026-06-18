@@ -96,9 +96,8 @@ export default function GameScreen() {
       }]);
 
       const checkScores = setTimeout(() => {
-        // Evaluate overall winner if 3 rounds are completed. Note: `round` is incremented after makeChoice.
-        // If we just completed round 3, `round` is now 4 in the store.
-        if (round > 3) {
+        const targetWins = Math.ceil(matchState.maxRounds / 2);
+        if (userScore >= targetWins || computerScore >= targetWins || round > matchState.maxRounds) {
           if (userScore > computerScore) {
             incrementStreak();
             router.replace('/game/victory');
@@ -164,7 +163,7 @@ export default function GameScreen() {
         
         {/* BOT side indicators */}
         <View style={styles.botIndicators}>
-          {Array.from({ length: 3 }).map((_, i) => {
+          {Array.from({ length: matchState.maxRounds }).map((_, i) => {
              const res = roundHistory[i]?.botResult;
              let color = 'transparent';
              let text = '';
@@ -181,7 +180,7 @@ export default function GameScreen() {
 
         {/* PLAYER side indicators */}
         <View style={styles.playerIndicators}>
-          {Array.from({ length: 3 }).map((_, i) => {
+          {Array.from({ length: matchState.maxRounds }).map((_, i) => {
              const res = roundHistory[i]?.userResult;
              let color = 'transparent';
              let text = '';

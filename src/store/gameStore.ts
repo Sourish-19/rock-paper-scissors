@@ -10,6 +10,7 @@ export interface MatchState {
   userScore: number;
   computerScore: number;
   round: number;
+  maxRounds: number;
   gameMode: 'single' | 'multi';
 }
 
@@ -29,6 +30,7 @@ export interface GameStore {
   resetMatch: () => void;
   resetScore: () => void;
   setGameMode: (mode: 'single' | 'multi') => void;
+  setMaxRounds: (maxRounds: number) => void;
   incrementStreak: () => void;
   resetStreak: () => void;
 }
@@ -40,6 +42,7 @@ const initialMatchState: MatchState = {
   userScore: 0,
   computerScore: 0,
   round: 1,
+  maxRounds: 3,
   gameMode: 'single',
 };
 
@@ -94,12 +97,19 @@ export const useGameStore = create<GameStore>((set) => ({
     matchState: {
       ...initialMatchState,
       gameMode: state.matchState.gameMode,
+      maxRounds: state.matchState.maxRounds,
     }
   })),
   setGameMode: (gameMode) => set((state) => ({
     matchState: {
       ...state.matchState,
       gameMode,
+    }
+  })),
+  setMaxRounds: (maxRounds) => set((state) => ({
+    matchState: {
+      ...state.matchState,
+      maxRounds,
     }
   })),
   incrementStreak: () => set((state) => ({ winStreak: state.winStreak + 1 })),

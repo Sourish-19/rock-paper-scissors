@@ -32,6 +32,12 @@ export default function TabLayout() {
         <AnimatedSplashOverlay />
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="index" />
+          <Stack.Screen name="home" />
+          <Stack.Screen name="loading" />
+          <Stack.Screen name="onboarding" />
+          <Stack.Screen name="login" />
+          <Stack.Screen name="signup" />
+          <Stack.Screen name="game-mode" />
           <Stack.Screen name="game/index" />
           <Stack.Screen name="game/victory" />
           <Stack.Screen name="game/defeat" />
