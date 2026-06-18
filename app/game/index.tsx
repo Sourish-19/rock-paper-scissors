@@ -14,6 +14,7 @@ export default function GameScreen() {
   const [phase, setPhase] = useState<'selecting' | 'counting' | 'outcome'>('selecting');
   const [countdown, setCountdown] = useState<3 | 2 | 1 | 'SHOOT'>(3);
   const [roundHistory, setRoundHistory] = useState<{userResult: GameResult, botResult: GameResult}[]>([]);
+  const [isAutoplay, setIsAutoplay] = useState(false);
 
   // Animations
   const shakePlayerY = useRef(new Animated.Value(0)).current;
@@ -25,6 +26,17 @@ export default function GameScreen() {
     resetMatch();
     setRoundHistory([]);
   }, []);
+
+  useEffect(() => {
+    if (isAutoplay && phase === 'selecting') {
+      const choices: ('rock' | 'paper' | 'scissors')[] = ['rock', 'paper', 'scissors'];
+      const timer = setTimeout(() => {
+        const randomChoice = choices[Math.floor(Math.random() * choices.length)];
+        playRound(randomChoice);
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [isAutoplay, phase]);
 
   const startShaking = () => {
     shakePlayerY.setValue(0);
@@ -122,6 +134,30 @@ export default function GameScreen() {
     }
   };
 
+  const getHandStyle = (isBot: boolean, choice: Choice, currentPhase: string) => {
+    const gesture = (currentPhase === 'counting' || currentPhase === 'selecting') ? 'rock' : (choice || 'rock');
+    let width = 280;
+    let aspectRatio = 1;
+    
+    if (isBot) {
+      if (gesture === 'rock') aspectRatio = 338 / 318;
+      else if (gesture === 'paper') aspectRatio = 338 / 384;
+      else if (gesture === 'scissors') aspectRatio = 262 / 232;
+    } else {
+      if (gesture === 'rock') {
+        aspectRatio = 263 / 166;
+        width = 240;
+      }
+      else if (gesture === 'paper') aspectRatio = 338 / 384;
+      else if (gesture === 'scissors') aspectRatio = 262 / 232;
+    }
+    
+    return {
+      width,
+      aspectRatio,
+    };
+  };
+
   return (
     <CheckerboardBackground>
       <SafeAreaView style={styles.container}>
@@ -168,9 +204,18 @@ export default function GameScreen() {
           <PixelText style={styles.nameText}>{userProfile?.username?.toUpperCase() || 'SOU'}</PixelText>
         </View>
 
+        <Pressable 
+          onPress={() => setIsAutoplay(prev => !prev)} 
+          style={styles.autoplayToggle}
+        >
+          <PixelText style={styles.autoplayToggleText}>
+            {isAutoplay ? "AUTO: ON" : "AUTO: OFF"}
+          </PixelText>
+        </Pressable>
+
         <View style={styles.arena}>
           <Animated.View style={[styles.botHandContainer, { transform: [{ translateY: shakeBotY }] }]}>
-            <Image source={getHandSource(true, computerChoice, phase)} style={styles.handImageTop} contentFit="contain" />
+            <Image source={getHandSource(true, computerChoice, phase)} style={getHandStyle(true, computerChoice, phase)} contentFit="contain" />
           </Animated.View>
 
           {phase === 'counting' && (
@@ -182,7 +227,7 @@ export default function GameScreen() {
           )}
 
           <Animated.View style={[styles.playerHandContainer, { transform: [{ translateY: shakePlayerY }] }]}>
-            <Image source={getHandSource(false, userChoice, phase)} style={styles.handImageBottom} contentFit="contain" />
+            <Image source={getHandSource(false, userChoice, phase)} style={getHandStyle(false, userChoice, phase)} contentFit="contain" />
           </Animated.View>
         </View>
 
@@ -214,12 +259,26 @@ const styles = StyleSheet.create({
   playerNameContainer: { position: 'absolute', bottom: 120, right: 24, zIndex: 10 },
   nameText: { fontSize: 24 },
   arena: { flex: 1, justifyContent: 'space-between', alignItems: 'center' },
-  botHandContainer: { position: 'absolute', top: -50, width: '100%', alignItems: 'center' },
-  playerHandContainer: { position: 'absolute', bottom: -50, width: '100%', alignItems: 'center' },
-  handImageTop: { width: 350, height: 400 },
-  handImageBottom: { width: 350, height: 400 },
+  botHandContainer: { position: 'absolute', top: -20, width: '100%', alignItems: 'center' },
+  playerHandContainer: { position: 'absolute', bottom: 100, width: '100%', alignItems: 'center' },
   centerTextContainer: { position: 'absolute', top: '45%', zIndex: 20 },
   countdownText: { fontSize: 64 },
   choicesRow: { flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', paddingBottom: 20, position: 'absolute', bottom: 20, width: '100%', zIndex: 30 },
   choiceBtn: { width: 90, height: 90 },
+  autoplayToggle: {
+    position: 'absolute',
+    top: 40,
+    right: 24,
+    zIndex: 50,
+    backgroundColor: '#FFDE4D',
+    borderWidth: 3,
+    borderColor: '#000000',
+    padding: 6,
+    borderRadius: 6,
+  },
+  autoplayToggleText: {
+    fontFamily: 'PressStart2P_400Regular',
+    fontSize: 8,
+    color: '#000000',
+  },
 });
