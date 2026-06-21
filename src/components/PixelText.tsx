@@ -68,13 +68,13 @@ export const PixelText: React.FC<PixelTextProps> = ({
       {/* Hidden layout text to properly size the container and provide wrapping constraints */}
       <Text style={[styles.baseText, style, { color: 'transparent' }]}>{children}</Text>
       
-      {/* 3D shadow layer (shifted +4, +4 as per retro design) */}
+      {/* 3D shadow layer (shifted +2, +2 as per retro design) */}
       <StrokeText 
         style={style} 
         color={strokeColor} 
         strokeColor={strokeColor} 
-        offsetX={4} 
-        offsetY={4} 
+        offsetX={2} 
+        offsetY={2} 
       >
         {children}
       </StrokeText>
