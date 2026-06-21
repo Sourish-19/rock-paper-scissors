@@ -1,38 +1,41 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, SafeAreaView, TextInput, Pressable, Text, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
-import { supabase } from '@/lib/supabase';
+import { auth } from '@/lib/firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useGameStore } from '@/store/gameStore';
 import { RetroButton } from '@/components/RetroButton';
 import { PixelText } from '@/components/PixelText';
 
 export default function LoginScreen() {
   const router = useRouter();
-  const { setUserSession } = useGameStore();
+  const { setUserSession, setUserProfile, userProfile } = useGameStore();
   
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleLogin = async () => {
+    setErrorMessage('');
     if (!email || !password) {
-      Alert.alert('Error', 'Please enter email and password.');
+      setErrorMessage('Please enter email and password.');
       return;
     }
 
     setLoading(true);
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    if (error) {
-      Alert.alert('Login Failed', error.message);
-      setLoading(false);
-    } else {
-      setUserSession(data.session);
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      setUserSession(userCredential.user);
+      if (userCredential.user.displayName) {
+        setUserProfile({ ...userProfile, username: userCredential.user.displayName });
+      }
       setLoading(false);
       router.replace('/home');
+    } catch (error: any) {
+      console.error('Login Error:', error);
+      setErrorMessage(error.message || 'Login failed');
+      setLoading(false);
     }
   };
 
@@ -44,6 +47,11 @@ export default function LoginScreen() {
         </View>
 
         <View style={styles.formContainer}>
+          {errorMessage ? (
+            <Text style={{ color: 'red', fontFamily: 'PressStart2P_400Regular', fontSize: 10, marginBottom: 10, textAlign: 'center' }}>
+              {errorMessage}
+            </Text>
+          ) : null}
           <TextInput
             style={styles.input}
             placeholder="Email"

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, SafeAreaView, TextInput, Pressable, Text, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
-import { supabase } from '@/lib/supabase';
+import { auth } from '@/lib/firebase';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { RetroButton } from '@/components/RetroButton';
 import { PixelText } from '@/components/PixelText';
 
@@ -12,31 +13,27 @@ export default function SignupScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSignup = async () => {
+    setErrorMessage('');
     if (!email || !password || !username) {
-      Alert.alert('Error', 'Please fill in all fields.');
+      setErrorMessage('Please fill in all fields.');
       return;
     }
 
     setLoading(true);
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        data: {
-          username: username,
-        }
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      if (userCredential.user) {
+        await updateProfile(userCredential.user, { displayName: username });
       }
-    });
-
-    if (error) {
-      Alert.alert('Signup Failed', error.message);
-      setLoading(false);
-    } else {
-      Alert.alert('Success', 'Account created! Please log in.');
       setLoading(false);
       router.replace('/login');
+    } catch (error: any) {
+      console.error('Signup Error:', error);
+      setErrorMessage(error.message || 'Signup failed');
+      setLoading(false);
     }
   };
 
@@ -48,6 +45,11 @@ export default function SignupScreen() {
         </View>
 
         <View style={styles.formContainer}>
+          {errorMessage ? (
+            <Text style={{ color: 'red', fontFamily: 'PressStart2P_400Regular', fontSize: 10, marginBottom: 10, textAlign: 'center' }}>
+              {errorMessage}
+            </Text>
+          ) : null}
           <TextInput
             style={styles.input}
             placeholder="Username"
