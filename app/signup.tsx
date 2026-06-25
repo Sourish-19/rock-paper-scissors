@@ -1,10 +1,57 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, SafeAreaView, TextInput, Pressable, Text, Alert } from 'react-native';
+import { StyleSheet, View, SafeAreaView, TextInput, Pressable, Text, Alert, ImageBackground, Modal, Dimensions, Platform } from 'react-native';
 import { useRouter } from 'expo-router';
+import { Image } from 'expo-image';
 import { auth } from '@/lib/firebase';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { RetroButton } from '@/components/RetroButton';
 import { PixelText } from '@/components/PixelText';
+
+const { width, height } = Dimensions.get('window');
+
+const InputField = ({ placeholder, value, onChangeText, secureTextEntry, keyboardType, autoCapitalize, hasError }: any) => {
+  return (
+    <ImageBackground
+      source={hasError 
+        ? require('../assets/authentiction_screen/USERNAME TEXT INPUT BOX ERROR STATE.png') 
+        : require('../assets/authentiction_screen/PASSWORD TEXT INPUT BOX.png')
+      }
+      style={styles.inputWrapper}
+      resizeMode="stretch"
+    >
+      <TextInput
+        style={styles.textInputInside}
+        placeholder={placeholder}
+        placeholderTextColor="#999"
+        value={value}
+        onChangeText={onChangeText}
+        secureTextEntry={secureTextEntry}
+        keyboardType={keyboardType}
+        autoCapitalize={autoCapitalize}
+        autoCorrect={false}
+        autoComplete="off"
+      />
+    </ImageBackground>
+  );
+};
+
+const AuthButton = ({ onPress, title, loading }: any) => {
+  return (
+    <Pressable onPress={onPress} disabled={loading} style={({ pressed }) => [
+      styles.buttonContainer,
+      pressed && { transform: [{ translateY: 4 }] }
+    ]}>
+      <ImageBackground
+        source={require('../assets/authentiction_screen/button.png')}
+        style={styles.buttonBg}
+        resizeMode="stretch"
+      >
+        <PixelText fillColor="#FFFFFF" strokeColor="#000000" style={styles.buttonText}>
+          {loading ? "WAIT..." : title}
+        </PixelText>
+      </ImageBackground>
+    </Pressable>
+  );
+};
 
 export default function SignupScreen() {
   const router = useRouter();
@@ -13,12 +60,32 @@ export default function SignupScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [usernameError, setUsernameError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [errorType, setErrorType] = useState<string | null>(null);
 
   const handleSignup = async () => {
-    setErrorMessage('');
-    if (!email || !password || !username) {
-      setErrorMessage('Please fill in all fields.');
+    setUsernameError(false);
+    setEmailError(false);
+    setPasswordError(false);
+    
+    let hasError = false;
+    if (!username) {
+      setUsernameError(true);
+      hasError = true;
+    }
+    if (!email) {
+      setEmailError(true);
+      hasError = true;
+    }
+    if (!password) {
+      setPasswordError(true);
+      hasError = true;
+    }
+    
+    if (hasError) {
+      setErrorType('missing_info');
       return;
     }
 
@@ -29,108 +96,223 @@ export default function SignupScreen() {
         await updateProfile(userCredential.user, { displayName: username });
       }
       setLoading(false);
-      router.replace('/login');
+      setErrorType('account_created'); // Show account created success modal
     } catch (error: any) {
       console.error('Signup Error:', error);
-      setErrorMessage(error.message || 'Signup failed');
+      const code = error.code;
+      if (code === 'auth/email-already-in-use') {
+        setEmailError(true);
+        setErrorType('username_taken');
+      } else if (code === 'auth/weak-password') {
+        setPasswordError(true);
+        setErrorType('weak_pass');
+      } else {
+        setErrorType('login_failed_un');
+      }
       setLoading(false);
     }
   };
 
   return (
-    <View style={styles.background}>
+    <ImageBackground 
+      source={require('../assets/authentiction_screen/Sky.png')} 
+      style={styles.background}
+    >
       <SafeAreaView style={styles.container}>
+        
+        {/* Floating clouds in background */}
+        <Image 
+          source={require('../assets/general/cloud_1.png')} 
+          style={[styles.cloud, { top: height * 0.08, right: -10, width: 130, height: 65 }]} 
+          contentFit="contain" 
+        />
+        <Image 
+          source={require('../assets/general/cloud_2.png')} 
+          style={[styles.cloud, { top: height * 0.15, left: 10, width: 110, height: 55 }]} 
+          contentFit="contain" 
+        />
+        
+        {/* Floating hand elements */}
+        <Image 
+          source={require('../assets/authentiction_screen/Paper.png')} 
+          style={[styles.floatingHand, { top: '15%', right: '12%' }]} 
+          contentFit="contain" 
+        />
+        <Image 
+          source={require('../assets/authentiction_screen/Scissors.png')} 
+          style={[styles.floatingHand, { top: '10%', left: '8%' }]} 
+          contentFit="contain" 
+        />
+        <Image 
+          source={require('../assets/authentiction_screen/Stone.png')} 
+          style={[styles.floatingHand, { bottom: '15%', left: '10%' }]} 
+          contentFit="contain" 
+        />
+
         <View style={styles.titleContainer}>
-          <PixelText style={styles.titleText}>SIGN UP</PixelText>
+          <Image
+            source={require('../assets/authentiction_screen/sign_up.png')}
+            style={styles.titleImage}
+            contentFit="contain"
+          />
         </View>
 
         <View style={styles.formContainer}>
-          {errorMessage ? (
-            <Text style={{ color: 'red', fontFamily: 'PressStart2P_400Regular', fontSize: 10, marginBottom: 10, textAlign: 'center' }}>
-              {errorMessage}
-            </Text>
-          ) : null}
-          <TextInput
-            style={styles.input}
+          <InputField
             placeholder="Username"
-            placeholderTextColor="#666"
             value={username}
             onChangeText={setUsername}
             autoCapitalize="none"
+            hasError={usernameError}
           />
-          <TextInput
-            style={styles.input}
+          <InputField
             placeholder="Email"
-            placeholderTextColor="#666"
             value={email}
             onChangeText={setEmail}
-            autoCapitalize="none"
             keyboardType="email-address"
+            autoCapitalize="none"
+            hasError={emailError}
           />
-          <TextInput
-            style={styles.input}
+          <InputField
             placeholder="Password"
-            placeholderTextColor="#666"
             value={password}
             onChangeText={setPassword}
             secureTextEntry
+            hasError={passwordError}
           />
 
-          <View style={styles.buttonWrapper}>
-            <RetroButton
-              title={loading ? "WAIT..." : "SIGN UP"}
-              onPress={handleSignup}
-              backgroundColor="#FFDE4D"
-            />
-          </View>
+          <AuthButton
+            title="SIGN UP"
+            onPress={handleSignup}
+            loading={loading}
+          />
 
           <Pressable onPress={() => router.replace('/login')} style={styles.loginLink}>
             <Text style={styles.loginText}>Already have an account? <Text style={styles.loginBold}>LOG IN</Text></Text>
           </Pressable>
         </View>
+
+        {/* Custom Status/Error Popup Modal */}
+        {errorType && (
+          <Modal transparent visible={!!errorType} animationType="fade">
+            <View style={styles.modalOverlay}>
+              <View style={styles.modalContent}>
+                <ImageBackground
+                  source={
+                    errorType === 'missing_info' ? require('../assets/authentiction_screen/missing_info.png') :
+                    errorType === 'username_taken' ? require('../assets/authentiction_screen/username_taken.png') :
+                    errorType === 'weak_pass' ? require('../assets/authentiction_screen/weak_pass.png') :
+                    errorType === 'account_created' ? require('../assets/authentiction_screen/account_created.png') :
+                    require('../assets/authentiction_screen/missing_info.png')
+                  }
+                  style={styles.popupBg}
+                  resizeMode="contain"
+                >
+                  <Pressable 
+                    onPress={() => {
+                      if (errorType === 'account_created') {
+                        setErrorType(null);
+                        router.replace('/login');
+                      } else {
+                        setErrorType(null);
+                      }
+                    }}
+                    style={({ pressed }) => [
+                      styles.popupOkBtn,
+                      pressed && { transform: [{ translateY: 2 }] }
+                    ]}
+                  >
+                    <ImageBackground
+                      source={require('../assets/authentiction_screen/ok_button.png')}
+                      style={styles.okBtnBg}
+                      resizeMode="stretch"
+                    >
+                      <PixelText fillColor="#FFFFFF" strokeColor="#000000" style={styles.okBtnText}>
+                        OK
+                      </PixelText>
+                    </ImageBackground>
+                  </Pressable>
+                </ImageBackground>
+              </View>
+            </View>
+          </Modal>
+        )}
+
       </SafeAreaView>
-    </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    backgroundColor: '#4DB8FF',
+    width: '100%',
+    height: '100%',
   },
   container: {
     flex: 1,
     paddingHorizontal: 24,
     justifyContent: 'center',
   },
+  cloud: {
+    position: 'absolute',
+    opacity: 0.8,
+  },
+  floatingHand: {
+    position: 'absolute',
+    width: 60,
+    height: 60,
+    zIndex: 1,
+  },
   titleContainer: {
     alignItems: 'center',
     marginBottom: 40,
+    zIndex: 2,
   },
-  titleText: {
-    fontSize: 32,
-    color: '#FFFFFF',
-    textShadowColor: '#000000',
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 0,
+  titleImage: {
+    width: 280,
+    height: 60,
   },
   formContainer: {
     width: '100%',
+    zIndex: 2,
   },
-  input: {
-    backgroundColor: '#FFFFFF',
-    borderWidth: 4,
-    borderColor: '#000000',
-    borderRadius: 8,
-    padding: 16,
+  inputWrapper: {
+    width: '100%',
+    height: 64,
     marginBottom: 16,
+    justifyContent: 'center',
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+  },
+  textInputInside: {
     fontFamily: 'PressStart2P_400Regular',
     fontSize: 10,
     color: '#000000',
+    flex: 1,
+    backgroundColor: 'transparent',
+    borderWidth: 0,
+    textAlign: 'center',
+    ...Platform.select({
+      web: {
+        outlineStyle: 'none',
+      },
+    }),
+  } as any,
+  buttonContainer: {
+    width: '100%',
+    height: 60,
+    marginTop: 10,
+    marginBottom: 10,
   },
-  buttonWrapper: {
-    marginTop: 20,
-    marginBottom: 20,
+  buttonBg: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: 14,
   },
   loginLink: {
     alignItems: 'center',
@@ -139,10 +321,44 @@ const styles = StyleSheet.create({
   loginText: {
     fontFamily: 'PressStart2P_400Regular',
     fontSize: 8,
-    color: '#FFFFFF',
+    color: '#000000',
   },
   loginBold: {
     color: '#FFDE4D',
     textDecorationLine: 'underline',
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContent: {
+    width: '90%',
+    maxWidth: 360,
+    aspectRatio: 1448 / 615,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  popupBg: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    paddingBottom: 16,
+  },
+  popupOkBtn: {
+    width: '45%',
+    aspectRatio: 673 / 289,
+    marginBottom: 8,
+  },
+  okBtnBg: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  okBtnText: {
+    fontSize: 10,
   },
 });

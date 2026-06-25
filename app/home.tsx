@@ -1,11 +1,30 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { StyleSheet, View, Text, SafeAreaView, Animated, Pressable } from 'react-native';
+import { StyleSheet, View, Text, SafeAreaView, Animated, Pressable, ImageBackground } from 'react-native';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { useGameStore } from '@/store/gameStore';
 import { useMusic } from '@/components/MusicProvider';
 import { RetroButton } from '@/components/RetroButton';
 import { PixelText } from '@/components/PixelText';
+
+const HomeButton = ({ onPress, title }: any) => {
+  return (
+    <Pressable onPress={onPress} style={({ pressed }) => [
+      styles.homeBtnContainer,
+      pressed && { transform: [{ translateY: 4 }] }
+    ]}>
+      <ImageBackground
+        source={require('../assets/home_screen/game_button.png')}
+        style={styles.homeBtnBg}
+        resizeMode="stretch"
+      >
+        <PixelText fillColor="#FFFFFF" strokeColor="#000000" style={styles.homeBtnText}>
+          {title}
+        </PixelText>
+      </ImageBackground>
+    </Pressable>
+  );
+};
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -44,79 +63,120 @@ export default function HomeScreen() {
   };
 
   return (
-    <View style={styles.background}>
-      <SafeAreaView style={styles.container}>
-        {/* Top Header Row */}
-        <View style={styles.header}>
-          {/* Profile Badge */}
-          <View style={styles.profileBadge}>
-            <View style={styles.profileImageContainer}>
+    <ImageBackground 
+      source={require('../assets/home_screen/Sky.png')} 
+      style={styles.background}
+    >
+      <SafeAreaView style={styles.safeArea}>
+        
+        {/* Floating clouds in background */}
+        <Image 
+          source={require('../assets/general/cloud_1.png')} 
+          style={[styles.cloud, { top: 120, left: -25, width: 140, height: 70 }]} 
+          contentFit="contain" 
+        />
+        <Image 
+          source={require('../assets/general/cloud_2.png')} 
+          style={[styles.cloud, { top: 70, right: -15, width: 110, height: 55 }]} 
+          contentFit="contain" 
+        />
+
+        <View style={styles.container}>
+          {/* Top Header Row */}
+          <View style={styles.header}>
+            {/* Profile Badge card using profile_holder.png */}
+            <ImageBackground
+              source={require('../assets/home_screen/profile_holder.png')}
+              style={styles.profileBadgeBg}
+              resizeMode="stretch"
+            >
+              <View style={styles.profileContent}>
+                <Image 
+                  source={require('../assets/home_screen/male_profile_pic.png')} 
+                  style={styles.profileImage} 
+                  contentFit="contain" 
+                />
+                <View style={styles.profileInfo}>
+                  <Text style={styles.profileName} numberOfLines={1}>{userProfile.username}</Text>
+                  <View style={styles.crownRow}>
+                    <Image 
+                      source={require('../assets/home_screen/CROWN BLOCKS.png')} 
+                      style={styles.crownImage} 
+                      contentFit="contain" 
+                    />
+                    <Text style={styles.crownText}>{userProfile.crowns}</Text>
+                  </View>
+                </View>
+              </View>
+            </ImageBackground>
+
+            {/* Settings Icon */}
+            <Pressable onPress={toggleMute} style={({ pressed }) => [{ opacity: isMuted ? 0.5 : 1 }, pressed && { transform: [{ scale: 0.95 }] }]}>
               <Image 
-                source={require('../assets/images/characters/char_avatar_idle.png')} 
-                style={styles.profileImage} 
-                contentFit="cover" 
+                source={require('../assets/home_screen/Settings Button.png')} 
+                style={styles.settingsIcon} 
+                contentFit="contain" 
               />
-            </View>
-            <View style={styles.profileInfo}>
-              <View style={styles.profileNameBox}>
-                <Text style={styles.profileName}>{userProfile.username}</Text>
-              </View>
-              <View style={styles.crownBox}>
-                 <Text style={styles.crownIcon}>👑</Text>
-                 <Text style={styles.crownText}>{userProfile.crowns}</Text>
-              </View>
-            </View>
+            </Pressable>
           </View>
 
-          {/* Settings Icon */}
-          <Pressable onPress={toggleMute} style={{ opacity: isMuted ? 0.5 : 1 }}>
-            <Image 
-              source={require('../assets/images/buttons/btn_settings.png')} 
-              style={styles.settingsIcon} 
-              contentFit="contain" 
+          {/* Title Logo Section */}
+          <View style={styles.titleContainer}>
+            <Image
+              source={require('../assets/home_screen/logo.png')}
+              style={styles.logoImage}
+              contentFit="contain"
             />
-          </Pressable>
-        </View>
+          </View>
 
-        {/* Title Section */}
-        <View style={styles.titleContainer}>
-           <PixelText style={styles.titleText} strokeColor="#000000" fillColor="#FFFFFF">
-             ROCK{'\n'}PAPER{'\n'}SCISSORS
-           </PixelText>
-        </View>
+          {/* Center Character Area (Floating Island & SMILE GUY) */}
+          <View style={styles.avatarSection}>
+            <Animated.View style={{ transform: [{ translateY: floatAnim }], alignItems: 'center' }}>
+              <View style={styles.islandGroup}>
+                {/* Floating Island crumbles */}
+                <Image 
+                  source={require('../assets/home_screen/floating_island_crumble_1.png')} 
+                  style={[styles.crumble, { bottom: 18, left: 30, width: 12, height: 14 }]} 
+                  contentFit="contain" 
+                />
+                <Image 
+                  source={require('../assets/home_screen/floating_island_crumble_2.png')} 
+                  style={[styles.crumble, { bottom: 8, right: 35, width: 18, height: 20 }]} 
+                  contentFit="contain" 
+                />
+                <Image 
+                  source={require('../assets/home_screen/floating_island_crumble_3.png')} 
+                  style={[styles.crumble, { bottom: -12, left: 95, width: 14, height: 16 }]} 
+                  contentFit="contain" 
+                />
 
-        {/* Center Character Area (Floating Island & Idle Avatar) */}
-        <View style={styles.avatarSection}>
-          <Animated.View style={{ transform: [{ translateY: floatAnim }], alignItems: 'center' }}>
-            {/* Floating Island (rendered behind the character by ordering) */}
-            <View style={styles.islandGroup}>
-              <Image 
-                source={require('../assets/images/decorations/floating_island.png')} 
-                style={styles.island} 
-                contentFit="contain" 
-              />
-              {/* The Avatar */}
-              <Image 
-                source={require('../assets/images/characters/char_avatar_idle.png')} 
-                style={styles.character} 
-                contentFit="contain" 
-              />
-            </View>
-          </Animated.View>
-        </View>
+                {/* Floating Island */}
+                <Image 
+                  source={require('../assets/home_screen/floating_island.png')} 
+                  style={styles.island} 
+                  contentFit="contain" 
+                />
+                {/* The Character (SMILE GUY) */}
+                <Image 
+                  source={require('../assets/home_screen/SMILE_GUY.png')} 
+                  style={styles.character} 
+                  contentFit="contain" 
+                />
+              </View>
+            </Animated.View>
+          </View>
 
-        {/* Action Buttons */}
-        <View style={styles.buttonsContainer}>
-          <RetroButton
-            title="PLAY VS BOT"
-            onPress={handlePlayVsBot}
-            backgroundColor="#FFDE4D"
-          />
-          <RetroButton
-            title="PLAY VS FRIEND"
-            onPress={handlePlayVsFriend}
-            backgroundColor="#FFDE4D"
-          />
+          {/* Action Buttons */}
+          <View style={styles.buttonsContainer}>
+            <HomeButton
+              title="PLAY VS BOT"
+              onPress={handlePlayVsBot}
+            />
+            <HomeButton
+              title="PLAY VS FRIEND"
+              onPress={handlePlayVsFriend}
+            />
+          </View>
         </View>
 
         {/* Custom Retro Modal for Multiplayer */}
@@ -138,14 +198,18 @@ export default function HomeScreen() {
           </View>
         )}
       </SafeAreaView>
-    </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    backgroundColor: '#4DB8FF', // matching the blue sky from design
+    width: '100%',
+    height: '100%',
+  },
+  safeArea: {
+    flex: 1,
   },
   container: {
     flex: 1,
@@ -153,68 +217,52 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingVertical: 20,
   },
+  cloud: {
+    position: 'absolute',
+    opacity: 0.7,
+  },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     width: '100%',
     marginTop: 10,
+    zIndex: 3,
   },
-  profileBadge: {
-    flexDirection: 'row',
-    backgroundColor: '#FFDE4D',
-    borderWidth: 3,
-    borderColor: '#000000',
-    borderRadius: 8,
-    padding: 4,
-    alignItems: 'center',
-  },
-  profileImageContainer: {
-    width: 40,
-    height: 40,
-    borderWidth: 2,
-    borderColor: '#000000',
-    backgroundColor: '#4DB8FF',
-    borderRadius: 4,
-    overflow: 'hidden',
+  profileBadgeBg: {
+    width: 170,
+    height: 66,
     justifyContent: 'center',
+    paddingLeft: 8,
+  },
+  profileContent: {
+    flexDirection: 'row',
     alignItems: 'center',
   },
   profileImage: {
-    width: 32,
-    height: 32,
-    marginTop: 8,
+    width: 42,
+    height: 42,
+    borderRadius: 8,
   },
   profileInfo: {
-    marginLeft: 6,
-    justifyContent: 'space-between',
-    height: 40,
-  },
-  profileNameBox: {
-    backgroundColor: '#FFFFFF',
-    borderWidth: 2,
-    borderColor: '#000000',
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    borderRadius: 4,
+    marginLeft: 8,
+    justifyContent: 'center',
+    flex: 1,
+    paddingRight: 8,
   },
   profileName: {
     fontFamily: 'PressStart2P_400Regular',
-    fontSize: 8,
+    fontSize: 9,
     color: '#000000',
+    marginBottom: 4,
   },
-  crownBox: {
+  crownRow: {
     flexDirection: 'row',
-    backgroundColor: '#FFDE4D',
-    borderWidth: 2,
-    borderColor: '#000000',
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    borderRadius: 4,
     alignItems: 'center',
   },
-  crownIcon: {
-    fontSize: 10,
+  crownImage: {
+    width: 16,
+    height: 14,
     marginRight: 4,
   },
   crownText: {
@@ -223,17 +271,17 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   settingsIcon: {
-    width: 48,
-    height: 48,
+    width: 52,
+    height: 52,
   },
   titleContainer: {
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 5,
+    zIndex: 3,
   },
-  titleText: {
-    fontSize: 36,
-    lineHeight: 44,
-    textAlign: 'center',
+  logoImage: {
+    width: 250,
+    height: 160,
   },
   avatarSection: {
     flex: 1,
@@ -244,25 +292,45 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: 280,
-    height: 280,
+    height: 240,
   },
   character: {
-    width: 110,
-    aspectRatio: 149 / 219,
+    width: 90,
+    height: 120,
     position: 'absolute',
-    bottom: 45,
+    bottom: 50,
     zIndex: 2,
   },
   island: {
     width: 260,
-    aspectRatio: 353 / 170,
+    height: 191,
     position: 'absolute',
     bottom: 0,
     zIndex: 1,
   },
+  crumble: {
+    position: 'absolute',
+    zIndex: 1,
+    opacity: 0.8,
+  },
   buttonsContainer: {
     width: '100%',
     paddingBottom: 20,
+    zIndex: 3,
+  },
+  homeBtnContainer: {
+    width: '100%',
+    height: 60,
+    marginBottom: 16,
+  },
+  homeBtnBg: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  homeBtnText: {
+    fontSize: 14,
   },
   modalOverlay: {
     position: 'absolute',
