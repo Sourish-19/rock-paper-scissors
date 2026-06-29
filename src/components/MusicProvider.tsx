@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Audio } from 'expo-av';
+import { Platform } from 'react-native';
 
 interface MusicContextType {
   isMuted: boolean;
@@ -33,12 +34,37 @@ export const MusicProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         const initialVol = isMuted ? 0 : (musicVolume * 0.1);
         const { sound: playbackObject } = await Audio.Sound.createAsync(
           require('../../assets/sounds/retro_bgm.wav'),
-          { shouldPlay: !isMuted && musicVolume > 0, isLooping: true, volume: initialVol }
+          { shouldPlay: false, isLooping: true, volume: initialVol }
         );
 
         if (active) {
           setSound(playbackObject);
           loadedSound = playbackObject;
+
+          if (!isMuted && musicVolume > 0) {
+            try {
+              await playbackObject.playAsync();
+            } catch (playError) {
+              // If web autoplay is blocked, wait for user interaction to start playing
+              if (Platform.OS === 'web') {
+                const resumeBGM = async () => {
+                  try {
+                    if (loadedSound) {
+                      await loadedSound.playAsync();
+                    }
+                  } catch (e) {
+                    console.warn('Failed to play BGM on interaction:', e);
+                  }
+                  window.removeEventListener('click', resumeBGM);
+                  window.removeEventListener('touchstart', resumeBGM);
+                };
+                window.addEventListener('click', resumeBGM);
+                window.addEventListener('touchstart', resumeBGM);
+              } else {
+                console.warn('Failed to autoplay:', playError);
+              }
+            }
+          }
         } else {
           await playbackObject.unloadAsync();
         }
