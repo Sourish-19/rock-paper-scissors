@@ -134,9 +134,9 @@ const styles = StyleSheet.create({
     zIndex: 2,
   },
   modeBtnContainer: {
-    width: '80%',
+    width: 280,
+    height: 120,
     alignSelf: 'center',
-    aspectRatio: 673 / 289,
     marginBottom: 20,
   },
   modeBtnBg: {

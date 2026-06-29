@@ -17,6 +17,7 @@ export interface MatchState {
 export interface UserProfile {
   username: string;
   crowns: number;
+  gender?: 'male' | 'female';
 }
 
 export interface GameStore {
@@ -48,7 +49,7 @@ const initialMatchState: MatchState = {
 
 export const useGameStore = create<GameStore>((set) => ({
   userSession: null,
-  userProfile: { username: "SOURISH", crowns: 106 },
+  userProfile: { username: "SOURISH", crowns: 106, gender: 'male' },
   matchState: initialMatchState,
   winStreak: 0,
   setUserSession: (session) => set({ userSession: session }),

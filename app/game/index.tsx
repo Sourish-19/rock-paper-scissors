@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { StyleSheet, View, Text, SafeAreaView, Animated, Pressable } from 'react-native';
+import { StyleSheet, View, Text, SafeAreaView, Animated, Pressable, ImageBackground, Dimensions } from 'react-native';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { useGameStore, Choice, GameResult } from '@/store/gameStore';
-import { CheckerboardBackground } from '@/components/CheckboardBackground';
 import { PixelText } from '@/components/PixelText';
+
+const { width, height } = Dimensions.get('window');
 
 export default function GameScreen() {
   const router = useRouter();
@@ -12,7 +13,7 @@ export default function GameScreen() {
   const { userScore, computerScore, result, computerChoice, userChoice, round } = matchState;
 
   const [phase, setPhase] = useState<'selecting' | 'counting' | 'outcome'>('selecting');
-  const [countdown, setCountdown] = useState<3 | 2 | 1 | 'SHOOT'>(3);
+  const [countdown, setCountdown] = useState<3 | 2 | 1 | 'SHOOT' | ''>(3);
   const [roundHistory, setRoundHistory] = useState<{userResult: GameResult, botResult: GameResult}[]>([]);
   const [isAutoplay, setIsAutoplay] = useState(false);
 
@@ -81,11 +82,16 @@ export default function GameScreen() {
       countdownScale.setValue(0.5);
       Animated.spring(countdownScale, { toValue: 2.0, friction: 4, useNativeDriver: true }).start();
       makeChoice(choice);
+      
+      // Hide the SHOOT text after 1 second so you only see the hands clearly for the rest of the delay
+      setTimeout(() => {
+        setCountdown('');
+      }, 1000);
     }, 1800);
 
     setTimeout(() => {
       setPhase('outcome');
-    }, 2400);
+    }, 3800);
   };
 
   useEffect(() => {
@@ -117,63 +123,86 @@ export default function GameScreen() {
     }
   }, [phase, result]);
 
-  const getHandSource = (isBot: boolean, choice: Choice, currentPhase: string) => {
-    if (currentPhase === 'counting' || currentPhase === 'selecting') {
-      return isBot ? require('../../assets/images/hands/hand_bot_rock.png') : require('../../assets/images/hands/hand_player_rock.png');
+  const getHandSource = (isBot: boolean, choice: Choice) => {
+    if (!choice) {
+      return isBot 
+        ? require('../../assets/game_screen/HOLD STATE REDHANDS BLOCK.png') 
+        : require('../../assets/game_screen/HOLD STATE BLUE HANDS BLOCK.png');
     }
-    const c = choice || 'rock';
+    const c = choice;
     if (isBot) {
-      if (c === 'rock') return require('../../assets/images/hands/hand_bot_rock.png');
-      if (c === 'paper') return require('../../assets/images/hands/hand_bot_paper.png');
-      if (c === 'scissors') return require('../../assets/images/hands/hand_bot_scissors.png');
+      if (c === 'rock') return require('../../assets/game_screen/ROCK RED HAND BLOCKS.png');
+      if (c === 'paper') return require('../../assets/game_screen/PAPER RED HAND BLOCKS.png');
+      if (c === 'scissors') return require('../../assets/game_screen/SCISSOR RED HAND BLOCKS.png');
     } else {
-      if (c === 'rock') return require('../../assets/images/hands/hand_player_rock.png');
-      if (c === 'paper') return require('../../assets/images/hands/hand_player_paper.png');
-      if (c === 'scissors') return require('../../assets/images/hands/hand_player_scissors.png');
+      if (c === 'rock') return require('../../assets/game_screen/ROCK BLUE HAND BLOCKS.png');
+      if (c === 'paper') return require('../../assets/game_screen/PAPER BLUE HAND BLOCKS.png');
+      if (c === 'scissors') return require('../../assets/game_screen/SCISSOR BLUE HAND BLOCKS.png');
     }
   };
 
-  const getHandStyle = (isBot: boolean, choice: Choice, currentPhase: string) => {
-    const gesture = (currentPhase === 'counting' || currentPhase === 'selecting') ? 'rock' : (choice || 'rock');
-    let width = 280;
-    let aspectRatio = 1;
+  const getHandStyle = (choice: Choice) => {
+    const gesture = choice || 'rock';
+    let widthVal = 140;
+    let heightVal = 240;
     
-    if (isBot) {
-      if (gesture === 'rock') aspectRatio = 338 / 318;
-      else if (gesture === 'paper') aspectRatio = 338 / 384;
-      else if (gesture === 'scissors') aspectRatio = 262 / 232;
-    } else {
-      if (gesture === 'rock') {
-        aspectRatio = 263 / 166;
-        width = 240;
-      }
-      else if (gesture === 'paper') aspectRatio = 338 / 384;
-      else if (gesture === 'scissors') aspectRatio = 262 / 232;
+    if (gesture === 'rock') {
+      heightVal = widthVal * (1276 / 752); // ~237px
+    } else if (gesture === 'paper') {
+      heightVal = widthVal * (1540 / 708); // ~304px
+    } else if (gesture === 'scissors') {
+      heightVal = widthVal * (1540 / 748); // ~288px
     }
     
     return {
-      width,
-      aspectRatio,
+      width: widthVal,
+      height: heightVal,
     };
   };
 
   return (
-    <CheckerboardBackground>
+    <ImageBackground 
+      source={require('../../assets/game_screen/grass_Background.png')} 
+      style={styles.background}
+    >
       <SafeAreaView style={styles.container}>
         
+        {/* Settings/Exit Trigger */}
+        <Pressable 
+          onPress={() => router.replace('/home')} 
+          style={({ pressed }) => [styles.exitBtn, pressed && { transform: [{ scale: 0.95 }] }]}
+        >
+          <Image 
+            source={require('../../assets/game_screen/settings_icon.png')} 
+            style={styles.settingsIcon} 
+            contentFit="contain" 
+          />
+        </Pressable>
+
+        {/* Autoplay Toggle */}
+        <Pressable 
+          onPress={() => setIsAutoplay(prev => !prev)} 
+          style={styles.autoplayToggle}
+        >
+          <PixelText style={styles.autoplayToggleText} fillColor="#FFFFFF" strokeColor="#000000">
+            {isAutoplay ? "AUTO: ON" : "AUTO: OFF"}
+          </PixelText>
+        </Pressable>
+
         {/* BOT side indicators */}
         <View style={styles.botIndicators}>
           {Array.from({ length: matchState.maxRounds }).map((_, i) => {
              const res = roundHistory[i]?.botResult;
-             let color = 'transparent';
-             let text = '';
-             if (res === 'win') { color = '#4CAF50'; text = '✓'; }
-             if (res === 'lose') { color = '#E53935'; text = '✗'; }
-             if (res === 'draw') { color = '#9E9E9E'; text = '-'; }
+             let source = require('../../assets/game_screen/empty_score.png');
+             if (res === 'win') source = require('../../assets/game_screen/won_point.png');
+             if (res === 'lose') source = require('../../assets/game_screen/lost_point.png');
              return (
-               <View key={i} style={[styles.indicatorCircle, { backgroundColor: color }]}>
-                 {text ? <Text style={styles.indicatorText}>{text}</Text> : null}
-               </View>
+               <Image 
+                 key={i} 
+                 source={source} 
+                 style={styles.indicatorScore} 
+                 contentFit="contain" 
+               />
              );
           })}
         </View>
@@ -182,41 +211,42 @@ export default function GameScreen() {
         <View style={styles.playerIndicators}>
           {Array.from({ length: matchState.maxRounds }).map((_, i) => {
              const res = roundHistory[i]?.userResult;
-             let color = 'transparent';
-             let text = '';
-             if (res === 'win') { color = '#4CAF50'; text = '✓'; }
-             if (res === 'lose') { color = '#E53935'; text = '✗'; }
-             if (res === 'draw') { color = '#9E9E9E'; text = '-'; }
+             let source = require('../../assets/game_screen/empty_score.png');
+             if (res === 'win') source = require('../../assets/game_screen/won_point.png');
+             if (res === 'lose') source = require('../../assets/game_screen/lost_point.png');
              return (
-               <View key={i} style={[styles.indicatorCircle, { backgroundColor: color }]}>
-                 {text ? <Text style={styles.indicatorText}>{text}</Text> : null}
-               </View>
+               <Image 
+                 key={i} 
+                 source={source} 
+                 style={styles.indicatorScore} 
+                 contentFit="contain" 
+               />
              );
           })}
         </View>
 
         <View style={styles.botNameContainer}>
-          <PixelText style={styles.nameText}>BOT</PixelText>
+          <PixelText style={styles.nameText} fillColor="#FFDE4D" strokeColor="#000000">BOT</PixelText>
         </View>
         
         <View style={styles.playerNameContainer}>
-          <PixelText style={styles.nameText}>{userProfile?.username?.toUpperCase() || 'SOU'}</PixelText>
+          <PixelText style={styles.nameText} fillColor="#4DB8FF" strokeColor="#000000">
+            {userProfile?.username?.toUpperCase() || 'SOU'}
+          </PixelText>
         </View>
 
-        <Pressable 
-          onPress={() => setIsAutoplay(prev => !prev)} 
-          style={styles.autoplayToggle}
-        >
-          <PixelText style={styles.autoplayToggleText}>
-            {isAutoplay ? "AUTO: ON" : "AUTO: OFF"}
-          </PixelText>
-        </Pressable>
-
+        {/* Arena */}
         <View style={styles.arena}>
+          {/* Bot hand points downwards */}
           <Animated.View style={[styles.botHandContainer, { transform: [{ translateY: shakeBotY }] }]}>
-            <Image source={getHandSource(true, computerChoice, phase)} style={getHandStyle(true, computerChoice, phase)} contentFit="contain" />
+            <Image 
+              source={getHandSource(true, computerChoice)} 
+              style={[getHandStyle(computerChoice), { transform: [{ rotate: '180deg' }] }]} 
+              contentFit="contain" 
+            />
           </Animated.View>
 
+          {/* Countdown timer overlay */}
           {phase === 'counting' && (
             <Animated.View style={[styles.centerTextContainer, { transform: [{ scale: countdownScale }] }]}>
               <PixelText style={styles.countdownText} fillColor="#FFFFFF" strokeColor="#000000">
@@ -225,49 +255,92 @@ export default function GameScreen() {
             </Animated.View>
           )}
 
+          {/* Player hand points upwards */}
           <Animated.View style={[styles.playerHandContainer, { transform: [{ translateY: shakePlayerY }] }]}>
-            <Image source={getHandSource(false, userChoice, phase)} style={getHandStyle(false, userChoice, phase)} contentFit="contain" />
+            <Image 
+              source={getHandSource(false, userChoice)} 
+              style={getHandStyle(userChoice)} 
+              contentFit="contain" 
+            />
           </Animated.View>
         </View>
 
+        {/* Round Outcome Banner overlay */}
+        {phase === 'outcome' && result && (
+          <View style={styles.bannerOverlay}>
+            <ImageBackground
+              source={result === 'draw' ? require('../../assets/game_screen/draw_state.png') : require('../../assets/game_screen/round_result.png')}
+              style={styles.bannerBg}
+              resizeMode="stretch"
+            >
+              {result === 'lose' && (
+                <View style={styles.coverBox}>
+                  <PixelText fillColor="#F44336" strokeColor="#000000" style={styles.bannerText}>
+                    POINT TO BOT!
+                  </PixelText>
+                </View>
+              )}
+              {result === 'win' && (
+                <View style={styles.coverBox}>
+                  <PixelText fillColor="#4CAF50" strokeColor="#000000" style={styles.bannerText}>
+                    POINT TO YOU!
+                  </PixelText>
+                </View>
+              )}
+              {result === 'draw' && (
+                <View style={styles.coverBox}>
+                  <PixelText fillColor="#9E9E9E" strokeColor="#000000" style={styles.bannerText}>
+                    ROUND DRAW!
+                  </PixelText>
+                </View>
+              )}
+            </ImageBackground>
+          </View>
+        )}
+
+        {/* Player controls */}
         {phase === 'selecting' && (
           <View style={styles.choicesRow}>
-            <Pressable onPress={() => playRound('rock')}>
-              <Image source={require('../../assets/images/buttons/btn_rock.png')} style={styles.choiceBtn} />
+            <Pressable onPress={() => playRound('rock')} style={({ pressed }) => [styles.choicePressable, pressed && { transform: [{ translateY: 2 }] }]}>
+              <Image source={require('../../assets/game_screen/Stone.png')} style={styles.choiceIcon} contentFit="contain" />
             </Pressable>
-            <Pressable onPress={() => playRound('paper')}>
-              <Image source={require('../../assets/images/buttons/btn_paper.png')} style={styles.choiceBtn} />
+            <Pressable onPress={() => playRound('paper')} style={({ pressed }) => [styles.choicePressable, pressed && { transform: [{ translateY: 2 }] }]}>
+              <Image source={require('../../assets/game_screen/Paper.png')} style={styles.choiceIcon} contentFit="contain" />
             </Pressable>
-            <Pressable onPress={() => playRound('scissors')}>
-              <Image source={require('../../assets/images/buttons/btn_scissors.png')} style={styles.choiceBtn} />
+            <Pressable onPress={() => playRound('scissors')} style={({ pressed }) => [styles.choicePressable, pressed && { transform: [{ translateY: 2 }] }]}>
+              <Image source={require('../../assets/game_screen/Scissors.png')} style={styles.choiceIcon} contentFit="contain" />
             </Pressable>
           </View>
         )}
       </SafeAreaView>
-    </CheckerboardBackground>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, position: 'relative' },
-  botIndicators: { position: 'absolute', left: 24, top: '25%', gap: 12, zIndex: 10 },
-  playerIndicators: { position: 'absolute', right: 24, bottom: '25%', gap: 12, zIndex: 10 },
-  indicatorCircle: { width: 32, height: 32, borderRadius: 16, borderWidth: 4, borderColor: '#000000', justifyContent: 'center', alignItems: 'center' },
-  indicatorText: { fontFamily: 'PressStart2P_400Regular', fontSize: 12, color: '#000' },
-  botNameContainer: { position: 'absolute', top: 40, left: 24, zIndex: 10 },
-  playerNameContainer: { position: 'absolute', bottom: 120, right: 24, zIndex: 10 },
-  nameText: { fontSize: 24 },
-  arena: { flex: 1, justifyContent: 'space-between', alignItems: 'center' },
-  botHandContainer: { position: 'absolute', top: -20, width: '100%', alignItems: 'center' },
-  playerHandContainer: { position: 'absolute', bottom: 100, width: '100%', alignItems: 'center' },
-  centerTextContainer: { position: 'absolute', top: '45%', zIndex: 20 },
-  countdownText: { fontSize: 64 },
-  choicesRow: { flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', paddingBottom: 20, position: 'absolute', bottom: 20, width: '100%', zIndex: 30 },
-  choiceBtn: { width: 90, height: 90 },
-  autoplayToggle: {
+  background: { 
+    flex: 1, 
+    width: '100%', 
+    height: '100%' 
+  },
+  container: { 
+    flex: 1, 
+    position: 'relative' 
+  },
+  exitBtn: {
     position: 'absolute',
     top: 40,
     right: 24,
+    zIndex: 50,
+  },
+  settingsIcon: {
+    width: 44,
+    height: 44,
+  },
+  autoplayToggle: {
+    position: 'absolute',
+    top: 45,
+    left: 24,
     zIndex: 50,
     backgroundColor: '#FFDE4D',
     borderWidth: 3,
@@ -276,8 +349,125 @@ const styles = StyleSheet.create({
     borderRadius: 6,
   },
   autoplayToggleText: {
-    fontFamily: 'PressStart2P_400Regular',
     fontSize: 8,
-    color: '#000000',
+  },
+  botIndicators: { 
+    position: 'absolute', 
+    left: 20, 
+    top: '22%', 
+    gap: 10, 
+    zIndex: 10 
+  },
+  playerIndicators: { 
+    position: 'absolute', 
+    right: 20, 
+    bottom: 180, 
+    gap: 10, 
+    zIndex: 10 
+  },
+  indicatorScore: { 
+    width: 32, 
+    height: 32 
+  },
+  botNameContainer: { 
+    position: 'absolute', 
+    top: 110, 
+    left: 24, 
+    zIndex: 10 
+  },
+  playerNameContainer: { 
+    position: 'absolute', 
+    bottom: 120, 
+    right: 24, 
+    zIndex: 10 
+  },
+  nameText: { 
+    fontSize: 18 
+  },
+  arena: { 
+    flex: 1, 
+    justifyContent: 'space-between', 
+    alignItems: 'center' 
+  },
+  botHandContainer: { 
+    position: 'absolute', 
+    top: 0, 
+    width: '100%', 
+    alignItems: 'center' 
+  },
+  playerHandContainer: { 
+    position: 'absolute', 
+    bottom: 120, 
+    width: '100%', 
+    alignItems: 'center' 
+  },
+  centerTextContainer: { 
+    position: 'absolute', 
+    top: '40%', 
+    zIndex: 20 
+  },
+  countdownText: { 
+    fontSize: 48 
+  },
+  choicesRow: { 
+    flexDirection: 'row', 
+    justifyContent: 'space-evenly', 
+    alignItems: 'center', 
+    paddingBottom: 20, 
+    position: 'absolute', 
+    bottom: 20, 
+    width: '100%', 
+    zIndex: 30 
+  },
+  choicePressable: {
+    width: 72,
+    height: 72,
+    backgroundColor: '#FFDE4D',
+    borderWidth: 4,
+    borderColor: '#000000',
+    borderRadius: 36,
+    justifyContent: 'center',
+    alignItems: 'center',
+    // 3D Shadow
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 1,
+    shadowRadius: 0,
+    elevation: 4,
+  },
+  choiceIcon: {
+    width: 44,
+    height: 44,
+  },
+  bannerOverlay: {
+    position: 'absolute',
+    top: '35%',
+    width: 300,
+    aspectRatio: 1448 / 615,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 100,
+  },
+  bannerBg: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  bannerText: {
+    fontFamily: 'PressStart2P_400Regular',
+    fontSize: 9,
+    textAlign: 'center',
+    lineHeight: 16,
+  },
+  coverBox: {
+    position: 'absolute',
+    bottom: '20%',
+    width: '85%',
+    height: 48,
+    backgroundColor: '#FFD600',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

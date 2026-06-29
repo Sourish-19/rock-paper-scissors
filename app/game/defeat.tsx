@@ -1,14 +1,48 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, SafeAreaView, Pressable, Share } from 'react-native';
+import { StyleSheet, View, SafeAreaView, Pressable, Share, ImageBackground, Dimensions } from 'react-native';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { useGameStore } from '@/store/gameStore';
-import { RetroButton } from '@/components/RetroButton';
 import { PixelText } from '@/components/PixelText';
+
+const { width, height } = Dimensions.get('window');
+
+const StatsBox = ({ label, value }: any) => {
+  return (
+    <ImageBackground
+      source={require('../../assets/defeat_screen_solo_match/score_streak_box.png')}
+      style={styles.statsBox}
+      resizeMode="stretch"
+    >
+      <PixelText style={styles.statsText} fillColor="#FFFFFF" strokeColor="#000000">
+        {label}   {value}
+      </PixelText>
+    </ImageBackground>
+  );
+};
+
+const ResultButton = ({ onPress, title }: any) => {
+  return (
+    <Pressable onPress={onPress} style={({ pressed }) => [
+      styles.resultBtnContainer,
+      pressed && { transform: [{ translateY: 4 }] }
+    ]}>
+      <ImageBackground
+        source={require('../../assets/defeat_screen_solo_match/rematch_home_button.png')}
+        style={styles.resultBtnBg}
+        resizeMode="stretch"
+      >
+        <PixelText fillColor="#FFFFFF" strokeColor="#000000" style={styles.resultBtnText}>
+          {title}
+        </PixelText>
+      </ImageBackground>
+    </Pressable>
+  );
+};
 
 export default function DefeatScreen() {
   const router = useRouter();
-  const { matchState, winStreak, resetScore, resetMatch } = useGameStore();
+  const { matchState, resetScore, resetMatch } = useGameStore();
   const { userScore, computerScore } = matchState;
 
   const [shareStatus, setShareStatus] = useState('');
@@ -27,11 +61,11 @@ export default function DefeatScreen() {
 
   const handleShare = async () => {
     try {
-      const result = await Share.share({
-        message: `I played a tough match in Retro Rock Paper Scissors but lost! 😢 Score: ${userScore}-${computerScore}. My streak is reset. Can you avenge me?`,
+      const shareResult = await Share.share({
+        message: `I played a tough match in Retro Rock Paper Scissors but lost! 😢 Score: ${userScore}-${computerScore}. Can you avenge me?`,
       });
-      if (result.action === Share.sharedAction) {
-        setShareStatus('SHARED SUCCESSFULLY!');
+      if (shareResult.action === Share.sharedAction) {
+        setShareStatus('SHARED!');
         setTimeout(() => setShareStatus(''), 2000);
       }
     } catch (error) {
@@ -40,74 +74,115 @@ export default function DefeatScreen() {
   };
 
   return (
-    <View style={styles.background}>
-      <SafeAreaView style={styles.container}>
-        {/* Defeat Header */}
-        <View style={styles.titleContainer}>
-          <PixelText style={styles.titleText} fillColor="#FF6B6B" strokeColor="#000000">
-            DEFEAT...
-          </PixelText>
-        </View>
+    <ImageBackground 
+      source={require('../../assets/defeat_screen_solo_match/Sky.png')} 
+      style={styles.background}
+    >
+      <SafeAreaView style={styles.safeArea}>
+        
+        {/* Floating clouds */}
+        <Image 
+          source={require('../../assets/defeat_screen_solo_match/cloud_1.png')} 
+          style={[styles.cloud, { top: height * 0.1, left: -25, width: 140, height: 70 }]} 
+          contentFit="contain" 
+        />
+        <Image 
+          source={require('../../assets/defeat_screen_solo_match/cloud_2.png')} 
+          style={[styles.cloud, { top: height * 0.05, right: -15, width: 110, height: 55 }]} 
+          contentFit="contain" 
+        />
 
-        {/* Stats Section */}
-        <View style={styles.statsContainer}>
-          <View style={styles.statsBox}>
-            <PixelText style={styles.statsText} fillColor="#FFFFFF" strokeColor="#000000">
-              SCORE   {userScore}:{computerScore}
-            </PixelText>
+        <View style={styles.container}>
+          {/* Defeat Header Image */}
+          <View style={styles.titleContainer}>
+            <Image
+              source={require('../../assets/defeat_screen_solo_match/defeat.png')}
+              style={styles.logoImage}
+              contentFit="contain"
+            />
           </View>
-          <View style={styles.statsBox}>
-            <PixelText style={styles.statsText} fillColor="#FFFFFF" strokeColor="#000000">
-              STREAK   0
-            </PixelText>
+
+          {/* Stats Section */}
+          <View style={styles.statsContainer}>
+            <StatsBox label="SCORE" value={`${userScore}:${computerScore}`} />
+            <StatsBox label="STREAK" value="0" />
           </View>
-        </View>
 
-        <View style={styles.shareButtonContainer}>
-          <RetroButton
-            title={shareStatus ? shareStatus : "SHARE"}
-            onPress={handleShare}
-            backgroundColor="#FFDE4D"
-            style={{ width: 140, height: 40 }}
-          />
-        </View>
+          {/* Share Button using share_button.png */}
+          <View style={styles.shareButtonContainer}>
+            <Pressable onPress={handleShare} style={({ pressed }) => [styles.shareBtnContainer, pressed && { transform: [{ translateY: 2 }] }]}>
+              <ImageBackground
+                source={require('../../assets/defeat_screen_solo_match/share_button.png')}
+                style={styles.shareBtnBg}
+                resizeMode="stretch"
+              >
+                <PixelText fillColor="#FFFFFF" strokeColor="#000000" style={styles.shareBtnText}>
+                  {shareStatus ? shareStatus : "SHARE"}
+                </PixelText>
+              </ImageBackground>
+            </Pressable>
+          </View>
 
-        {/* Character on Cracked Pillar */}
-        <View style={styles.sceneSection}>
-          <Image 
-            source={require('../../assets/images/characters/char_avatar_defeat.png')} 
-            style={styles.character} 
-            contentFit="contain" 
-          />
-          <Image 
-            source={require('../../assets/images/decorations/pillar_defeat.png')} 
-            style={styles.pillar} 
-            contentFit="contain" 
-          />
-        </View>
+          {/* Character standing on cracked Defeated Stadium pillar */}
+          <View style={styles.sceneSection}>
+            {/* Floating Balloons */}
+            <Image 
+              source={require('../../assets/defeat_screen_solo_match/Blue Balloon.png')} 
+              style={[styles.balloon, { bottom: 80, left: 20, width: 44, height: 54 }]} 
+              contentFit="contain" 
+            />
+            <Image 
+              source={require('../../assets/defeat_screen_solo_match/Green Balloon.png')} 
+              style={[styles.balloon, { bottom: 120, right: 35, width: 44, height: 54 }]} 
+              contentFit="contain" 
+            />
+            <Image 
+              source={require('../../assets/defeat_screen_solo_match/Red Balloon.png')} 
+              style={[styles.balloon, { bottom: 70, right: 10, width: 44, height: 54 }]} 
+              contentFit="contain" 
+            />
 
-        {/* Action Buttons */}
-        <View style={styles.buttonsContainer}>
-          <RetroButton
-            title="TRY AGAIN"
-            onPress={handleTryAgain}
-            backgroundColor="#FFDE4D"
-          />
-          <RetroButton
-            title="MAIN MENU"
-            onPress={handleGoHome}
-            backgroundColor="#FFFFFF"
-          />
+            {/* Platform + Cry Guy avatar */}
+            <View style={styles.characterGroup}>
+              <Image 
+                source={require('../../assets/defeat_screen_solo_match/cry_guy.png')} 
+                style={styles.character} 
+                contentFit="contain" 
+              />
+            </View>
+            
+            <Image 
+              source={require('../../assets/defeat_screen_solo_match/Defeated Stadium.png')} 
+              style={styles.pedestal} 
+              contentFit="contain" 
+            />
+          </View>
+
+          {/* Try Again/Go Home Action Buttons */}
+          <View style={styles.buttonsContainer}>
+            <ResultButton
+              title="TRY AGAIN"
+              onPress={handleTryAgain}
+            />
+            <ResultButton
+              title="MAIN MENU"
+              onPress={handleGoHome}
+            />
+          </View>
         </View>
       </SafeAreaView>
-    </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    backgroundColor: '#4DB8FF', // Blue sky
+    width: '100%',
+    height: '100%',
+  },
+  safeArea: {
+    flex: 1,
   },
   container: {
     flex: 1,
@@ -116,59 +191,103 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     alignItems: 'center',
   },
+  cloud: {
+    position: 'absolute',
+    opacity: 0.7,
+  },
   titleContainer: {
     alignItems: 'center',
     marginTop: 20,
   },
-  titleText: {
-    fontSize: 40,
-    textAlign: 'center',
+  logoImage: {
+    width: 250,
+    height: 48,
   },
   statsContainer: {
     width: '100%',
     alignItems: 'center',
-    marginTop: 20,
-    gap: 10,
+    marginTop: 15,
   },
   statsBox: {
-    borderWidth: 4,
-    borderColor: '#000000',
-    borderRadius: 8,
-    backgroundColor: '#FFDE4D',
-    padding: 12,
-    width: '80%',
+    width: 280,
+    height: 66,
+    justifyContent: 'center',
     alignItems: 'center',
+    alignSelf: 'center',
+    marginBottom: 8,
   },
   statsText: {
-    fontSize: 16,
+    fontSize: 12,
   },
   shareButtonContainer: {
-    marginTop: 10,
+    marginTop: 5,
     alignItems: 'center',
+  },
+  shareBtnContainer: {
+    width: 130,
+    height: 56,
+    alignSelf: 'center',
+  },
+  shareBtnBg: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  shareBtnText: {
+    fontSize: 10,
   },
   sceneSection: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'flex-end',
     width: '100%',
+    height: 180,
+    position: 'relative',
+    marginTop: 10,
   },
-  character: {
-    width: 130,
-    aspectRatio: 149 / 439,
+  characterGroup: {
     position: 'absolute',
     bottom: 50,
+    width: 85,
+    height: 110,
     zIndex: 2,
+    alignItems: 'center',
   },
-  pillar: {
-    width: 180,
-    aspectRatio: 193 / 77,
+  character: {
+    width: '100%',
+    height: '100%',
+  },
+  pedestal: {
+    width: 140,
+    height: 156,
     position: 'absolute',
-    bottom: 0,
+    bottom: -50,
     zIndex: 1,
+  },
+  balloon: {
+    position: 'absolute',
+    zIndex: 1,
+    opacity: 0.9,
   },
   buttonsContainer: {
     width: '100%',
-    paddingBottom: 20,
-    marginTop: 40,
+    paddingBottom: 15,
+    marginTop: 15,
+  },
+  resultBtnContainer: {
+    width: 280,
+    height: 66,
+    alignSelf: 'center',
+    marginBottom: 12,
+  },
+  resultBtnBg: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  resultBtnText: {
+    fontSize: 12,
   },
 });

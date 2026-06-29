@@ -31,8 +31,6 @@ const StrokeText = ({ children, style, color, strokeColor, offsetX = 0, offsetY 
             style,
             {
               position: 'absolute',
-              width: '100%',
-              height: '100%',
               color: strokeColor,
               transform: [{ translateX: pos[0] }, { translateY: pos[1] }],
             },
@@ -46,8 +44,6 @@ const StrokeText = ({ children, style, color, strokeColor, offsetX = 0, offsetY 
         style, 
         { 
           position: 'absolute', 
-          width: '100%',
-          height: '100%',
           color: color 
         }
       ]}>

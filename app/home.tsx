@@ -91,14 +91,22 @@ export default function HomeScreen() {
               resizeMode="stretch"
             >
               <View style={styles.profileContent}>
-                <Image 
-                  source={require('../assets/home_screen/male_profile_pic.png')} 
-                  style={styles.profileImage} 
-                  contentFit="contain" 
-                />
+                {/* Left square area for profile pic */}
+                <View style={styles.profilePicContainer}>
+                  <Image 
+                    source={userProfile.gender === 'female'
+                      ? require('../assets/home_screen/female_profile_pic.png')
+                      : require('../assets/home_screen/male_profile_pic.png')} 
+                    style={styles.profileImage} 
+                    contentFit="contain" 
+                  />
+                </View>
+                {/* Right compartments area for name and score */}
                 <View style={styles.profileInfo}>
-                  <Text style={styles.profileName} numberOfLines={1}>{userProfile.username}</Text>
-                  <View style={styles.crownRow}>
+                  <View style={styles.nameContainer}>
+                    <Text style={styles.profileName} numberOfLines={1}>{userProfile.username}</Text>
+                  </View>
+                  <View style={styles.scoreContainer}>
                     <Image 
                       source={require('../assets/home_screen/CROWN BLOCKS.png')} 
                       style={styles.crownImage} 
@@ -111,7 +119,7 @@ export default function HomeScreen() {
             </ImageBackground>
 
             {/* Settings Icon */}
-            <Pressable onPress={toggleMute} style={({ pressed }) => [{ opacity: isMuted ? 0.5 : 1 }, pressed && { transform: [{ scale: 0.95 }] }]}>
+            <Pressable onPress={() => router.push('/settings')} style={({ pressed }) => [pressed && { transform: [{ scale: 0.95 }] }]}>
               <Image 
                 source={require('../assets/home_screen/Settings Button.png')} 
                 style={styles.settingsIcon} 
@@ -156,12 +164,14 @@ export default function HomeScreen() {
                   style={styles.island} 
                   contentFit="contain" 
                 />
-                {/* The Character (SMILE GUY) */}
-                <Image 
-                  source={require('../assets/home_screen/SMILE_GUY.png')} 
-                  style={styles.character} 
-                  contentFit="contain" 
-                />
+                 {/* The Character (SMILE GUY or SMILE GIRL) */}
+                 <Image 
+                   source={userProfile.gender === 'female'
+                     ? require('../assets/victory_screen_solo_match/SMILE GIRL.png')
+                     : require('../assets/home_screen/SMILE_GUY.png')} 
+                   style={styles.character} 
+                   contentFit="contain" 
+                 />
               </View>
             </Animated.View>
           </View>
@@ -232,11 +242,16 @@ const styles = StyleSheet.create({
   profileBadgeBg: {
     width: 170,
     height: 66,
-    justifyContent: 'center',
-    paddingLeft: 8,
   },
   profileContent: {
     flexDirection: 'row',
+    width: '100%',
+    height: '100%',
+  },
+  profilePicContainer: {
+    width: 66,
+    height: 66,
+    justifyContent: 'center',
     alignItems: 'center',
   },
   profileImage: {
@@ -245,20 +260,29 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   profileInfo: {
-    marginLeft: 8,
-    justifyContent: 'center',
     flex: 1,
-    paddingRight: 8,
+    height: 66,
+    paddingLeft: 8,
+    paddingRight: 10,
+    justifyContent: 'space-between',
+    paddingVertical: 10,
+  },
+  nameContainer: {
+    height: 18,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  scoreContainer: {
+    height: 18,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   profileName: {
     fontFamily: 'PressStart2P_400Regular',
-    fontSize: 9,
+    fontSize: 8,
     color: '#000000',
-    marginBottom: 4,
-  },
-  crownRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    textAlign: 'center',
   },
   crownImage: {
     width: 16,

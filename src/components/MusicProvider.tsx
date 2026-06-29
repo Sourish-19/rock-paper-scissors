@@ -4,6 +4,10 @@ import { Audio } from 'expo-av';
 interface MusicContextType {
   isMuted: boolean;
   toggleMute: () => Promise<void>;
+  soundVolume: number;
+  musicVolume: number;
+  setSoundVolume: (vol: number) => void;
+  setMusicVolume: (vol: number) => Promise<void>;
 }
 
 const MusicContext = createContext<MusicContextType | undefined>(undefined);
@@ -11,6 +15,8 @@ const MusicContext = createContext<MusicContextType | undefined>(undefined);
 export const MusicProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [sound, setSound] = useState<Audio.Sound | null>(null);
   const [isMuted, setIsMuted] = useState(false);
+  const [soundVolume, setSoundVolumeState] = useState(4);
+  const [musicVolume, setMusicVolumeState] = useState(4);
 
   useEffect(() => {
     let active = true;
@@ -24,9 +30,10 @@ export const MusicProvider: React.FC<{ children: React.ReactNode }> = ({ childre
           playThroughEarpieceAndroid: false,
         });
 
+        const initialVol = isMuted ? 0 : (musicVolume * 0.1);
         const { sound: playbackObject } = await Audio.Sound.createAsync(
           require('../../assets/sounds/retro_bgm.wav'),
-          { shouldPlay: !isMuted, isLooping: true, volume: isMuted ? 0 : 0.5 }
+          { shouldPlay: !isMuted && musicVolume > 0, isLooping: true, volume: initialVol }
         );
 
         if (active) {
@@ -55,8 +62,9 @@ export const MusicProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     try {
       const newMuted = !isMuted;
       setIsMuted(newMuted);
-      await sound.setVolumeAsync(newMuted ? 0 : 0.5);
-      if (newMuted) {
+      const targetVol = newMuted ? 0 : (musicVolume * 0.1);
+      await sound.setVolumeAsync(targetVol);
+      if (newMuted || musicVolume === 0) {
         await sound.pauseAsync();
       } else {
         await sound.playAsync();
@@ -66,8 +74,28 @@ export const MusicProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
   };
 
+  const setMusicVolume = async (vol: number) => {
+    setMusicVolumeState(vol);
+    if (!sound) return;
+    try {
+      const targetVol = isMuted ? 0 : (vol * 0.1);
+      await sound.setVolumeAsync(targetVol);
+      if (vol === 0 || isMuted) {
+        await sound.pauseAsync();
+      } else {
+        await sound.playAsync();
+      }
+    } catch (error) {
+      console.warn('Error setting music volume:', error);
+    }
+  };
+
+  const setSoundVolume = (vol: number) => {
+    setSoundVolumeState(vol);
+  };
+
   return (
-    <MusicContext.Provider value={{ isMuted, toggleMute }}>
+    <MusicContext.Provider value={{ isMuted, toggleMute, soundVolume, musicVolume, setSoundVolume, setMusicVolume }}>
       {children}
     </MusicContext.Provider>
   );
