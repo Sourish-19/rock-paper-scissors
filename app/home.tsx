@@ -300,12 +300,12 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     alignItems: 'center',
-    marginTop: 5,
+    marginTop: 35,
     zIndex: 3,
   },
   logoImage: {
-    width: 250,
-    height: 160,
+    width: 325,
+    height: 208,
   },
   avatarSection: {
     flex: 1,

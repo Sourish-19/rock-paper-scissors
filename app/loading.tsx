@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { StyleSheet, View, SafeAreaView, Animated, Dimensions, ImageBackground } from 'react-native';
+import { StyleSheet, View, Animated, Dimensions, ImageBackground } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { Image } from 'expo-image';
 import { PixelText } from '@/components/PixelText';

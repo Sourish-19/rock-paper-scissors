@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, SafeAreaView, TextInput, Pressable, Text, Alert, ImageBackground, Modal, Dimensions, Platform } from 'react-native';
+import { StyleSheet, View, TextInput, Pressable, Text, Alert, ImageBackground, Modal, Dimensions, Platform } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { Image } from 'expo-image';
 import { auth } from '@/lib/firebase';
@@ -17,7 +18,7 @@ const InputField = ({ placeholder, value, onChangeText, secureTextEntry, keyboar
         : require('../assets/authentiction_screen/PASSWORD TEXT INPUT BOX.png')
       }
       style={styles.inputWrapper}
-      resizeMode="stretch"
+      imageStyle={{ resizeMode: 'stretch' }}
     >
       <TextInput
         style={styles.textInputInside}
@@ -211,7 +212,7 @@ export default function LoginScreen() {
           <Modal transparent visible={!!errorType} animationType="fade">
             <View style={styles.modalOverlay}>
               <View style={styles.modalContent}>
-                <ImageBackground
+                 <ImageBackground
                   source={
                     errorType === 'missing_info' ? require('../assets/authentiction_screen/missing_info.png') :
                     errorType === 'login_failed_un' ? require('../assets/authentiction_screen/login_failed_un.png') :
@@ -219,7 +220,7 @@ export default function LoginScreen() {
                     require('../assets/authentiction_screen/missing_info.png')
                   }
                   style={styles.popupBg}
-                  resizeMode="contain"
+                  imageStyle={{ resizeMode: 'stretch' }}
                 >
                   <Pressable 
                     onPress={() => setErrorType(null)}
@@ -231,7 +232,7 @@ export default function LoginScreen() {
                     <ImageBackground
                       source={require('../assets/authentiction_screen/ok_button.png')}
                       style={styles.okBtnBg}
-                      resizeMode="stretch"
+                      imageStyle={{ resizeMode: 'stretch' }}
                     >
                       <PixelText fillColor="#FFFFFF" strokeColor="#000000" style={styles.okBtnText}>
                         OK
@@ -257,6 +258,8 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    width: '100%',
+    alignSelf: 'center',
     paddingHorizontal: 24,
     justifyContent: 'center',
   },
@@ -299,6 +302,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     borderWidth: 0,
     textAlign: 'center',
+    paddingHorizontal: 0,
+    paddingVertical: 0,
     ...Platform.select({
       web: {
         outlineStyle: 'none',
@@ -381,9 +386,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalContent: {
-    width: '90%',
-    maxWidth: 360,
-    aspectRatio: 1448 / 615,
+    width: 300,
+    height: 165,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -392,11 +396,11 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'flex-end',
     alignItems: 'center',
-    paddingBottom: 16,
+    paddingBottom: 12,
   },
   popupOkBtn: {
-    width: '45%',
-    aspectRatio: 673 / 289,
+    width: 120,
+    height: 48,
     marginBottom: 8,
   },
   okBtnBg: {

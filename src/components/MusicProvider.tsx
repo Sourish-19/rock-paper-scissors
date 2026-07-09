@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { Audio } from 'expo-av';
 import { Platform } from 'react-native';
 
 interface MusicContextType {
@@ -14,43 +13,53 @@ interface MusicContextType {
 const MusicContext = createContext<MusicContextType | undefined>(undefined);
 
 export const MusicProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [sound, setSound] = useState<Audio.Sound | null>(null);
+  const [player, setPlayer] = useState<any>(null);
   const [isMuted, setIsMuted] = useState(false);
   const [soundVolume, setSoundVolumeState] = useState(4);
   const [musicVolume, setMusicVolumeState] = useState(4);
 
   useEffect(() => {
     let active = true;
-    let loadedSound: Audio.Sound | null = null;
+    let loadedPlayer: any = null;
 
     async function loadAudio() {
       try {
-        await Audio.setAudioModeAsync({
-          playsInSilentModeIOS: true,
-          staysActiveInBackground: false,
-          playThroughEarpieceAndroid: false,
-        });
+        // Safe require to prevent crashes if expo-audio is missing/incompatible
+        const expoAudio = require('expo-audio');
+        if (!expoAudio || !expoAudio.createAudioPlayer) {
+          throw new Error('expo-audio is not available in this client');
+        }
 
         const initialVol = isMuted ? 0 : (musicVolume * 0.1);
-        const { sound: playbackObject } = await Audio.Sound.createAsync(
-          require('../../assets/sounds/retro_bgm.wav'),
-          { shouldPlay: false, isLooping: true, volume: initialVol }
+        
+        // createAudioPlayer creates a new player instance from the asset
+        const playerInstance = expoAudio.createAudioPlayer(
+          require('../../assets/sounds/retro_bgm.wav')
         );
 
+        playerInstance.isLooping = true;
+        
+        // Handle volume setting (which can be a property or a method)
+        if (typeof playerInstance.setVolume === 'function') {
+          playerInstance.setVolume(initialVol);
+        } else {
+          playerInstance.volume = initialVol;
+        }
+
         if (active) {
-          setSound(playbackObject);
-          loadedSound = playbackObject;
+          setPlayer(playerInstance);
+          loadedPlayer = playerInstance;
 
           if (!isMuted && musicVolume > 0) {
             try {
-              await playbackObject.playAsync();
+              playerInstance.play();
             } catch (playError) {
-              // If web autoplay is blocked, wait for user interaction to start playing
+              // Web autoplay block policy handler
               if (Platform.OS === 'web') {
-                const resumeBGM = async () => {
+                const resumeBGM = () => {
                   try {
-                    if (loadedSound) {
-                      await loadedSound.playAsync();
+                    if (loadedPlayer) {
+                      loadedPlayer.play();
                     }
                   } catch (e) {
                     console.warn('Failed to play BGM on interaction:', e);
@@ -66,7 +75,9 @@ export const MusicProvider: React.FC<{ children: React.ReactNode }> = ({ childre
             }
           }
         } else {
-          await playbackObject.unloadAsync();
+          if (typeof playerInstance.release === 'function') {
+            playerInstance.release();
+          }
         }
       } catch (error) {
         console.warn('Failed to load audio:', error);
@@ -77,23 +88,34 @@ export const MusicProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
     return () => {
       active = false;
-      if (loadedSound) {
-        loadedSound.unloadAsync();
+      if (loadedPlayer) {
+        try {
+          loadedPlayer.pause();
+          if (typeof loadedPlayer.release === 'function') {
+            loadedPlayer.release();
+          }
+        } catch (e) {
+          console.warn('Failed to release audio player:', e);
+        }
       }
     };
   }, []);
 
   const toggleMute = async () => {
-    if (!sound) return;
+    const newMuted = !isMuted;
+    setIsMuted(newMuted);
+    if (!player) return;
     try {
-      const newMuted = !isMuted;
-      setIsMuted(newMuted);
       const targetVol = newMuted ? 0 : (musicVolume * 0.1);
-      await sound.setVolumeAsync(targetVol);
-      if (newMuted || musicVolume === 0) {
-        await sound.pauseAsync();
+      if (typeof player.setVolume === 'function') {
+        player.setVolume(targetVol);
       } else {
-        await sound.playAsync();
+        player.volume = targetVol;
+      }
+      if (newMuted || musicVolume === 0) {
+        player.pause();
+      } else {
+        player.play();
       }
     } catch (error) {
       console.warn('Error toggling mute:', error);
@@ -102,14 +124,18 @@ export const MusicProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   const setMusicVolume = async (vol: number) => {
     setMusicVolumeState(vol);
-    if (!sound) return;
+    if (!player) return;
     try {
       const targetVol = isMuted ? 0 : (vol * 0.1);
-      await sound.setVolumeAsync(targetVol);
-      if (vol === 0 || isMuted) {
-        await sound.pauseAsync();
+      if (typeof player.setVolume === 'function') {
+        player.setVolume(targetVol);
       } else {
-        await sound.playAsync();
+        player.volume = targetVol;
+      }
+      if (vol === 0 || isMuted) {
+        player.pause();
+      } else {
+        player.play();
       }
     } catch (error) {
       console.warn('Error setting music volume:', error);

@@ -254,7 +254,7 @@ const styles = StyleSheet.create({
   },
   characterGroup: {
     position: 'absolute',
-    bottom: 50,
+    bottom: 105,
     width: 85,
     height: 110,
     zIndex: 2,
@@ -275,7 +275,7 @@ const styles = StyleSheet.create({
     width: 140,
     height: 156,
     position: 'absolute',
-    bottom: -50,
+    bottom: 5,
     zIndex: 1,
   },
   star: {
