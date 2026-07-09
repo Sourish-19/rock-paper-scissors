@@ -59,7 +59,9 @@ export default function HomeScreen() {
   };
 
   const handlePlayVsFriend = () => {
-    setShowMultiModal(true);
+    setGameMode('multi');
+    resetScore();
+    router.push({ pathname: '/game-mode', params: { mode: 'multi' } });
   };
 
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, SafeAreaView, Pressable, ImageBackground } from 'react-native';
 import { Image } from 'expo-image';
-import { useRouter } from 'expo-router';
+import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useGameStore } from '@/store/gameStore';
 import { PixelText } from '@/components/PixelText';
 
@@ -26,11 +26,16 @@ const ModeButton = ({ onPress, title }: any) => {
 
 export default function GameModeScreen() {
   const router = useRouter();
+  const { mode } = useLocalSearchParams();
   const { setMaxRounds } = useGameStore();
 
   const handleSelectMode = (rounds: number) => {
     setMaxRounds(rounds);
-    router.push('/game');
+    if (mode === 'multi') {
+      router.push('/online-lobby' as any);
+    } else {
+      router.push('/game');
+    }
   };
 
   return (
@@ -121,7 +126,7 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     alignItems: 'center',
-    marginTop: 40,
+    marginTop: 65,
     zIndex: 2,
   },
   headerImage: {
