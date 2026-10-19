@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import {
   Pressable,
   StyleSheet,
@@ -29,7 +29,7 @@ export function RetroButton({
   textStyle,
   disabled = false,
 }: RetroButtonProps) {
-  const pushAnim = useRef(new Animated.Value(0)).current;
+  const [pushAnim] = useState(() => new Animated.Value(0));
 
   const handlePressIn = () => {
     if (disabled) return;

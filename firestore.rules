@@ -1,0 +1,29 @@
+rules_version = '2';
+// Online duel rooms. Players must be signed in; only the host creates or deletes a room,
+// and only its two players (or someone taking the empty second seat) may change it.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /rooms/{roomId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null
+        && request.resource.data.creator.uid == request.auth.uid;
+      allow update: if request.auth != null && (
+        resource.data.creator.uid == request.auth.uid
+        || (resource.data.joiner != null && resource.data.joiner.uid == request.auth.uid)
+        || (resource.data.joiner == null && request.resource.data.joiner.uid == request.auth.uid)
+      );
+      allow delete: if request.auth != null
+        && resource.data.creator.uid == request.auth.uid;
+    }
+    // Unique usernames: one document per lowercased name, holding only the owner's uid. Anyone may check
+    // whether a name is free; players may only claim a free, valid name for themselves and release their own.
+    match /usernames/{name} {
+      allow read: if true;
+      allow create: if request.auth != null
+        && request.resource.data.uid == request.auth.uid
+        && name.matches('^[a-z0-9_]{3,12}$');
+      allow delete: if request.auth != null
+        && resource.data.uid == request.auth.uid;
+    }
+  }
+}

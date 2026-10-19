@@ -1,0 +1,6740 @@
+{
+  "designs": [
+    {
+      "path": "Game UI/DEFEAT PAGE - SOLO CHALLENGE.png",
+      "bytes": 518302,
+      "sha256": "be8a00ca397bf3f8fff513ddb26318effe2f5aef0638fea637c3f8c4f4084ea6",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/DEFEAT PAGE.png",
+      "bytes": 159455,
+      "sha256": "f55b6a34fad447732f0502b9be9bd359f3df58d17c3a3a699fe753ec67a541a8",
+      "width": 393,
+      "height": 852,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        393,
+        852
+      ]
+    },
+    {
+      "path": "Game UI/DRAW PAGE.png",
+      "bytes": 593651,
+      "sha256": "fed5b92ec16c6e6ce5163627742d995013e350437044331264e4db06608a2554",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Game Mode.png",
+      "bytes": 708079,
+      "sha256": "5ea025e1cfd9b3468ae3e85f24fb4921480e94401d114e17394be1fa63113922",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Game page - Draw State.png",
+      "bytes": 65583,
+      "sha256": "2824461f60d3cf3e923d64480f79ca7c438d5b83bf2fc36e6d6e591f81323ab6",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Game page - Round Result.png",
+      "bytes": 64256,
+      "sha256": "025ca834ca0b48bf65a887af834959c7c0324694a0b9eb5de2d06410cc811198",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Game page-1.png",
+      "bytes": 19253,
+      "sha256": "e4527eed9e0b661d9d9892a8f07444dc435ff1c22c86340a29b4999759a4963c",
+      "width": 393,
+      "height": 852,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        393,
+        852
+      ]
+    },
+    {
+      "path": "Game UI/Game page.png",
+      "bytes": 65358,
+      "sha256": "18a14bc34e39b6ad66e307785993997d64ccd2425da7cc73f79536c0d03921bd",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Gender Section - Female.png",
+      "bytes": 572182,
+      "sha256": "fdefe4bc0b828d29517718824c9923fa64f6fcafb7ac2974d2d0f595532490e8",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Gender Section - Male.png",
+      "bytes": 578060,
+      "sha256": "1f2ee35153d86fa88ffb1741ede613b03384218cac7404789b5d71f145ebc1d3",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Gender Section.png",
+      "bytes": 564597,
+      "sha256": "0b2101f0cc50cca1255fcbe742226afd19a32cd2155cf9f2a9bdff532e9075a1",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Home Screen.png",
+      "bytes": 698221,
+      "sha256": "7ba412b925333bb41dfb5cbd9339d492e04d9322a170f70fe40d2bdc118e14b5",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Loading Screen.png",
+      "bytes": 779422,
+      "sha256": "ccb80212a0b1eb81af4df842e0c61821dbe9d381c30950f79845d8554260acf0",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/LOG-IN PAGE - Empty Fields.png",
+      "bytes": 242349,
+      "sha256": "efe732273a807066831067c433e639367329b42f477e0dac0a5153e9b8b4f3dd",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/LOG-IN PAGE - ERROR STATE.png",
+      "bytes": 599049,
+      "sha256": "5607ff41be3b8a822b18abacff28ae6f4c5ae7aa5a27bad934fc0471c702f597",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/LOG-IN PAGE - Invalid password..png",
+      "bytes": 242433,
+      "sha256": "9159ed689cbe5f1a2e7b572e7b635e29749f8777e317e8e02fdf53a03506a960",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/LOG-IN PAGE - Password Reset Sent.png",
+      "bytes": 242492,
+      "sha256": "06a2b175a439c21f5b1175922631e4fb042b0ecb446e70bc4b37c62598944ba7",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/LOG-IN PAGE.png",
+      "bytes": 602277,
+      "sha256": "c5bc372f6732b0f9310815e3db633c4cc6aa86aa63f32ab1d5ae90aca33cf167",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/LOGIN-IN PAGE - Invalid username..png",
+      "bytes": 242438,
+      "sha256": "a207baf2c025596d2caf07da73d87739a55bec07459e4f3aee4d988091b0b9fe",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/No Internet Screen.png",
+      "bytes": 680637,
+      "sha256": "98af7ea107e95a3ae6e628b9aa94bc6b4ee14b241635a28ff1db39771cbb240f",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Onboarding Screen 1.png",
+      "bytes": 155019,
+      "sha256": "1b71e0efdb4310e40cb7ffa7d7a1ea64473dd37880f812a942ef8f769f06cd8c",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Onboarding Screen 2.png",
+      "bytes": 174000,
+      "sha256": "2d7d4e340150f37a04e1345dfe5dd32871b1971f734b674c36b4be00188c9497",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Onboarding Screen 3.png",
+      "bytes": 179213,
+      "sha256": "af5c9dee52a7f0e89ac74facc333499ffaf6bbf003ea6e7d0bd93dba031ea1dd",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Online Duel - Create Room.png",
+      "bytes": 737281,
+      "sha256": "8aa4ad3cce19ec4c0b0687678b2652cc7c530d182f253afc8f6134cf79d173e8",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Online Duel - Defeat Page-1.png",
+      "bytes": 588770,
+      "sha256": "71774be718e474d38f00edcbd7c39bbb29c44e627b25ba224b5a9d526d130e18",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Online Duel - Defeat Page.png",
+      "bytes": 522165,
+      "sha256": "b097799bd7813c11252c90f618430649a0f15cd241e5c7c8e54964ec80b25b2d",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Online Duel - Entering a match.png",
+      "bytes": 266068,
+      "sha256": "5a074e4b0f3366aed25ee31eaca8951c7ac859f2ea29a0c664d6aa16ee38d12b",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Online Duel - Hosted a Room.png",
+      "bytes": 663019,
+      "sha256": "bff1882f743de8795b5f3b2ff5e123ad91cff9cb3a76a3fb5b195bc87cea39f4",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Online Duel - Join Room.png",
+      "bytes": 753140,
+      "sha256": "973d8b255fb5633cfc47df5da51685adb44e26a902910ee2b00852bcaf0fc3ad",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Online Duel - Joined a Room-1.png",
+      "bytes": 265080,
+      "sha256": "9c9fe655cc9b03d488ad22ea49df0f4b9fdbe1bc78402788ddcd84c4b0dd29c0",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Online Duel - Joined a Room.png",
+      "bytes": 660998,
+      "sha256": "da3f756a976b3cfbbee94e6fdb786377eb76d151e7d4b1dc24992a2b1263bdc5",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Online Duel - Joining Room.png",
+      "bytes": 287792,
+      "sha256": "e34951ab7beec451087cca7f4df1b62f1bb593714076a4a3b32a06e6475b9068",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Online Duel - Post Victory Page.png",
+      "bytes": 585949,
+      "sha256": "388e498cdcf866fe173926904da8d3462f32d6cf03e5e8473899a2e591b6bbf7",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Online Duel - Rematch Request Page.png",
+      "bytes": 229360,
+      "sha256": "ed8f986a6c968c245ce10b1bc4b9e27ee335917fe2b249c3687263ca7188d7de",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Online Duel - Victory Page.png",
+      "bytes": 519600,
+      "sha256": "b699e1c3f2948a11a5f82be4824e59283f832f4ec6936b52e0c6ecb0baa772dc",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Online Duel.png",
+      "bytes": 735698,
+      "sha256": "35a2b80173860344e1e8f42f3af9245cf2ae7f8175fdbbc6da0b72aa42514c9d",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Oops Screen.png",
+      "bytes": 727045,
+      "sha256": "e9fbef140e26208c57e2a011986cdfc736ba6391747e871ec53868ec3e011bba",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/POST DEFEAT PAGE - SOLO CHALLENGE.png",
+      "bytes": 589937,
+      "sha256": "eb354a21782be25a056807a711637fe78ba247a15dc3415d5ddab12664172965",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/POST DEFEAT PAGE.png",
+      "bytes": 175547,
+      "sha256": "743f7f3357e5ce7ea50094f79bdb794d626aabddb9a85c5d9be98ffe7f0c4d78",
+      "width": 393,
+      "height": 852,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        393,
+        852
+      ]
+    },
+    {
+      "path": "Game UI/POST DRAW PAGE.png",
+      "bytes": 664192,
+      "sha256": "bd98291a0a83315755bc9a24c4192454938c3afdd4737aedea9bb534d1f0d3b3",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/POST VICTORY PAGE - SOLO CHALLENGE.png",
+      "bytes": 673726,
+      "sha256": "b257f1497bf1639e2949f263eb236ff5123ecdd13265f4f60b14a1e28a4f227e",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/POST VICTORY PAGE.png",
+      "bytes": 189483,
+      "sha256": "f8c8e2e100e43ce1e213d1de462aeeb9707bcee19e75e273afa4d010d8f3fd27",
+      "width": 393,
+      "height": 852,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        393,
+        852
+      ]
+    },
+    {
+      "path": "Game UI/Quit Screen.png",
+      "bytes": 689048,
+      "sha256": "a1c2eaddedeaf2c3ec84a95a2dcd099cf9280e6b50099d3b5420a0a8f62e7f26",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Restart Screen.png",
+      "bytes": 688771,
+      "sha256": "f167d4357fe309713807a68d6773e63405a30dd591b52be27650ded455b98970",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Settings - Mid Game - 1.png",
+      "bytes": 693088,
+      "sha256": "c9f0588ea55370b7fb33f3414b3f2e303e2462de1aafc9751ab025affe753e74",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Settings - Mid Game - 2.png",
+      "bytes": 693130,
+      "sha256": "a02f53dbe91ddcd1f23b030be8e191d324a795e2f260b31ec389441b5aede17b",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Settings - Mid Game-1.png",
+      "bytes": 209267,
+      "sha256": "d42e11aff5e239ed26a893903ed3d39f9b298a5deaba66f51b2df258d2e3cfe6",
+      "width": 393,
+      "height": 852,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        393,
+        852
+      ]
+    },
+    {
+      "path": "Game UI/Settings - Mid Game.png",
+      "bytes": 209328,
+      "sha256": "e285b24a956e7e1b6f0b371d5ed5ac542fe37f8d14dc4be72e3dc801133cd527",
+      "width": 393,
+      "height": 852,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        393,
+        852
+      ]
+    },
+    {
+      "path": "Game UI/SETTINGS PAGE - 3.png",
+      "bytes": 177959,
+      "sha256": "f5b815897e3ac15f1da5e68b490c85148a03fb0088c78419850a1452cce0bce0",
+      "width": 393,
+      "height": 852,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        393,
+        852
+      ]
+    },
+    {
+      "path": "Game UI/SETTINGS PAGE - 4.png",
+      "bytes": 92116,
+      "sha256": "735d481044a1bf8d007ca17ab3fc8a339a7574f1db822f76bcbade6bc6ea2850",
+      "width": 393,
+      "height": 852,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        393,
+        852
+      ]
+    },
+    {
+      "path": "Game UI/SETTINGS PAGE - EDIT STATE.png",
+      "bytes": 363920,
+      "sha256": "f8e2a8ca314383dd71995771f99ecaaed36407c457f5fcdf8fd9b9fe07b24ba3",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/SETTINGS PAGE.png",
+      "bytes": 632762,
+      "sha256": "0a48774e2a188f368f4e26c99ed165c2d185e06988d4efb1dd4422f95691ed6a",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/SHARE PAGE - Online Duel.png",
+      "bytes": 657966,
+      "sha256": "fb10ae48ef6dff786fd23c834220751cb017c951dcb7d7b4b8cf897b059b2d99",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/SHARE PAGE - SOLO CHALLENGE.png",
+      "bytes": 525521,
+      "sha256": "5ce9ae121a4d7a23f494a956464350ad5ce8492b60974f299c898f280930220e",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/SHARE PAGE.png",
+      "bytes": 166008,
+      "sha256": "8d5d32154d31656e2b94c52542428469d8f323042ce8922959cd685ba9714ad5",
+      "width": 393,
+      "height": 852,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        393,
+        852
+      ]
+    },
+    {
+      "path": "Game UI/SIGN-UP PAGE - Account Created.png",
+      "bytes": 234897,
+      "sha256": "0cf801ddf31ef4586c46496f8c7c48cbda67dfeeec9efee9e1c9724e0dca3ec5",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/SIGN-UP PAGE - ERROR STATE.png",
+      "bytes": 592571,
+      "sha256": "765426a68b61ebd10b5e10cad977bff89f536ee0762bf48fae452145216577c9",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/SIGN-UP PAGE - Password Too Short.png",
+      "bytes": 592568,
+      "sha256": "42b3e2fd9555ba76a8c4f253404d30be09bbb5f3cdf75763a6066189b1b998fe",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/SIGN-UP PAGE - Username Already Taken.png",
+      "bytes": 234669,
+      "sha256": "f8614faf54afcbbc28f318eb7fd03f2bef20fa8fab0cb689c055d6b8df8dffc7",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/SIGN-UP PAGE.png",
+      "bytes": 587209,
+      "sha256": "eb54e54e5252f887d385e5cccab240edb8272f935e604e1f9762885915aa8ea5",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Start of the game - 1.png",
+      "bytes": 65338,
+      "sha256": "02a5350affd9c984fe565403e3f1676bfebdbcaf8634760961a088f79d9abfc3",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Start of the game - 2.png",
+      "bytes": 65705,
+      "sha256": "17e85fa2a3cc5597c9d6ae5d445f6abb827a0f2936a8385f4887e220c4b4c879",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Start of the game - 3.png",
+      "bytes": 65470,
+      "sha256": "dc62ea43f586a0cb47ef8aa1dd9db2842b11a4082f38fc5acff33ade60c3eca9",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Start of the game - Shoot.png",
+      "bytes": 65775,
+      "sha256": "e2853bb89a60c4a80d0303b475c20a61825771639a69ba0b46b380201a4ff7a4",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/Start of the game.png",
+      "bytes": 17699,
+      "sha256": "20cdd92c2f1fad5656f78b0d250f61d68fe0a066722d1d8aefcadc20422de2eb",
+      "width": 393,
+      "height": 852,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        393,
+        852
+      ]
+    },
+    {
+      "path": "Game UI/VICTORY PAGE - SOLO CHALLENGE.png",
+      "bytes": 602488,
+      "sha256": "84dae4afdf9610775344fb0d0902e1d75242101bea7df214a14e114b9f038053",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "Game UI/VICTORY PAGE.png",
+      "bytes": 173558,
+      "sha256": "24b2475304df3cdac0141b367a19a285023e6cf97815d2a4c20c8b4fd52c9b98",
+      "width": 393,
+      "height": 852,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        393,
+        852
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "path": "assets/authentiction_screen/account_created.png",
+      "bytes": 9641,
+      "sha256": "9c161c2d36970622e0573433a4b3201de5edb5de96e4f964e999a655f17ee929",
+      "width": 1448,
+      "height": 615,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1448,
+        615
+      ]
+    },
+    {
+      "path": "assets/authentiction_screen/button.png",
+      "bytes": 2305,
+      "sha256": "d84ce1ad920e5bd8d095573073b46376897d202212910f0220abb3d5503365a5",
+      "width": 1225,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1224,
+        288
+      ]
+    },
+    {
+      "path": "assets/authentiction_screen/continue_button.png",
+      "bytes": 2157,
+      "sha256": "e11215e5fb2d57ab069447d1c06bf62f8eb2449e6e9c8247c8436b117ff6a552",
+      "width": 673,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        672,
+        288
+      ]
+    },
+    {
+      "path": "assets/authentiction_screen/custom_cursor.png",
+      "bytes": 296,
+      "sha256": "7f83142f858379fa3846e5fbcaa03158d56817fcb72bd7d642a4a9b7b541c688",
+      "width": 37,
+      "height": 73,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        37,
+        73
+      ]
+    },
+    {
+      "path": "assets/authentiction_screen/GOOGLE LOGO.png",
+      "bytes": 1233,
+      "sha256": "c03df667b9d0192e0acd232519a6edeb3c33d47481ffa1c21892a566dde157d1",
+      "width": 104,
+      "height": 104,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        104,
+        104
+      ]
+    },
+    {
+      "path": "assets/authentiction_screen/login_failed_pass.png",
+      "bytes": 9890,
+      "sha256": "05684e7ceb48e9daa23418fa3383b567a89bb53b5f76630ddfa2d4ed73a9b8b0",
+      "width": 1448,
+      "height": 615,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1448,
+        615
+      ]
+    },
+    {
+      "path": "assets/authentiction_screen/login_failed_un.png",
+      "bytes": 9900,
+      "sha256": "2e5384c2db06ae944e791a96d27dab582430f32740b552013b99fc9206697ce0",
+      "width": 1448,
+      "height": 615,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1448,
+        615
+      ]
+    },
+    {
+      "path": "assets/authentiction_screen/missing_info.png",
+      "bytes": 9799,
+      "sha256": "2df47c804320494e16dbdb7b248b0c7319be7612fb01ba48b999814e905ad5cf",
+      "width": 1448,
+      "height": 615,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1448,
+        615
+      ]
+    },
+    {
+      "path": "assets/authentiction_screen/ok_button.png",
+      "bytes": 1880,
+      "sha256": "35157832bfba4ca18f191801003ec999ea502f9979af5cf2c3f983119cf44ceb",
+      "width": 673,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        672,
+        288
+      ]
+    },
+    {
+      "path": "assets/authentiction_screen/Paper.png",
+      "bytes": 1878,
+      "sha256": "ad2702be212679b422551cfe58c3f388c1a59424111125bb6163d1bb3031b5a5",
+      "width": 192,
+      "height": 179,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        192,
+        179
+      ]
+    },
+    {
+      "path": "assets/authentiction_screen/PASSWORD TEXT INPUT BOX.png",
+      "bytes": 2279,
+      "sha256": "a7456aa3295cc294ea5edc0cd8bb43980a1279fe54a6be8b95197c571fb4ebb4",
+      "width": 1225,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1224,
+        288
+      ]
+    },
+    {
+      "path": "assets/authentiction_screen/reset_sent.png",
+      "bytes": 9901,
+      "sha256": "c08aff13bfd6b37032f4366853d6dba95f72a994b13d6c321f272681214cb414",
+      "width": 1448,
+      "height": 615,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1448,
+        615
+      ]
+    },
+    {
+      "path": "assets/authentiction_screen/Scissors.png",
+      "bytes": 10453,
+      "sha256": "044b09072f65538726d53a7e5cc7bafb1a666a90e4af3f1a539ef39d50eb95c6",
+      "width": 183,
+      "height": 190,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        9,
+        1,
+        181,
+        188
+      ]
+    },
+    {
+      "path": "assets/authentiction_screen/sign_up.png",
+      "bytes": 3542,
+      "sha256": "585aef03875d8ab43571fd713ba644b8fb213a5a990522c02b7686ec53b40683",
+      "width": 1248,
+      "height": 192,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1248,
+        192
+      ]
+    },
+    {
+      "path": "assets/authentiction_screen/Sky.png",
+      "bytes": 872491,
+      "sha256": "220322d5f421f8a306bf7f5fb85bb245443e3da8d73ec26e276acca73189aff9",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/authentiction_screen/Stone.png",
+      "bytes": 12671,
+      "sha256": "e9bc3fb35499d6c93b79f506b0deef7e0185e837cda92dc606b56801d3872e83",
+      "width": 337,
+      "height": 251,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        24,
+        24,
+        322,
+        241
+      ]
+    },
+    {
+      "path": "assets/authentiction_screen/USERNAME TEXT INPUT BOX ERROR STATE.png",
+      "bytes": 2289,
+      "sha256": "1505ccf6c9aa8fbc0d3be6e6301774d1881837a89616f7d070cc1a935ff62f8e",
+      "width": 1225,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1224,
+        288
+      ]
+    },
+    {
+      "path": "assets/authentiction_screen/username_taken.png",
+      "bytes": 9750,
+      "sha256": "f455f45dbc291b5b1428f7ef8e73f49277a4213a6cf34e62a7f1cf2e345019f3",
+      "width": 1448,
+      "height": 615,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1448,
+        615
+      ]
+    },
+    {
+      "path": "assets/authentiction_screen/Vector.png",
+      "bytes": 3237,
+      "sha256": "859067aa1fe978519706166da84f0f2076bb7d057585ab8a5c627cc0df44bb8f",
+      "width": 1252,
+      "height": 196,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1252,
+        196
+      ]
+    },
+    {
+      "path": "assets/authentiction_screen/weak_pass.png",
+      "bytes": 10228,
+      "sha256": "df56968451bc8aa76c490cc519181cb2312792ac7f25f4203c861e112ea5c50a",
+      "width": 1448,
+      "height": 615,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1448,
+        615
+      ]
+    },
+    {
+      "path": "assets/defeat_screen_solo_match/Blue Balloon.png",
+      "bytes": 3345,
+      "sha256": "f3ef2c6fd42a71ca5159d722e2006a5d4d110ca784a5bdd43c65651ae90d2b07",
+      "width": 433,
+      "height": 529,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        433,
+        529
+      ]
+    },
+    {
+      "path": "assets/defeat_screen_solo_match/cloud_1.png",
+      "bytes": 5391,
+      "sha256": "f7608a4a7c8c5fb68ac6cc3098dc3a614bd3b07fe9d712502b2a018f5a293b12",
+      "width": 1280,
+      "height": 600,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1280,
+        600
+      ]
+    },
+    {
+      "path": "assets/defeat_screen_solo_match/cloud_2.png",
+      "bytes": 3248,
+      "sha256": "e51e78428c40ca5e42808137f420cc655ce32d28c41cd203c0b4d79700494763",
+      "width": 900,
+      "height": 460,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        900,
+        460
+      ]
+    },
+    {
+      "path": "assets/defeat_screen_solo_match/cry_girl.png",
+      "bytes": 24442,
+      "sha256": "c92bcf36c9326ca27797eef4bd3d965af47db877d157c15399a95b1437ff4f4f",
+      "width": 1764,
+      "height": 2520,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1764,
+        2520
+      ]
+    },
+    {
+      "path": "assets/defeat_screen_solo_match/cry_guy.png",
+      "bytes": 25831,
+      "sha256": "6633b96b419b02435394fd8f8d11e83cc9035eafec0ac3674e1434000d3dd4de",
+      "width": 1932,
+      "height": 2520,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1932,
+        2520
+      ]
+    },
+    {
+      "path": "assets/defeat_screen_solo_match/defeat.png",
+      "bytes": 1692,
+      "sha256": "7217606e69309b442e042d888505f14e63cd10260f1534a97c2338a33606b2ef",
+      "width": 992,
+      "height": 188,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        988,
+        188
+      ]
+    },
+    {
+      "path": "assets/defeat_screen_solo_match/Defeated Stadium.png",
+      "bytes": 8448,
+      "sha256": "7b206694d1d069c942bb8494f39ab13c37a4b88fd8c27dfd3e13d91c6c048301",
+      "width": 972,
+      "height": 1089,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        972,
+        1089
+      ]
+    },
+    {
+      "path": "assets/defeat_screen_solo_match/Green Balloon.png",
+      "bytes": 3254,
+      "sha256": "bdf1fa91d6efeaf8999ecbdbe509e100e306636a866fbc2a831fdb4dd7f08171",
+      "width": 433,
+      "height": 529,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        433,
+        529
+      ]
+    },
+    {
+      "path": "assets/defeat_screen_solo_match/Group 33.png",
+      "bytes": 7546,
+      "sha256": "d901173eefc457e9d704b308c66160adb707aa4e23eec102307355a4ca4a5a63",
+      "width": 647,
+      "height": 404,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        647,
+        404
+      ]
+    },
+    {
+      "path": "assets/defeat_screen_solo_match/next_button.png",
+      "bytes": 1495,
+      "sha256": "b6b1617b57bc525370aefc52892b7737d384b969afd275a225ebffc6f66b57c9",
+      "width": 184,
+      "height": 184,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        184,
+        184
+      ]
+    },
+    {
+      "path": "assets/defeat_screen_solo_match/Paper.png",
+      "bytes": 1878,
+      "sha256": "ad2702be212679b422551cfe58c3f388c1a59424111125bb6163d1bb3031b5a5",
+      "width": 192,
+      "height": 179,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        192,
+        179
+      ]
+    },
+    {
+      "path": "assets/defeat_screen_solo_match/Red Balloon.png",
+      "bytes": 3223,
+      "sha256": "b4e75f1a05e534e0e1d6ee373bfe6dd7436dd4ff55e14a97470086b3dbfc77b0",
+      "width": 433,
+      "height": 529,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        433,
+        529
+      ]
+    },
+    {
+      "path": "assets/defeat_screen_solo_match/rematch_home_button.png",
+      "bytes": 1659,
+      "sha256": "1da71fe56434a0737835af7f1733ac14f27ea37c67eab21c9fee38e014b21f3f",
+      "width": 673,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        672,
+        288
+      ]
+    },
+    {
+      "path": "assets/defeat_screen_solo_match/Scissors.png",
+      "bytes": 12087,
+      "sha256": "e8572f97517c71797b058e5399695daeccd2076d113ff7044e06177bc01696c8",
+      "width": 194,
+      "height": 200,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        8,
+        2,
+        191,
+        198
+      ]
+    },
+    {
+      "path": "assets/defeat_screen_solo_match/score_streak_box.png",
+      "bytes": 2279,
+      "sha256": "a7456aa3295cc294ea5edc0cd8bb43980a1279fe54a6be8b95197c571fb4ebb4",
+      "width": 1225,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1224,
+        288
+      ]
+    },
+    {
+      "path": "assets/defeat_screen_solo_match/share_button.png",
+      "bytes": 1360,
+      "sha256": "1fd847657560ee97c6e870820c2c4f0d61dc39cad10034dfcd58d9f1f5bb41ad",
+      "width": 400,
+      "height": 172,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        400,
+        172
+      ]
+    },
+    {
+      "path": "assets/defeat_screen_solo_match/Sky.png",
+      "bytes": 872491,
+      "sha256": "220322d5f421f8a306bf7f5fb85bb245443e3da8d73ec26e276acca73189aff9",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/defeat_screen_solo_match/Stone.png",
+      "bytes": 13327,
+      "sha256": "5ebb1ebb8001dd79a2806c1f59efaab932cf53da271f911a1ecc95567d1b9667",
+      "width": 339,
+      "height": 270,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        30,
+        30,
+        321,
+        258
+      ]
+    },
+    {
+      "path": "assets/draw_screen_solo_match/cloud_1.png",
+      "bytes": 5391,
+      "sha256": "f7608a4a7c8c5fb68ac6cc3098dc3a614bd3b07fe9d712502b2a018f5a293b12",
+      "width": 1280,
+      "height": 600,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1280,
+        600
+      ]
+    },
+    {
+      "path": "assets/draw_screen_solo_match/cloud_2.png",
+      "bytes": 3248,
+      "sha256": "e51e78428c40ca5e42808137f420cc655ce32d28c41cd203c0b4d79700494763",
+      "width": 900,
+      "height": 460,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        900,
+        460
+      ]
+    },
+    {
+      "path": "assets/draw_screen_solo_match/Defeated Stadium.png",
+      "bytes": 8448,
+      "sha256": "7b206694d1d069c942bb8494f39ab13c37a4b88fd8c27dfd3e13d91c6c048301",
+      "width": 972,
+      "height": 1089,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        972,
+        1089
+      ]
+    },
+    {
+      "path": "assets/draw_screen_solo_match/draw.png",
+      "bytes": 1387,
+      "sha256": "c38d37e8a891de0fe1e55340c624bd1e0c6a8d10147de37e9a599a92c24a1551",
+      "width": 672,
+      "height": 188,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        668,
+        188
+      ]
+    },
+    {
+      "path": "assets/draw_screen_solo_match/next_button.png",
+      "bytes": 1495,
+      "sha256": "b6b1617b57bc525370aefc52892b7737d384b969afd275a225ebffc6f66b57c9",
+      "width": 184,
+      "height": 184,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        184,
+        184
+      ]
+    },
+    {
+      "path": "assets/draw_screen_solo_match/Paper.png",
+      "bytes": 1878,
+      "sha256": "ad2702be212679b422551cfe58c3f388c1a59424111125bb6163d1bb3031b5a5",
+      "width": 192,
+      "height": 179,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        192,
+        179
+      ]
+    },
+    {
+      "path": "assets/draw_screen_solo_match/rematch_home_button.png",
+      "bytes": 1659,
+      "sha256": "1da71fe56434a0737835af7f1733ac14f27ea37c67eab21c9fee38e014b21f3f",
+      "width": 673,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        672,
+        288
+      ]
+    },
+    {
+      "path": "assets/draw_screen_solo_match/SAD GIRL.png",
+      "bytes": 24413,
+      "sha256": "5fe2292e8194aff861cd2d09c0cf867b308f33af54bfea8f17ceb0649f33ca54",
+      "width": 1764,
+      "height": 2520,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1764,
+        2520
+      ]
+    },
+    {
+      "path": "assets/draw_screen_solo_match/SAD GUY.png",
+      "bytes": 25809,
+      "sha256": "a6e4b6462418dc737f31b0cd617d219a4d8f6d74c5ca6d754af65b579960dd0e",
+      "width": 1932,
+      "height": 2520,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1932,
+        2520
+      ]
+    },
+    {
+      "path": "assets/draw_screen_solo_match/Scissors.png",
+      "bytes": 12087,
+      "sha256": "e8572f97517c71797b058e5399695daeccd2076d113ff7044e06177bc01696c8",
+      "width": 194,
+      "height": 200,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        8,
+        2,
+        191,
+        198
+      ]
+    },
+    {
+      "path": "assets/draw_screen_solo_match/score_streak_box.png",
+      "bytes": 2279,
+      "sha256": "a7456aa3295cc294ea5edc0cd8bb43980a1279fe54a6be8b95197c571fb4ebb4",
+      "width": 1225,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1224,
+        288
+      ]
+    },
+    {
+      "path": "assets/draw_screen_solo_match/share_button.png",
+      "bytes": 1360,
+      "sha256": "1fd847657560ee97c6e870820c2c4f0d61dc39cad10034dfcd58d9f1f5bb41ad",
+      "width": 400,
+      "height": 172,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        400,
+        172
+      ]
+    },
+    {
+      "path": "assets/draw_screen_solo_match/Sky.png",
+      "bytes": 872491,
+      "sha256": "220322d5f421f8a306bf7f5fb85bb245443e3da8d73ec26e276acca73189aff9",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/draw_screen_solo_match/Stone.png",
+      "bytes": 13327,
+      "sha256": "5ebb1ebb8001dd79a2806c1f59efaab932cf53da271f911a1ecc95567d1b9667",
+      "width": 339,
+      "height": 270,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        30,
+        30,
+        321,
+        258
+      ]
+    },
+    {
+      "path": "assets/expo.icon/Assets/expo-symbol 2.svg",
+      "bytes": 611,
+      "sha256": "0aab4b9a72b495d415a7088de655829e2db36a2021b17679af6bc47a1fe363d6"
+    },
+    {
+      "path": "assets/expo.icon/Assets/grid.png",
+      "bytes": 53681,
+      "sha256": "8247d79a2b31328fe4e330a973e6fae16924ed9aebd72c64d464d6856ab18c72",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        115
+      ],
+      "contentBounds": [
+        2,
+        3,
+        1021,
+        1021
+      ]
+    },
+    {
+      "path": "assets/expo.icon/icon.json",
+      "bytes": 819,
+      "sha256": "1cf151ba777b142d203aa3bc595fa52ba1bd80e2f3e5b4c5a2d0192825925538"
+    },
+    {
+      "path": "assets/game_mode_screen/button.png",
+      "bytes": 1659,
+      "sha256": "1da71fe56434a0737835af7f1733ac14f27ea37c67eab21c9fee38e014b21f3f",
+      "width": 673,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        672,
+        288
+      ]
+    },
+    {
+      "path": "assets/game_mode_screen/cloud_1.png",
+      "bytes": 5391,
+      "sha256": "f7608a4a7c8c5fb68ac6cc3098dc3a614bd3b07fe9d712502b2a018f5a293b12",
+      "width": 1280,
+      "height": 600,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1280,
+        600
+      ]
+    },
+    {
+      "path": "assets/game_mode_screen/cloud_2.png",
+      "bytes": 3248,
+      "sha256": "e51e78428c40ca5e42808137f420cc655ce32d28c41cd203c0b4d79700494763",
+      "width": 900,
+      "height": 460,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        900,
+        460
+      ]
+    },
+    {
+      "path": "assets/game_mode_screen/Paper.png",
+      "bytes": 1878,
+      "sha256": "ad2702be212679b422551cfe58c3f388c1a59424111125bb6163d1bb3031b5a5",
+      "width": 192,
+      "height": 179,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        192,
+        179
+      ]
+    },
+    {
+      "path": "assets/game_mode_screen/Scissors.png",
+      "bytes": 12087,
+      "sha256": "e8572f97517c71797b058e5399695daeccd2076d113ff7044e06177bc01696c8",
+      "width": 194,
+      "height": 200,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        8,
+        2,
+        191,
+        198
+      ]
+    },
+    {
+      "path": "assets/game_mode_screen/select_game_mode.png",
+      "bytes": 9262,
+      "sha256": "e44d0c8d5116c2ed4ea712ae6df68be7561d9ac654d263833599214fc2c40c1c",
+      "width": 1252,
+      "height": 744,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1252,
+        744
+      ]
+    },
+    {
+      "path": "assets/game_mode_screen/Sky.png",
+      "bytes": 872491,
+      "sha256": "220322d5f421f8a306bf7f5fb85bb245443e3da8d73ec26e276acca73189aff9",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/game_mode_screen/Stone.png",
+      "bytes": 13327,
+      "sha256": "5ebb1ebb8001dd79a2806c1f59efaab932cf53da271f911a1ecc95567d1b9667",
+      "width": 339,
+      "height": 270,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        30,
+        30,
+        321,
+        258
+      ]
+    },
+    {
+      "path": "assets/game_screen/button.png",
+      "bytes": 1757,
+      "sha256": "e47d4897ede81534c024d7f5594018d3f5c30aba718cae9afa746a5078feb4df",
+      "width": 769,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        768,
+        288
+      ]
+    },
+    {
+      "path": "assets/game_screen/cancel_button_exit_screen_&_restart_screen.png",
+      "bytes": 1659,
+      "sha256": "1da71fe56434a0737835af7f1733ac14f27ea37c67eab21c9fee38e014b21f3f",
+      "width": 673,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        672,
+        288
+      ]
+    },
+    {
+      "path": "assets/game_screen/control_buttons.png",
+      "bytes": 1215,
+      "sha256": "6a41529cc90911b40a27d80ac790d853e75ddeebccea0d9ae1d1683895d14f67",
+      "width": 288,
+      "height": 288,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        288,
+        288
+      ]
+    },
+    {
+      "path": "assets/game_screen/draw_state.png",
+      "bytes": 10030,
+      "sha256": "9935f127dfaef0b1cb2a8d3757a5d481f0d17404a3fba1b367cb7977d58c9db1",
+      "width": 1448,
+      "height": 615,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1448,
+        615
+      ]
+    },
+    {
+      "path": "assets/game_screen/empty_score.png",
+      "bytes": 786,
+      "sha256": "ecb0a6cc7c699b36480238961c565bebaa96cdc075cf3e8344766fdf3704d647",
+      "width": 144,
+      "height": 127,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        144,
+        126
+      ]
+    },
+    {
+      "path": "assets/game_screen/exit_game_box.png",
+      "bytes": 9665,
+      "sha256": "a4a404593e498ea17210fe40983e69dc6f45cb780c589e8b510015d0ace229ee",
+      "width": 1448,
+      "height": 615,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1448,
+        615
+      ]
+    },
+    {
+      "path": "assets/game_screen/grass_Background.png",
+      "bytes": 30719,
+      "sha256": "960cd6a564aae7a03bf1c87da0dd36afe388af6222ad04ba5b92a74bb89ffba7",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/game_screen/Group 83.png",
+      "bytes": 1727,
+      "sha256": "3f6081f7db2d4371edc5964da3f6e94600ca393b38399b65fe43105fcbb6d518",
+      "width": 992,
+      "height": 188,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        988,
+        188
+      ]
+    },
+    {
+      "path": "assets/game_screen/half_time_screen.png",
+      "bytes": 28339,
+      "sha256": "882292163d4813de958d64c141de70254812fa350e580cc7caceee753b2c2334",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        191,
+        191
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/game_screen/HOLD STATE BLUE HANDS BLOCK.png",
+      "bytes": 7135,
+      "sha256": "1f559746c0f1b400e8f354cffe562604f534a54686dae431834e23651a26ac99",
+      "width": 752,
+      "height": 1276,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        752,
+        1276
+      ]
+    },
+    {
+      "path": "assets/game_screen/HOLD STATE REDHANDS BLOCK.png",
+      "bytes": 7125,
+      "sha256": "132ebc0e0742bfbd661ecdd98ab3f89cf4ed09c60569375bda94be0d87e5f950",
+      "width": 752,
+      "height": 1276,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        752,
+        1276
+      ]
+    },
+    {
+      "path": "assets/game_screen/HOLD STATE SHADOW BLUE HANDS BLOCK.png",
+      "bytes": 6772,
+      "sha256": "7172bfb4408d1822475eba3ce629a38b32e5b9230fa4378a1244921a7b737eb5",
+      "width": 752,
+      "height": 1276,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        166
+      ],
+      "contentBounds": [
+        0,
+        0,
+        752,
+        1276
+      ]
+    },
+    {
+      "path": "assets/game_screen/lost_point.png",
+      "bytes": 721,
+      "sha256": "95f33320120b67628c6af8b3584e46cbedec47762640e3e3469aed26b6d81b3b",
+      "width": 144,
+      "height": 126,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        18,
+        18,
+        126,
+        108
+      ]
+    },
+    {
+      "path": "assets/game_screen/PAPER BLUE HAND BLOCKS.png",
+      "bytes": 7997,
+      "sha256": "8d69f6d9bad6c295559ef8e6303985be3d6cd59fbdb3a9f67898fc0222a44c60",
+      "width": 708,
+      "height": 1540,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        708,
+        1540
+      ]
+    },
+    {
+      "path": "assets/game_screen/PAPER RED HAND BLOCKS.png",
+      "bytes": 7988,
+      "sha256": "1a2d8671ad4651653230cf42c9c45bd0990a29dfac4e8f1f4dbf69b1836dfacf",
+      "width": 708,
+      "height": 1540,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        708,
+        1540
+      ]
+    },
+    {
+      "path": "assets/game_screen/PAPER SAHDOW HAND RED BLOCKS.png",
+      "bytes": 7730,
+      "sha256": "ac22718b5ec8df0311b9cefdb0fe2fca20088ec9c289d855fc7517cc25232593",
+      "width": 708,
+      "height": 1540,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        166
+      ],
+      "contentBounds": [
+        0,
+        0,
+        708,
+        1540
+      ]
+    },
+    {
+      "path": "assets/game_screen/Paper.png",
+      "bytes": 1878,
+      "sha256": "ad2702be212679b422551cfe58c3f388c1a59424111125bb6163d1bb3031b5a5",
+      "width": 192,
+      "height": 179,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        192,
+        179
+      ]
+    },
+    {
+      "path": "assets/game_screen/quit_button.png",
+      "bytes": 1776,
+      "sha256": "061230a335cbaf8ade7c901f6d8bec9faafb342f3e1bf20ba73f6d6a1e87e06c",
+      "width": 769,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        768,
+        288
+      ]
+    },
+    {
+      "path": "assets/game_screen/ROCK BLUE HAND BLOCKS.png",
+      "bytes": 7130,
+      "sha256": "87f7c31c7eed64d4f20050f046e40e60558a3eac95b705dd4ea1977aec15a8f1",
+      "width": 752,
+      "height": 1276,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        752,
+        1276
+      ]
+    },
+    {
+      "path": "assets/game_screen/ROCK RED HAND BLOCKS.png",
+      "bytes": 7118,
+      "sha256": "d82fef4e18d70977d87747e46c5a509dfc96dbb7b004d1acbb4e65c918d09d58",
+      "width": 752,
+      "height": 1276,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        752,
+        1276
+      ]
+    },
+    {
+      "path": "assets/game_screen/round_result.png",
+      "bytes": 8592,
+      "sha256": "0d4335809996b0d8e6ae5c6b927de31fac7bcf78c38ae358d3591ae21750516a",
+      "width": 1448,
+      "height": 615,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1448,
+        615
+      ]
+    },
+    {
+      "path": "assets/game_screen/SCISSOR BLUE HAND BLOCKS.png",
+      "bytes": 8679,
+      "sha256": "32f32bda16ffc438642e39acd56533883d1a53f0814f9454e372b424dcd5741d",
+      "width": 748,
+      "height": 1540,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        748,
+        1540
+      ]
+    },
+    {
+      "path": "assets/game_screen/SCISSOR RED HAND BLOCKS.png",
+      "bytes": 8670,
+      "sha256": "8d7dcb78648afcaf37f31a4d03de3fe904291eadea77d2252d8e004952b23f7d",
+      "width": 748,
+      "height": 1540,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        748,
+        1540
+      ]
+    },
+    {
+      "path": "assets/game_screen/SCISSOR SHADOW HAND BLOCKS.png",
+      "bytes": 8162,
+      "sha256": "166d894f371e4ff049891eaee9b1014aa2fa2744841a83e96839b0b55c81a2d9",
+      "width": 748,
+      "height": 1540,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        166
+      ],
+      "contentBounds": [
+        0,
+        0,
+        748,
+        1540
+      ]
+    },
+    {
+      "path": "assets/game_screen/Scissors.png",
+      "bytes": 12087,
+      "sha256": "e8572f97517c71797b058e5399695daeccd2076d113ff7044e06177bc01696c8",
+      "width": 194,
+      "height": 200,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        8,
+        2,
+        191,
+        198
+      ]
+    },
+    {
+      "path": "assets/game_screen/Settings Button.png",
+      "bytes": 4627,
+      "sha256": "7542faebfd02b1bb0cecb4ce30dc5dba6bb12079c847d28b26084ebc7700bd17",
+      "width": 184,
+      "height": 184,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        184,
+        184
+      ]
+    },
+    {
+      "path": "assets/game_screen/settings_icon.png",
+      "bytes": 3286,
+      "sha256": "7d003a30bf74896fca4864661d8156dc57bca5698d5ae1ab55ded184ff877638",
+      "width": 127,
+      "height": 120,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        127,
+        120
+      ]
+    },
+    {
+      "path": "assets/game_screen/Stone.png",
+      "bytes": 13327,
+      "sha256": "5ebb1ebb8001dd79a2806c1f59efaab932cf53da271f911a1ecc95567d1b9667",
+      "width": 339,
+      "height": 270,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        30,
+        30,
+        321,
+        258
+      ]
+    },
+    {
+      "path": "assets/game_screen/won_point.png",
+      "bytes": 694,
+      "sha256": "aec2e767d096d4fc5be674b2137b48fa784b97bf2d052e3e79c6738535d1cb72",
+      "width": 144,
+      "height": 126,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        18,
+        18,
+        126,
+        108
+      ]
+    },
+    {
+      "path": "assets/game_screen/yes_exit_button.png",
+      "bytes": 1675,
+      "sha256": "c1af0a70f474b210e00a9d8e124abfca01a5c444eb21957d2c8de1f92c8cff24",
+      "width": 673,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        672,
+        288
+      ]
+    },
+    {
+      "path": "assets/gender_screen/cloud_1.png",
+      "bytes": 5391,
+      "sha256": "f7608a4a7c8c5fb68ac6cc3098dc3a614bd3b07fe9d712502b2a018f5a293b12",
+      "width": 1280,
+      "height": 600,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1280,
+        600
+      ]
+    },
+    {
+      "path": "assets/gender_screen/cloud_2.png",
+      "bytes": 3248,
+      "sha256": "e51e78428c40ca5e42808137f420cc655ce32d28c41cd203c0b4d79700494763",
+      "width": 900,
+      "height": 460,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        900,
+        460
+      ]
+    },
+    {
+      "path": "assets/gender_screen/CROWN_BLOCKS.png",
+      "bytes": 1626,
+      "sha256": "97c1440a226daea3c9d2cbdcbc0b39fed9a6295c45db5c954f6f07dc4075b84d",
+      "width": 247,
+      "height": 206,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        247,
+        206
+      ]
+    },
+    {
+      "path": "assets/gender_screen/girl_on_the_tower.png",
+      "bytes": 12484,
+      "sha256": "97742d1253f3e47dc8b81d1ecfeb8928188295a215d6233d9f8d842eb5fe8515",
+      "width": 681,
+      "height": 1520,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        681,
+        1520
+      ]
+    },
+    {
+      "path": "assets/gender_screen/guy_on_the_tower.png",
+      "bytes": 12170,
+      "sha256": "b2ea93b7eb4791650907637b8b1bea7359ab71467e693b1296f3ad60cd1ce06a",
+      "width": 721,
+      "height": 1520,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        721,
+        1520
+      ]
+    },
+    {
+      "path": "assets/gender_screen/next_button.png",
+      "bytes": 1495,
+      "sha256": "b6b1617b57bc525370aefc52892b7737d384b969afd275a225ebffc6f66b57c9",
+      "width": 184,
+      "height": 184,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        184,
+        184
+      ]
+    },
+    {
+      "path": "assets/gender_screen/Paper.png",
+      "bytes": 1878,
+      "sha256": "ad2702be212679b422551cfe58c3f388c1a59424111125bb6163d1bb3031b5a5",
+      "width": 192,
+      "height": 179,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        192,
+        179
+      ]
+    },
+    {
+      "path": "assets/gender_screen/Scissors.png",
+      "bytes": 12087,
+      "sha256": "e8572f97517c71797b058e5399695daeccd2076d113ff7044e06177bc01696c8",
+      "width": 194,
+      "height": 200,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        8,
+        2,
+        191,
+        198
+      ]
+    },
+    {
+      "path": "assets/gender_screen/select_ur_gender.png",
+      "bytes": 9217,
+      "sha256": "a9b3a7f9cc22015dd2ececfc1edb2efdd79775f1408f6a453ae580ac408e40a0",
+      "width": 1256,
+      "height": 768,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1256,
+        768
+      ]
+    },
+    {
+      "path": "assets/gender_screen/Sky.png",
+      "bytes": 872491,
+      "sha256": "220322d5f421f8a306bf7f5fb85bb245443e3da8d73ec26e276acca73189aff9",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/gender_screen/STAR BLOCKS-1.png",
+      "bytes": 1458,
+      "sha256": "e8d2b39650e87a0501ef546c75069b68da4a923d90fa2f49f90f0583a0306ff2",
+      "width": 36,
+      "height": 34,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        30,
+        33
+      ]
+    },
+    {
+      "path": "assets/gender_screen/STAR BLOCKS-2.png",
+      "bytes": 1519,
+      "sha256": "f8da8ba80cd9163c278e91c1e17306382720bb0921327b72561ea9b09602af9b",
+      "width": 35,
+      "height": 33,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        5,
+        33,
+        33
+      ]
+    },
+    {
+      "path": "assets/gender_screen/STAR BLOCKS.png",
+      "bytes": 1490,
+      "sha256": "4adf36c5c935b5f40226b49d2eb22c8d3baa41aff94e5711cc68ad3bf6930a0c",
+      "width": 39,
+      "height": 38,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        1,
+        9,
+        35,
+        38
+      ]
+    },
+    {
+      "path": "assets/gender_screen/Stone.png",
+      "bytes": 13327,
+      "sha256": "5ebb1ebb8001dd79a2806c1f59efaab932cf53da271f911a1ecc95567d1b9667",
+      "width": 339,
+      "height": 270,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        30,
+        30,
+        321,
+        258
+      ]
+    },
+    {
+      "path": "assets/general/cloud_1.png",
+      "bytes": 5391,
+      "sha256": "f7608a4a7c8c5fb68ac6cc3098dc3a614bd3b07fe9d712502b2a018f5a293b12",
+      "width": 1280,
+      "height": 600,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1280,
+        600
+      ]
+    },
+    {
+      "path": "assets/general/cloud_2.png",
+      "bytes": 3248,
+      "sha256": "e51e78428c40ca5e42808137f420cc655ce32d28c41cd203c0b4d79700494763",
+      "width": 900,
+      "height": 460,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        900,
+        460
+      ]
+    },
+    {
+      "path": "assets/general/cry_girl.png",
+      "bytes": 24442,
+      "sha256": "c92bcf36c9326ca27797eef4bd3d965af47db877d157c15399a95b1437ff4f4f",
+      "width": 1764,
+      "height": 2520,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1764,
+        2520
+      ]
+    },
+    {
+      "path": "assets/general/cry_guy.png",
+      "bytes": 25831,
+      "sha256": "6633b96b419b02435394fd8f8d11e83cc9035eafec0ac3674e1434000d3dd4de",
+      "width": 1932,
+      "height": 2520,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1932,
+        2520
+      ]
+    },
+    {
+      "path": "assets/general/grass_Background.png",
+      "bytes": 30719,
+      "sha256": "960cd6a564aae7a03bf1c87da0dd36afe388af6222ad04ba5b92a74bb89ffba7",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/general/home_page_floating_island.png",
+      "bytes": 10576,
+      "sha256": "3ce48ec22a314029eb5e87e7b637f454c6af2f10b18409e2e64dc6e26393f540",
+      "width": 1200,
+      "height": 940,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1200,
+        940
+      ]
+    },
+    {
+      "path": "assets/general/Paper.png",
+      "bytes": 1878,
+      "sha256": "ad2702be212679b422551cfe58c3f388c1a59424111125bb6163d1bb3031b5a5",
+      "width": 192,
+      "height": 179,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        192,
+        179
+      ]
+    },
+    {
+      "path": "assets/general/SAD GIRL.png",
+      "bytes": 24413,
+      "sha256": "5fe2292e8194aff861cd2d09c0cf867b308f33af54bfea8f17ceb0649f33ca54",
+      "width": 1764,
+      "height": 2520,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1764,
+        2520
+      ]
+    },
+    {
+      "path": "assets/general/SAD GUY.png",
+      "bytes": 25809,
+      "sha256": "a6e4b6462418dc737f31b0cd617d219a4d8f6d74c5ca6d754af65b579960dd0e",
+      "width": 1932,
+      "height": 2520,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1932,
+        2520
+      ]
+    },
+    {
+      "path": "assets/general/Scissors.png",
+      "bytes": 12087,
+      "sha256": "e8572f97517c71797b058e5399695daeccd2076d113ff7044e06177bc01696c8",
+      "width": 194,
+      "height": 200,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        8,
+        2,
+        191,
+        198
+      ]
+    },
+    {
+      "path": "assets/general/Sky.png",
+      "bytes": 872491,
+      "sha256": "220322d5f421f8a306bf7f5fb85bb245443e3da8d73ec26e276acca73189aff9",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/general/SMILE GIRL.png",
+      "bytes": 24429,
+      "sha256": "ab60937f1434f9a665e5c878b7eea4ec2d3476d4e27a685fb7384594159a1e1f",
+      "width": 1764,
+      "height": 2520,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1764,
+        2520
+      ]
+    },
+    {
+      "path": "assets/general/SMILE GUY.png",
+      "bytes": 25821,
+      "sha256": "9f0f9261b6cfab12b3ac95e78b6140178a613185936b5d38c2c21e1a96f42f0e",
+      "width": 1932,
+      "height": 2520,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1932,
+        2520
+      ]
+    },
+    {
+      "path": "assets/general/Stone.png",
+      "bytes": 13327,
+      "sha256": "5ebb1ebb8001dd79a2806c1f59efaab932cf53da271f911a1ecc95567d1b9667",
+      "width": 339,
+      "height": 270,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        30,
+        30,
+        321,
+        258
+      ]
+    },
+    {
+      "path": "assets/home_screen/cloud_1.png",
+      "bytes": 5391,
+      "sha256": "f7608a4a7c8c5fb68ac6cc3098dc3a614bd3b07fe9d712502b2a018f5a293b12",
+      "width": 1280,
+      "height": 600,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1280,
+        600
+      ]
+    },
+    {
+      "path": "assets/home_screen/cloud_2.png",
+      "bytes": 3248,
+      "sha256": "e51e78428c40ca5e42808137f420cc655ce32d28c41cd203c0b4d79700494763",
+      "width": 900,
+      "height": 460,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        900,
+        460
+      ]
+    },
+    {
+      "path": "assets/home_screen/CROWN BLOCKS.png",
+      "bytes": 976,
+      "sha256": "4cf828470cdde706226d9f80f369eb1f434db73bca8737ddc2ee9f16373ac4ad",
+      "width": 53,
+      "height": 44,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        53,
+        44
+      ]
+    },
+    {
+      "path": "assets/home_screen/female_profile_pic.png",
+      "bytes": 3127,
+      "sha256": "31afed73e2fe3da0a2ffcde6c16cb467e5738205dd30675f48684b4cc9ad6629",
+      "width": 124,
+      "height": 130,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        124,
+        130
+      ]
+    },
+    {
+      "path": "assets/home_screen/floating_island.png",
+      "bytes": 9641,
+      "sha256": "64cec382020c798dd63827ba996a44ba7c6f8d3c24d81f0c6a3c59ce8071ee94",
+      "width": 1200,
+      "height": 880,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1200,
+        880
+      ]
+    },
+    {
+      "path": "assets/home_screen/floating_island_crumble_1.png",
+      "bytes": 524,
+      "sha256": "5e46e9722fbc2b65501acbbb934fa267e456d5172441fda3af86fc21168678fa",
+      "width": 100,
+      "height": 120,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        100,
+        120
+      ]
+    },
+    {
+      "path": "assets/home_screen/floating_island_crumble_2.png",
+      "bytes": 908,
+      "sha256": "ce9560c123873ab2c2d087dfc14d0482ec7aae5b5f136af2d12a4a25272a2e99",
+      "width": 200,
+      "height": 220,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        200,
+        220
+      ]
+    },
+    {
+      "path": "assets/home_screen/floating_island_crumble_3.png",
+      "bytes": 787,
+      "sha256": "35edefc7008a3fbbb0287fc651f7c66d6911782a086f9d9e71f4380490ea3fcb",
+      "width": 160,
+      "height": 180,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        160,
+        180
+      ]
+    },
+    {
+      "path": "assets/home_screen/game_button.png",
+      "bytes": 2123,
+      "sha256": "5f18a0d938788901ac0c384f7efcd7ecfd59b59888b6db64dedf9b9fc88c6f80",
+      "width": 1012,
+      "height": 239,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1012,
+        238
+      ]
+    },
+    {
+      "path": "assets/home_screen/logo.png",
+      "bytes": 88877,
+      "sha256": "a1190779f07b86fcaf1db3f69a851f65dc596e7c1aff59fd05a2bb289c9c4587",
+      "width": 1380,
+      "height": 1130,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        44,
+        114,
+        1352,
+        1114
+      ]
+    },
+    {
+      "path": "assets/home_screen/male_profile_pic.png",
+      "bytes": 2995,
+      "sha256": "d606293cc00cefd716d3cb3ccf0c6e202ed70d3050bc83faa420e88937cd50e8",
+      "width": 124,
+      "height": 130,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        124,
+        130
+      ]
+    },
+    {
+      "path": "assets/home_screen/profile_holder.png",
+      "bytes": 2869,
+      "sha256": "bb331d8420781cc43acde49afdd85cf4c6713f0ca46510e25a683b1f9bcfa177",
+      "width": 471,
+      "height": 184,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        471,
+        184
+      ]
+    },
+    {
+      "path": "assets/home_screen/Settings Button.png",
+      "bytes": 4627,
+      "sha256": "7542faebfd02b1bb0cecb4ce30dc5dba6bb12079c847d28b26084ebc7700bd17",
+      "width": 184,
+      "height": 184,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        184,
+        184
+      ]
+    },
+    {
+      "path": "assets/home_screen/Sky.png",
+      "bytes": 872491,
+      "sha256": "220322d5f421f8a306bf7f5fb85bb245443e3da8d73ec26e276acca73189aff9",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/home_screen/SMILE_GIRL.png",
+      "bytes": 6507,
+      "sha256": "12658d457ca2b256ba966adf76e6742b982eb044522dcae455d6ca7f7c1fa522",
+      "width": 443,
+      "height": 632,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        443,
+        632
+      ]
+    },
+    {
+      "path": "assets/home_screen/SMILE_GUY.png",
+      "bytes": 6329,
+      "sha256": "1272ac79f90656e1001d7ebde25fb1093d528315c97a4ecc5f572a842419595a",
+      "width": 484,
+      "height": 632,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        484,
+        632
+      ]
+    },
+    {
+      "path": "assets/images/android-icon-background.png",
+      "bytes": 17549,
+      "sha256": "fb139c2dee362ebf2070e23b96da6fc0d43f8492de38b8af1fd7223e19b5861d",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        512,
+        512
+      ]
+    },
+    {
+      "path": "assets/images/android-icon-foreground.png",
+      "bytes": 78796,
+      "sha256": "9e3d0315a33c6799de601dd34cd8bf8cc3a8d16f3bf75592baec2ceb7240b391",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        252
+      ],
+      "contentBounds": [
+        127,
+        131,
+        387,
+        371
+      ]
+    },
+    {
+      "path": "assets/images/android-icon-monochrome.png",
+      "bytes": 4140,
+      "sha256": "6371fc2c12e33ad2215a86c281db3d682a81bebe7c957a842c13b8bf00cceb83",
+      "width": 432,
+      "height": 432,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        117,
+        123,
+        313,
+        299
+      ]
+    },
+    {
+      "path": "assets/images/buttons/btn_paper.png",
+      "bytes": 1249,
+      "sha256": "00545579a4d6f72fb382d2b7ce1157b76bde5a0a908a8e209707be413bfeb37a",
+      "width": 63,
+      "height": 63,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        63,
+        63
+      ]
+    },
+    {
+      "path": "assets/images/buttons/btn_rock.png",
+      "bytes": 1869,
+      "sha256": "943306fcf3a4f7e0bae24e10fda4cb7164d198caa2f8323a0464ec9c16ba8e77",
+      "width": 63,
+      "height": 63,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        63,
+        63
+      ]
+    },
+    {
+      "path": "assets/images/buttons/btn_scissors.png",
+      "bytes": 2881,
+      "sha256": "fbbde07d4d19a0cbc444f86544369cc776589237ce36cdf34dc3ce73b4b17c3a",
+      "width": 63,
+      "height": 63,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        63,
+        63
+      ]
+    },
+    {
+      "path": "assets/images/buttons/btn_settings.png",
+      "bytes": 2140,
+      "sha256": "da8266647c3bd1b3d3ff737090101bead98726396eb47f4092c22d5adb0acce6",
+      "width": 47,
+      "height": 47,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        1,
+        47,
+        47
+      ]
+    },
+    {
+      "path": "assets/images/characters/char_avatar_defeat.png",
+      "bytes": 10810,
+      "sha256": "b0272e82b81d9f19fd6383a68522c9ddefd870cf38284c00cbc46f91927e7d5c",
+      "width": 149,
+      "height": 439,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        149,
+        439
+      ]
+    },
+    {
+      "path": "assets/images/characters/char_avatar_idle.png",
+      "bytes": 6199,
+      "sha256": "ba19f95c213d06a539c003920c158cd0bc7be598a095117817e3b02674310a23",
+      "width": 149,
+      "height": 219,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        149,
+        219
+      ]
+    },
+    {
+      "path": "assets/images/characters/char_avatar_victory.png",
+      "bytes": 6808,
+      "sha256": "7ac1dc881cd3888c13966c578608a36eb770ac1eec2b22d6cefee93421359a81",
+      "width": 149,
+      "height": 402,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        149,
+        402
+      ]
+    },
+    {
+      "path": "assets/images/decorations/balloon_red.png",
+      "bytes": 1092,
+      "sha256": "83465e12885d40da5f24cf37ef16c8a390fa98516907f1981508f070be2c2f61",
+      "width": 74,
+      "height": 139,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        74,
+        139
+      ]
+    },
+    {
+      "path": "assets/images/decorations/floating_island.png",
+      "bytes": 6695,
+      "sha256": "380cbf707615c78934e346d4d010d8ef51129e56de72ede0dab2a4e6a2c5e118",
+      "width": 353,
+      "height": 170,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        37,
+        0,
+        318,
+        170
+      ]
+    },
+    {
+      "path": "assets/images/decorations/pedestal_victory.png",
+      "bytes": 680,
+      "sha256": "0e233ad1f50c0d6f48e5b5be5441de192ac50728e3c0234addb5b92b0fc2bf82",
+      "width": 193,
+      "height": 112,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        193,
+        112
+      ]
+    },
+    {
+      "path": "assets/images/decorations/pillar_defeat.png",
+      "bytes": 1139,
+      "sha256": "73bd6bdb63e00c01ab01ceb9808cfd62837bc7911cbe0f1892f5a79764e974e5",
+      "width": 193,
+      "height": 77,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        193,
+        77
+      ]
+    },
+    {
+      "path": "assets/images/decorations/star_victory.png",
+      "bytes": 699,
+      "sha256": "4d2c9462f25c0cb720353a4c9bd92003b26ae739687507c6679200c2542c1bd3",
+      "width": 67,
+      "height": 67,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        67,
+        67
+      ]
+    },
+    {
+      "path": "assets/images/expo-badge-white.png",
+      "bytes": 4129,
+      "sha256": "d9ba28c5e93aea3c2dabd901ee96fea3bb296ad8e648f6f64706dae11a1a62bd",
+      "width": 371,
+      "height": 72,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        371,
+        72
+      ]
+    },
+    {
+      "path": "assets/images/expo-badge.png",
+      "bytes": 4137,
+      "sha256": "ff353c7efadbd379903923cb604fca11c908cba0d4658cc2bd1f147d98317249",
+      "width": 371,
+      "height": 72,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        371,
+        72
+      ]
+    },
+    {
+      "path": "assets/images/expo-logo.png",
+      "bytes": 3317,
+      "sha256": "27b060a757a29038c9618586baa0ba3894dbe60d084c6059df497ff429c2d92f",
+      "width": 228,
+      "height": 213,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        228,
+        213
+      ]
+    },
+    {
+      "path": "assets/images/favicon.png",
+      "bytes": 1129,
+      "sha256": "a4e030697a7571b3e95d31860e4da55d2f98e5e861e2b55e414f45a8556828ba",
+      "width": 48,
+      "height": 48,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        48,
+        48
+      ]
+    },
+    {
+      "path": "assets/images/hands/hand_bot_paper.png",
+      "bytes": 4754,
+      "sha256": "368584fc219703ca37d447a2f5e8fb7442d8f7fb81b773e3a6f3d82eee46d866",
+      "width": 338,
+      "height": 384,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        338,
+        384
+      ]
+    },
+    {
+      "path": "assets/images/hands/hand_bot_rock.png",
+      "bytes": 4566,
+      "sha256": "2252a996810ecf8c112687fb090e81e4c11158185a61082723813e7d5d716b9a",
+      "width": 338,
+      "height": 318,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        338,
+        318
+      ]
+    },
+    {
+      "path": "assets/images/hands/hand_bot_scissors.png",
+      "bytes": 1734,
+      "sha256": "885f0df5686887597530680443cd7e5cd871e05ad6b4727dfbb8be40d98609f4",
+      "width": 262,
+      "height": 232,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        262,
+        232
+      ]
+    },
+    {
+      "path": "assets/images/hands/hand_player_paper.png",
+      "bytes": 4646,
+      "sha256": "e291414b8502e2ec0befcb0ab085594d6b6c3616c914b0f7e5edde594afc1d16",
+      "width": 338,
+      "height": 384,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        338,
+        384
+      ]
+    },
+    {
+      "path": "assets/images/hands/hand_player_rock.png",
+      "bytes": 1421,
+      "sha256": "9bb68b8be5061ec02564e51e60055f838df2fa3497b2b7c1582d8363f67c0398",
+      "width": 263,
+      "height": 166,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        263,
+        166
+      ]
+    },
+    {
+      "path": "assets/images/hands/hand_player_scissors.png",
+      "bytes": 1736,
+      "sha256": "a34182273959650e44981f117b8c52c77a179563b1c5012ed40bcbb3ddef29fb",
+      "width": 262,
+      "height": 232,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        262,
+        232
+      ]
+    },
+    {
+      "path": "assets/images/icon.png",
+      "bytes": 799005,
+      "sha256": "7a667804bb80a6a424a5daf18a2599c4f32237cf06fe78fc0de45dbb09e0eccf",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        237,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/images/logo-glow.png",
+      "bytes": 331624,
+      "sha256": "bbd98a3f3c12d090f4df6065b7462fcdf6bc266209d002b4ef5fe554c245f66c",
+      "width": 604,
+      "height": 604,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        128
+      ],
+      "contentBounds": [
+        7,
+        5,
+        599,
+        594
+      ]
+    },
+    {
+      "path": "assets/images/react-logo.png",
+      "bytes": 6341,
+      "sha256": "224b7636b15e672801579b5b418077cbc2ca42f0146389062364356b0ecb5c5c",
+      "width": 100,
+      "height": 100,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        6,
+        11,
+        93,
+        88
+      ]
+    },
+    {
+      "path": "assets/images/react-logo@2x.png",
+      "bytes": 14225,
+      "sha256": "fa600be9ad2f869c7a8dbaffc78bb15af741123e1319c948f0be51753a153cde",
+      "width": 200,
+      "height": 200,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        12,
+        22,
+        186,
+        176
+      ]
+    },
+    {
+      "path": "assets/images/react-logo@3x.png",
+      "bytes": 21252,
+      "sha256": "cd84e02a5d542a3e71b7fa10a685c1b9fb51db4aff92aca6c0da6461ce17be16",
+      "width": 300,
+      "height": 300,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        18,
+        33,
+        279,
+        264
+      ]
+    },
+    {
+      "path": "assets/images/splash-icon.png",
+      "bytes": 3317,
+      "sha256": "27b060a757a29038c9618586baa0ba3894dbe60d084c6059df497ff429c2d92f",
+      "width": 228,
+      "height": 213,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        228,
+        213
+      ]
+    },
+    {
+      "path": "assets/images/tabIcons/explore.png",
+      "bytes": 215,
+      "sha256": "e2dea1c2d20929d83e8eebd74818e808b1b72e376d3a1f3a03679fff0255d073",
+      "width": 25,
+      "height": 25,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        3,
+        2,
+        21,
+        22
+      ]
+    },
+    {
+      "path": "assets/images/tabIcons/explore@2x.png",
+      "bytes": 347,
+      "sha256": "1b54913b3a0acc3e1fb72d3b9b79ad04814304b35bbb9d03a533e6130ad6c26a",
+      "width": 49,
+      "height": 49,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        6,
+        4,
+        42,
+        44
+      ]
+    },
+    {
+      "path": "assets/images/tabIcons/explore@3x.png",
+      "bytes": 468,
+      "sha256": "2f3e43801df70ebe83273b90a7d170bacf5ca74a8a8dc5c154a020c2c8b06609",
+      "width": 73,
+      "height": 73,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        9,
+        6,
+        63,
+        66
+      ]
+    },
+    {
+      "path": "assets/images/tabIcons/home.png",
+      "bytes": 253,
+      "sha256": "3829632ec7d495225395f5da3d0942935d7d055979b174613d1ade82fe420e76",
+      "width": 24,
+      "height": 24,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        3,
+        2,
+        21,
+        21
+      ]
+    },
+    {
+      "path": "assets/images/tabIcons/home@2x.png",
+      "bytes": 343,
+      "sha256": "21c5a07df9017d97464a0a8256e265288f2fca0741ca651de05e12b32f32f5ab",
+      "width": 48,
+      "height": 48,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        6,
+        5,
+        42,
+        42
+      ]
+    },
+    {
+      "path": "assets/images/tabIcons/home@3x.png",
+      "bytes": 479,
+      "sha256": "fe5b397975e7cb70ae7a122472d174ed12ec2ae106f7b49c968225ad37f8b3b8",
+      "width": 72,
+      "height": 72,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        9,
+        7,
+        63,
+        63
+      ]
+    },
+    {
+      "path": "assets/images/tutorial-web.png",
+      "bytes": 58959,
+      "sha256": "e372ec23ad6262e2e0dc2799ce416b495a631a565bcd24f0615d4afc04dac3bd",
+      "width": 1480,
+      "height": 855,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1480,
+        855
+      ]
+    },
+    {
+      "path": "assets/loading_screen/Paper.png",
+      "bytes": 1665,
+      "sha256": "14a0fe7aa7009cefc590f568dc378c55b2df92ad892eb8e753f09a4cc12308c9",
+      "width": 162,
+      "height": 151,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        162,
+        150
+      ]
+    },
+    {
+      "path": "assets/loading_screen/Scissors.png",
+      "bytes": 1093,
+      "sha256": "975010d408e00a5f849063ac7c98303ef0699a5547300f928ce9bca0656e2618",
+      "width": 171,
+      "height": 181,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        170,
+        180
+      ]
+    },
+    {
+      "path": "assets/loading_screen/Sky.png",
+      "bytes": 872491,
+      "sha256": "220322d5f421f8a306bf7f5fb85bb245443e3da8d73ec26e276acca73189aff9",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/loading_screen/Stone.png",
+      "bytes": 809,
+      "sha256": "035d69b07929200d52533c00c5123cdeb9824a2cf95b8206deff5a27f0909727",
+      "width": 211,
+      "height": 111,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        210,
+        110
+      ]
+    },
+    {
+      "path": "assets/logo/App Icon - 1.png",
+      "bytes": 292404,
+      "sha256": "4d29b8fbba5bd5088f18243647f000a42d592e58d4e037cec75563204c40c97d",
+      "width": 4096,
+      "height": 4096,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        4096,
+        4096
+      ]
+    },
+    {
+      "path": "assets/logo/App Icon - 2.png",
+      "bytes": 1747710,
+      "sha256": "f0c8fd8db6665783b9c50c054b95e4fb5d69a9ff3ce3f586a9c5c7c7b2b45add",
+      "width": 4096,
+      "height": 4096,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        4096,
+        4096
+      ]
+    },
+    {
+      "path": "assets/No_Internet_Screen/no_internet.png",
+      "bytes": 10019,
+      "sha256": "74a0536ae7e69ad8a676ffd46932cea18fd1d0ce951e0ae9631f0f0e2c2edf1c",
+      "width": 1448,
+      "height": 615,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1448,
+        615
+      ]
+    },
+    {
+      "path": "assets/No_Internet_Screen/no_wifi_icon.png",
+      "bytes": 1067,
+      "sha256": "468472ae94771744d84327b63b30b1be2e8435972b7f8b801803c2753e93bd3e",
+      "width": 148,
+      "height": 136,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        148,
+        136
+      ]
+    },
+    {
+      "path": "assets/No_Internet_Screen/Paper.png",
+      "bytes": 1665,
+      "sha256": "14a0fe7aa7009cefc590f568dc378c55b2df92ad892eb8e753f09a4cc12308c9",
+      "width": 162,
+      "height": 151,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        162,
+        150
+      ]
+    },
+    {
+      "path": "assets/No_Internet_Screen/retry_home_button.png",
+      "bytes": 1659,
+      "sha256": "1da71fe56434a0737835af7f1733ac14f27ea37c67eab21c9fee38e014b21f3f",
+      "width": 673,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        672,
+        288
+      ]
+    },
+    {
+      "path": "assets/No_Internet_Screen/Scissors.png",
+      "bytes": 1093,
+      "sha256": "975010d408e00a5f849063ac7c98303ef0699a5547300f928ce9bca0656e2618",
+      "width": 171,
+      "height": 181,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        170,
+        180
+      ]
+    },
+    {
+      "path": "assets/No_Internet_Screen/Sky.png",
+      "bytes": 872491,
+      "sha256": "220322d5f421f8a306bf7f5fb85bb245443e3da8d73ec26e276acca73189aff9",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/No_Internet_Screen/Stone.png",
+      "bytes": 809,
+      "sha256": "035d69b07929200d52533c00c5123cdeb9824a2cf95b8206deff5a27f0909727",
+      "width": 211,
+      "height": 111,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        210,
+        110
+      ]
+    },
+    {
+      "path": "assets/onboarding_screen/CROWN_BLOCKS.png",
+      "bytes": 1626,
+      "sha256": "97c1440a226daea3c9d2cbdcbc0b39fed9a6295c45db5c954f6f07dc4075b84d",
+      "width": 247,
+      "height": 206,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        247,
+        206
+      ]
+    },
+    {
+      "path": "assets/onboarding_screen/dot_fil.png",
+      "bytes": 229,
+      "sha256": "f42c3cd9d27b64b5c198842b683cf737f916c53cec1f0156798ab1748a7ff54a",
+      "width": 48,
+      "height": 40,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        48,
+        40
+      ]
+    },
+    {
+      "path": "assets/onboarding_screen/dot_unfilled.png",
+      "bytes": 351,
+      "sha256": "e7f39b80b650745f1456f2867401df80c9f4bd3b63efee6ff74ec90835b2a31c",
+      "width": 80,
+      "height": 72,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        80,
+        72
+      ]
+    },
+    {
+      "path": "assets/onboarding_screen/dots.png",
+      "bytes": 521,
+      "sha256": "fd8cd4f9e5b8145f661204dd53cf12f828a2737d263354d6fa84f766ba2fc82c",
+      "width": 336,
+      "height": 72,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        336,
+        72
+      ]
+    },
+    {
+      "path": "assets/onboarding_screen/dots_2.png",
+      "bytes": 523,
+      "sha256": "03203e4721fa937af92d160ed966f2389e2a1e29ef1bd4369d3670c29fd5f035",
+      "width": 336,
+      "height": 72,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        336,
+        72
+      ]
+    },
+    {
+      "path": "assets/onboarding_screen/duel_sword.png",
+      "bytes": 2684,
+      "sha256": "ca054b388da590ad2d2f74222601ed8fb33d4bfa8d9f5758a187622afa661c0b",
+      "width": 460,
+      "height": 460,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        460,
+        460
+      ]
+    },
+    {
+      "path": "assets/onboarding_screen/Exclude.png",
+      "bytes": 29284,
+      "sha256": "8a8a111e7c24aac2b66df9cbd9b20625045f5f7152c6a659a5464ccb57eaf56b",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/onboarding_screen/floating_island_1.png",
+      "bytes": 18411,
+      "sha256": "1264feb4e9ee953f8c035b0ad164675f4e3065728a8e15d35c462bdd59672a11",
+      "width": 1348,
+      "height": 495,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1348,
+        495
+      ]
+    },
+    {
+      "path": "assets/onboarding_screen/floating_island_2.png",
+      "bytes": 18154,
+      "sha256": "19140533430d658e4bcde7bf09332a8c182323e3f039b072e9d7dfc0ae68d15a",
+      "width": 1348,
+      "height": 495,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1348,
+        495
+      ]
+    },
+    {
+      "path": "assets/onboarding_screen/floating_island_3.png",
+      "bytes": 17984,
+      "sha256": "ecdd1ba4a182c9d7a20bb8658aa15fbc152b3addb750a436a52d6479b91ac317",
+      "width": 1348,
+      "height": 495,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1348,
+        495
+      ]
+    },
+    {
+      "path": "assets/onboarding_screen/hand_thought.png",
+      "bytes": 2740,
+      "sha256": "4ceb4077047c9af63ecf5456761213d0d075753cbe4312affaefbdf38b00bc8b",
+      "width": 259,
+      "height": 268,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        259,
+        268
+      ]
+    },
+    {
+      "path": "assets/onboarding_screen/next_button.png",
+      "bytes": 1495,
+      "sha256": "b6b1617b57bc525370aefc52892b7737d384b969afd275a225ebffc6f66b57c9",
+      "width": 184,
+      "height": 184,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        184,
+        184
+      ]
+    },
+    {
+      "path": "assets/onboarding_screen/Paper.png",
+      "bytes": 1878,
+      "sha256": "ad2702be212679b422551cfe58c3f388c1a59424111125bb6163d1bb3031b5a5",
+      "width": 192,
+      "height": 179,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        192,
+        179
+      ]
+    },
+    {
+      "path": "assets/onboarding_screen/question_thought.png",
+      "bytes": 1774,
+      "sha256": "b40b327c52cffc6ab45c86dcd15044aa23a5dcec009ea1b4d59aa96ba9bb577c",
+      "width": 259,
+      "height": 268,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        259,
+        268
+      ]
+    },
+    {
+      "path": "assets/onboarding_screen/Scissors.png",
+      "bytes": 12087,
+      "sha256": "e8572f97517c71797b058e5399695daeccd2076d113ff7044e06177bc01696c8",
+      "width": 194,
+      "height": 200,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        8,
+        2,
+        191,
+        198
+      ]
+    },
+    {
+      "path": "assets/onboarding_screen/Sky.png",
+      "bytes": 872491,
+      "sha256": "220322d5f421f8a306bf7f5fb85bb245443e3da8d73ec26e276acca73189aff9",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/onboarding_screen/Stone.png",
+      "bytes": 13327,
+      "sha256": "5ebb1ebb8001dd79a2806c1f59efaab932cf53da271f911a1ecc95567d1b9667",
+      "width": 339,
+      "height": 270,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        30,
+        30,
+        321,
+        258
+      ]
+    },
+    {
+      "path": "assets/onboarding_screen/vs_thought.png",
+      "bytes": 1867,
+      "sha256": "b9dcde8af868e8d5dcae49c2db02657f6f2e03d8eb758d0fa6892b639feddc7d",
+      "width": 259,
+      "height": 268,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        259,
+        268
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/1v1_box.png",
+      "bytes": 8731,
+      "sha256": "4d8311572b3918ea3bbacb82d41aa5faf9ffc6e846f444067d129fbc8151e6b9",
+      "width": 1448,
+      "height": 615,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1448,
+        615
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/all_the_stars.png",
+      "bytes": 21553,
+      "sha256": "ec9e4c818c8e95e06b7772aea22a250c6c1a7c9fa7a1b278abedbf292294597e",
+      "width": 753,
+      "height": 312,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        9,
+        0,
+        744,
+        312
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/cloud_1.png",
+      "bytes": 5391,
+      "sha256": "f7608a4a7c8c5fb68ac6cc3098dc3a614bd3b07fe9d712502b2a018f5a293b12",
+      "width": 1280,
+      "height": 600,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1280,
+        600
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/cloud_2.png",
+      "bytes": 3248,
+      "sha256": "e51e78428c40ca5e42808137f420cc655ce32d28c41cd203c0b4d79700494763",
+      "width": 900,
+      "height": 460,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        900,
+        460
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/copy_button.png",
+      "bytes": 1550,
+      "sha256": "c74a596f5ebb85a5eee036f7e27dfc7fa45b6f4777dbfb71c1d9434edcdce6f3",
+      "width": 577,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        576,
+        288
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/copy_icon.png",
+      "bytes": 1111,
+      "sha256": "71f64e7d1bbee9491d5e6bdf17d3a8320ebb5cb98b0a584a56af63c7fc6f875c",
+      "width": 132,
+      "height": 153,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        132,
+        153
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/create_room_button.png",
+      "bytes": 2305,
+      "sha256": "16ff0d5e4cacd7fa099c48d4d7a6d2005c75e993b52d2f5d88fcd78d13224a73",
+      "width": 1201,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1200,
+        288
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/CROWN_BLOCKS.png",
+      "bytes": 1626,
+      "sha256": "97c1440a226daea3c9d2cbdcbc0b39fed9a6295c45db5c954f6f07dc4075b84d",
+      "width": 247,
+      "height": 206,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        247,
+        206
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/entering_match_box.png",
+      "bytes": 8688,
+      "sha256": "e5d01fb27e69b23fcfbba2e6d557387e0bbde2c5e8855f4177b9dcf9acb1cd10",
+      "width": 1448,
+      "height": 615,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1448,
+        615
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/female_player.png",
+      "bytes": 7149,
+      "sha256": "4317cbe886021862fb7b1273ebd871526222725f5331c040290ea4668c989afa",
+      "width": 529,
+      "height": 720,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        529,
+        720
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/half_time_screen.png",
+      "bytes": 28339,
+      "sha256": "882292163d4813de958d64c141de70254812fa350e580cc7caceee753b2c2334",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        191,
+        191
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/join_button.png",
+      "bytes": 1573,
+      "sha256": "79d231f530267bc2a7209c314beecbf7106038bd4c53661e0fb5ffc8fe234077",
+      "width": 577,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        576,
+        288
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/leave_room_button.png",
+      "bytes": 2321,
+      "sha256": "a3a606b3c6f106fe74c3d77be3e9c1202af81048094b8efca3c5023295deab9e",
+      "width": 1201,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1200,
+        288
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/male_player.png",
+      "bytes": 7066,
+      "sha256": "66076252c774a57b114224808cd309392d2f4eb216583db2b218d4159ba1044b",
+      "width": 529,
+      "height": 720,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        529,
+        720
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/online_duel_vector.png",
+      "bytes": 6094,
+      "sha256": "bbc6f05be156cfff9876d002d97e505aa75fc60a31742a76bad8c7a1b3fffeb0",
+      "width": 1248,
+      "height": 496,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1248,
+        496
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/Paper.png",
+      "bytes": 1665,
+      "sha256": "14a0fe7aa7009cefc590f568dc378c55b2df92ad892eb8e753f09a4cc12308c9",
+      "width": 162,
+      "height": 151,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        162,
+        150
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/roin_room_button.png",
+      "bytes": 2328,
+      "sha256": "31b8a18d4d506f231d16da419d8eb0ff308b4d813890086b19bee71a1408edd7",
+      "width": 1201,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1200,
+        288
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/room_input_box.png",
+      "bytes": 2279,
+      "sha256": "a7456aa3295cc294ea5edc0cd8bb43980a1279fe54a6be8b95197c571fb4ebb4",
+      "width": 1225,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1224,
+        288
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/room_ready.png",
+      "bytes": 7234,
+      "sha256": "9f7495ccfdb811ce31b33f974c495b4c2d8d318d53ab91fdfbc37b77ec5e8e23",
+      "width": 1555,
+      "height": 480,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1555,
+        480
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/Scissors.png",
+      "bytes": 1093,
+      "sha256": "975010d408e00a5f849063ac7c98303ef0699a5547300f928ce9bca0656e2618",
+      "width": 171,
+      "height": 181,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        170,
+        180
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/share_button.png",
+      "bytes": 1573,
+      "sha256": "79d231f530267bc2a7209c314beecbf7106038bd4c53661e0fb5ffc8fe234077",
+      "width": 577,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        576,
+        288
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/share_icon.png",
+      "bytes": 1517,
+      "sha256": "cff9d8ad32253947e4efa351b97dfe91629ac3a954fc9fbe3da7d148178fd34a",
+      "width": 152,
+      "height": 116,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        152,
+        116
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/Sky.png",
+      "bytes": 872491,
+      "sha256": "220322d5f421f8a306bf7f5fb85bb245443e3da8d73ec26e276acca73189aff9",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/start_match_button.png",
+      "bytes": 2328,
+      "sha256": "31b8a18d4d506f231d16da419d8eb0ff308b4d813890086b19bee71a1408edd7",
+      "width": 1201,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1200,
+        288
+      ]
+    },
+    {
+      "path": "assets/online_duel_screen/Stone.png",
+      "bytes": 809,
+      "sha256": "035d69b07929200d52533c00c5123cdeb9824a2cf95b8206deff5a27f0909727",
+      "width": 211,
+      "height": 111,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        210,
+        110
+      ]
+    },
+    {
+      "path": "assets/Oops_Screen/ok_button.png",
+      "bytes": 1659,
+      "sha256": "1da71fe56434a0737835af7f1733ac14f27ea37c67eab21c9fee38e014b21f3f",
+      "width": 673,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        672,
+        288
+      ]
+    },
+    {
+      "path": "assets/Oops_Screen/oops.png",
+      "bytes": 9481,
+      "sha256": "ace091f09b247dcedd93ed1c6e326154f35dccb70ae5d87a77112554fb2d10ca",
+      "width": 1448,
+      "height": 615,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1448,
+        615
+      ]
+    },
+    {
+      "path": "assets/Oops_Screen/Paper.png",
+      "bytes": 1665,
+      "sha256": "14a0fe7aa7009cefc590f568dc378c55b2df92ad892eb8e753f09a4cc12308c9",
+      "width": 162,
+      "height": 151,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        162,
+        150
+      ]
+    },
+    {
+      "path": "assets/Oops_Screen/Scissors.png",
+      "bytes": 1093,
+      "sha256": "975010d408e00a5f849063ac7c98303ef0699a5547300f928ce9bca0656e2618",
+      "width": 171,
+      "height": 181,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        170,
+        180
+      ]
+    },
+    {
+      "path": "assets/Oops_Screen/Sky.png",
+      "bytes": 872491,
+      "sha256": "220322d5f421f8a306bf7f5fb85bb245443e3da8d73ec26e276acca73189aff9",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/Oops_Screen/Stone.png",
+      "bytes": 809,
+      "sha256": "035d69b07929200d52533c00c5123cdeb9824a2cf95b8206deff5a27f0909727",
+      "width": 211,
+      "height": 111,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        210,
+        110
+      ]
+    },
+    {
+      "path": "assets/Oops_Screen/warning.png",
+      "bytes": 2694,
+      "sha256": "af91380d8add954898c8b074980c7f4c45cd2469508bd57e717319703ea026b4",
+      "width": 528,
+      "height": 496,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        528,
+        496
+      ]
+    },
+    {
+      "path": "assets/settings_screen/activr_state.png",
+      "bytes": 151234,
+      "sha256": "c2e704db555eef1827fb9735c510f419822f1332eb4d5d6eb77bb26acb1dab2d",
+      "width": 400,
+      "height": 396,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        138
+      ],
+      "contentBounds": [
+        0,
+        0,
+        400,
+        395
+      ]
+    },
+    {
+      "path": "assets/settings_screen/edit_button.png",
+      "bytes": 3579,
+      "sha256": "f24e14631363599c256fafe9d88be73c44dc5d0d2c48b50ca0d1d41a0c68b5e6",
+      "width": 184,
+      "height": 184,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        184,
+        184
+      ]
+    },
+    {
+      "path": "assets/settings_screen/go_back_button.png",
+      "bytes": 1485,
+      "sha256": "2186cf2f7264224ec69e998aee24ca7b72fa642f38e596131ad3b83fdb6e81eb",
+      "width": 184,
+      "height": 184,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        184,
+        184
+      ]
+    },
+    {
+      "path": "assets/settings_screen/half_time_screen.png",
+      "bytes": 28339,
+      "sha256": "882292163d4813de958d64c141de70254812fa350e580cc7caceee753b2c2334",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        191,
+        191
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/settings_screen/LEFT ARROW.png",
+      "bytes": 389,
+      "sha256": "7811f96801cc88357cb91598d605a075bbaf62d7ccf260e62c66bac487314dc1",
+      "width": 61,
+      "height": 85,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        61,
+        85
+      ]
+    },
+    {
+      "path": "assets/settings_screen/log_out_button.png",
+      "bytes": 1675,
+      "sha256": "c1af0a70f474b210e00a9d8e124abfca01a5c444eb21957d2c8de1f92c8cff24",
+      "width": 673,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        672,
+        288
+      ]
+    },
+    {
+      "path": "assets/settings_screen/minus_button.png",
+      "bytes": 1283,
+      "sha256": "753cc147f319a7b79831a4ee5249395ba549083edc4aee35251a747db9bfde03",
+      "width": 192,
+      "height": 192,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        192,
+        192
+      ]
+    },
+    {
+      "path": "assets/settings_screen/one_unit_sound_music_notation.png",
+      "bytes": 397,
+      "sha256": "4f54e1e86788d4215e4f8e3a43ba59dd996215fcc01d165f238b594e0ad42704",
+      "width": 97,
+      "height": 97,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        96,
+        96
+      ]
+    },
+    {
+      "path": "assets/settings_screen/Paper.png",
+      "bytes": 1878,
+      "sha256": "ad2702be212679b422551cfe58c3f388c1a59424111125bb6163d1bb3031b5a5",
+      "width": 192,
+      "height": 179,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        192,
+        179
+      ]
+    },
+    {
+      "path": "assets/settings_screen/Pencil.png",
+      "bytes": 2636,
+      "sha256": "5697b0da2caa5f27f7757856303f9c98b72d49bc3465be9e754ed650fd36e880",
+      "width": 120,
+      "height": 120,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        120,
+        120
+      ]
+    },
+    {
+      "path": "assets/settings_screen/PLUS BUTTON.png",
+      "bytes": 1365,
+      "sha256": "4b5fb5a04ab0e8418ad7e569101f151e9ec14bcc94fb0bffc03ef20e21079dbe",
+      "width": 192,
+      "height": 192,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        192,
+        192
+      ]
+    },
+    {
+      "path": "assets/settings_screen/RIGHT ARROW.png",
+      "bytes": 382,
+      "sha256": "3fe47e04d2594499bdd334710ecf19fc696b9cef1ff5091aff864daf56af348f",
+      "width": 61,
+      "height": 85,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        61,
+        85
+      ]
+    },
+    {
+      "path": "assets/settings_screen/Scissors.png",
+      "bytes": 10465,
+      "sha256": "9478d231ba820c08dbac2c071046b4bbe25db4b8351c8dab9d606bf0e8a0fa7a",
+      "width": 183,
+      "height": 190,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        9,
+        1,
+        181,
+        188
+      ]
+    },
+    {
+      "path": "assets/settings_screen/Settings Button.png",
+      "bytes": 1393,
+      "sha256": "f3643540cb721f4c00433d26c570a68b1d87006d2449078c677f4dada0a89168",
+      "width": 184,
+      "height": 184,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        184,
+        184
+      ]
+    },
+    {
+      "path": "assets/settings_screen/settings_vector.png",
+      "bytes": 2874,
+      "sha256": "39debaa2e38f3ee97e9e2bf3d96f1287514faa5ae18f72cd532ca92118fa5ac8",
+      "width": 1336,
+      "height": 192,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1336,
+        192
+      ]
+    },
+    {
+      "path": "assets/settings_screen/Sky.png",
+      "bytes": 872491,
+      "sha256": "220322d5f421f8a306bf7f5fb85bb245443e3da8d73ec26e276acca73189aff9",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/settings_screen/SOUND_MUSIC_BATTERY.png",
+      "bytes": 1837,
+      "sha256": "d72996598a6aef97018e6cca171770d867f35413eb38d2b90e29ba9754c1eac2",
+      "width": 769,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        768,
+        288
+      ]
+    },
+    {
+      "path": "assets/settings_screen/sound_music_box.png",
+      "bytes": 1740,
+      "sha256": "6b5f71b8f5714aed24a26cecae6edbc22bf53448762f328a2879d1c722eb5b31",
+      "width": 769,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        768,
+        288
+      ]
+    },
+    {
+      "path": "assets/settings_screen/Stone.png",
+      "bytes": 12747,
+      "sha256": "ff11ce773b670267dfcedf84b545516feb67cc6e0fe90fb21c58a3e4c59e3648",
+      "width": 329,
+      "height": 251,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        16,
+        24,
+        314,
+        241
+      ]
+    },
+    {
+      "path": "assets/settings_screen/username_gender_box.png",
+      "bytes": 2279,
+      "sha256": "a7456aa3295cc294ea5edc0cd8bb43980a1279fe54a6be8b95197c571fb4ebb4",
+      "width": 1225,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1224,
+        288
+      ]
+    },
+    {
+      "path": "assets/share_screen/mobile_hand.png",
+      "bytes": 33818,
+      "sha256": "b65f9dc63f728594586a72974fc2f6f8d2425becf661026d97dee530c677625e",
+      "width": 1580,
+      "height": 3351,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1580,
+        3351
+      ]
+    },
+    {
+      "path": "assets/sounds/retro_bgm.wav",
+      "bytes": 35138086,
+      "sha256": "0b6a3215d184b1d0c743fc3ac5830a906b59ecdbefc0419801349e4012e2c5d0"
+    },
+    {
+      "path": "assets/sounds/retro_bgm2.wav",
+      "bytes": 22094,
+      "sha256": "aa86b3d1a78737ebec12c1b4e5c75bd0b2643bba877205f7f0b8fc7bf9ad4ac3"
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/accept_button.png",
+      "bytes": 1659,
+      "sha256": "1da71fe56434a0737835af7f1733ac14f27ea37c67eab21c9fee38e014b21f3f",
+      "width": 673,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        672,
+        288
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/Blue Balloon.png",
+      "bytes": 3345,
+      "sha256": "f3ef2c6fd42a71ca5159d722e2006a5d4d110ca784a5bdd43c65651ae90d2b07",
+      "width": 433,
+      "height": 529,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        433,
+        529
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/cloud_1.png",
+      "bytes": 5391,
+      "sha256": "f7608a4a7c8c5fb68ac6cc3098dc3a614bd3b07fe9d712502b2a018f5a293b12",
+      "width": 1280,
+      "height": 600,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1280,
+        600
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/cloud_2.png",
+      "bytes": 3248,
+      "sha256": "e51e78428c40ca5e42808137f420cc655ce32d28c41cd203c0b4d79700494763",
+      "width": 900,
+      "height": 460,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        900,
+        460
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/clown.png",
+      "bytes": 7546,
+      "sha256": "d901173eefc457e9d704b308c66160adb707aa4e23eec102307355a4ca4a5a63",
+      "width": 647,
+      "height": 404,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        647,
+        404
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/CROWN_BLOCKS.png",
+      "bytes": 1626,
+      "sha256": "97c1440a226daea3c9d2cbdcbc0b39fed9a6295c45db5c954f6f07dc4075b84d",
+      "width": 247,
+      "height": 206,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        247,
+        206
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/cry_girl.png",
+      "bytes": 24442,
+      "sha256": "c92bcf36c9326ca27797eef4bd3d965af47db877d157c15399a95b1437ff4f4f",
+      "width": 1764,
+      "height": 2520,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1764,
+        2520
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/cry_guy.png",
+      "bytes": 25831,
+      "sha256": "6633b96b419b02435394fd8f8d11e83cc9035eafec0ac3674e1434000d3dd4de",
+      "width": 1932,
+      "height": 2520,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1932,
+        2520
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/defeat.png",
+      "bytes": 1692,
+      "sha256": "7217606e69309b442e042d888505f14e63cd10260f1534a97c2338a33606b2ef",
+      "width": 992,
+      "height": 188,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        988,
+        188
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/defeated's_stadium.png",
+      "bytes": 6386,
+      "sha256": "1190a8acf35e99a7ff01372acec2f5c87d9a32bce595a5e01d563e087825365d",
+      "width": 681,
+      "height": 871,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        681,
+        871
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/deny_button.png",
+      "bytes": 1675,
+      "sha256": "c1af0a70f474b210e00a9d8e124abfca01a5c444eb21957d2c8de1f92c8cff24",
+      "width": 673,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        672,
+        288
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/draw.png",
+      "bytes": 1387,
+      "sha256": "c38d37e8a891de0fe1e55340c624bd1e0c6a8d10147de37e9a599a92c24a1551",
+      "width": 672,
+      "height": 188,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        668,
+        188
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/Green Balloon.png",
+      "bytes": 3254,
+      "sha256": "bdf1fa91d6efeaf8999ecbdbe509e100e306636a866fbc2a831fdb4dd7f08171",
+      "width": 433,
+      "height": 529,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        433,
+        529
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/half_time_screen.png",
+      "bytes": 28339,
+      "sha256": "882292163d4813de958d64c141de70254812fa350e580cc7caceee753b2c2334",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        191,
+        191
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/next_button.png",
+      "bytes": 1495,
+      "sha256": "b6b1617b57bc525370aefc52892b7737d384b969afd275a225ebffc6f66b57c9",
+      "width": 184,
+      "height": 184,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        184,
+        184
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/Paper.png",
+      "bytes": 1878,
+      "sha256": "ad2702be212679b422551cfe58c3f388c1a59424111125bb6163d1bb3031b5a5",
+      "width": 192,
+      "height": 179,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        192,
+        179
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/Red Balloon.png",
+      "bytes": 3223,
+      "sha256": "b4e75f1a05e534e0e1d6ee373bfe6dd7436dd4ff55e14a97470086b3dbfc77b0",
+      "width": 433,
+      "height": 529,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        433,
+        529
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/rematch_home_button.png",
+      "bytes": 1659,
+      "sha256": "1da71fe56434a0737835af7f1733ac14f27ea37c67eab21c9fee38e014b21f3f",
+      "width": 673,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        672,
+        288
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/rematch_request.png",
+      "bytes": 9497,
+      "sha256": "ec42e794370f60efda41c0e792b0a82a79eda426903aecd850ca9aaa98e97e65",
+      "width": 1448,
+      "height": 615,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1448,
+        615
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/Scissors.png",
+      "bytes": 12087,
+      "sha256": "e8572f97517c71797b058e5399695daeccd2076d113ff7044e06177bc01696c8",
+      "width": 194,
+      "height": 200,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        8,
+        2,
+        191,
+        198
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/score_streak_box.png",
+      "bytes": 2279,
+      "sha256": "a7456aa3295cc294ea5edc0cd8bb43980a1279fe54a6be8b95197c571fb4ebb4",
+      "width": 1225,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1224,
+        288
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/share_button.png",
+      "bytes": 1360,
+      "sha256": "1fd847657560ee97c6e870820c2c4f0d61dc39cad10034dfcd58d9f1f5bb41ad",
+      "width": 400,
+      "height": 172,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        400,
+        172
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/Sky.png",
+      "bytes": 872491,
+      "sha256": "220322d5f421f8a306bf7f5fb85bb245443e3da8d73ec26e276acca73189aff9",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/SMILE GIRL.png",
+      "bytes": 24429,
+      "sha256": "ab60937f1434f9a665e5c878b7eea4ec2d3476d4e27a685fb7384594159a1e1f",
+      "width": 1764,
+      "height": 2520,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1764,
+        2520
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/SMILE GUY.png",
+      "bytes": 25821,
+      "sha256": "9f0f9261b6cfab12b3ac95e78b6140178a613185936b5d38c2c21e1a96f42f0e",
+      "width": 1932,
+      "height": 2520,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1932,
+        2520
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/STAR BLOCKS-1.png",
+      "bytes": 19313,
+      "sha256": "83c40be9f2bc7b39cf6c70f496a433045252de5c477ddc6ddacb7c4e515ec392",
+      "width": 431,
+      "height": 414,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        7,
+        90,
+        401,
+        414
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/STAR BLOCKS-2.png",
+      "bytes": 19798,
+      "sha256": "d488e8ad5e82ad5869efd32a0d70dc8012226954b5b73608ae112cb0975d27f3",
+      "width": 431,
+      "height": 414,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        7,
+        346,
+        392
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/STAR BLOCKS.png",
+      "bytes": 17986,
+      "sha256": "40364171c084f5e88f4d05576fe89e4bbb430527ddae0144cfb74433ae847573",
+      "width": 402,
+      "height": 377,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        4,
+        347,
+        363
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/Stone.png",
+      "bytes": 13327,
+      "sha256": "5ebb1ebb8001dd79a2806c1f59efaab932cf53da271f911a1ecc95567d1b9667",
+      "width": 339,
+      "height": 270,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        30,
+        30,
+        321,
+        258
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/victor's_stadium.png",
+      "bytes": 5271,
+      "sha256": "9524d0a900beb9056284ebadb46596bd983e8fcdb4ac7c7b6b412128168694f6",
+      "width": 681,
+      "height": 871,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        681,
+        871
+      ]
+    },
+    {
+      "path": "assets/victory_defeat_draw_screen_online_duel_match/victory.png",
+      "bytes": 2020,
+      "sha256": "540a879399b5565713e226881eda12ac81e5d13418f8b287fefa2a36433ca9ea",
+      "width": 1152,
+      "height": 188,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1148,
+        188
+      ]
+    },
+    {
+      "path": "assets/victory_screen_solo_match/cloud_1.png",
+      "bytes": 5391,
+      "sha256": "f7608a4a7c8c5fb68ac6cc3098dc3a614bd3b07fe9d712502b2a018f5a293b12",
+      "width": 1280,
+      "height": 600,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1280,
+        600
+      ]
+    },
+    {
+      "path": "assets/victory_screen_solo_match/cloud_2.png",
+      "bytes": 3248,
+      "sha256": "e51e78428c40ca5e42808137f420cc655ce32d28c41cd203c0b4d79700494763",
+      "width": 900,
+      "height": 460,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        900,
+        460
+      ]
+    },
+    {
+      "path": "assets/victory_screen_solo_match/CROWN_BLOCKS.png",
+      "bytes": 1626,
+      "sha256": "97c1440a226daea3c9d2cbdcbc0b39fed9a6295c45db5c954f6f07dc4075b84d",
+      "width": 247,
+      "height": 206,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        247,
+        206
+      ]
+    },
+    {
+      "path": "assets/victory_screen_solo_match/next_button.png",
+      "bytes": 1495,
+      "sha256": "b6b1617b57bc525370aefc52892b7737d384b969afd275a225ebffc6f66b57c9",
+      "width": 184,
+      "height": 184,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        184,
+        184
+      ]
+    },
+    {
+      "path": "assets/victory_screen_solo_match/Paper.png",
+      "bytes": 1878,
+      "sha256": "ad2702be212679b422551cfe58c3f388c1a59424111125bb6163d1bb3031b5a5",
+      "width": 192,
+      "height": 179,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        192,
+        179
+      ]
+    },
+    {
+      "path": "assets/victory_screen_solo_match/rematch_home_button.png",
+      "bytes": 1659,
+      "sha256": "1da71fe56434a0737835af7f1733ac14f27ea37c67eab21c9fee38e014b21f3f",
+      "width": 673,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        672,
+        288
+      ]
+    },
+    {
+      "path": "assets/victory_screen_solo_match/Scissors.png",
+      "bytes": 12087,
+      "sha256": "e8572f97517c71797b058e5399695daeccd2076d113ff7044e06177bc01696c8",
+      "width": 194,
+      "height": 200,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        8,
+        2,
+        191,
+        198
+      ]
+    },
+    {
+      "path": "assets/victory_screen_solo_match/score_streak_box.png",
+      "bytes": 2279,
+      "sha256": "a7456aa3295cc294ea5edc0cd8bb43980a1279fe54a6be8b95197c571fb4ebb4",
+      "width": 1225,
+      "height": 289,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1224,
+        288
+      ]
+    },
+    {
+      "path": "assets/victory_screen_solo_match/share_button.png",
+      "bytes": 1360,
+      "sha256": "1fd847657560ee97c6e870820c2c4f0d61dc39cad10034dfcd58d9f1f5bb41ad",
+      "width": 400,
+      "height": 172,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        400,
+        172
+      ]
+    },
+    {
+      "path": "assets/victory_screen_solo_match/Sky.png",
+      "bytes": 872491,
+      "sha256": "220322d5f421f8a306bf7f5fb85bb245443e3da8d73ec26e276acca73189aff9",
+      "width": 1572,
+      "height": 3408,
+      "mode": "RGBA",
+      "alphaRange": [
+        255,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1572,
+        3408
+      ]
+    },
+    {
+      "path": "assets/victory_screen_solo_match/SMILE GIRL.png",
+      "bytes": 24429,
+      "sha256": "ab60937f1434f9a665e5c878b7eea4ec2d3476d4e27a685fb7384594159a1e1f",
+      "width": 1764,
+      "height": 2520,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1764,
+        2520
+      ]
+    },
+    {
+      "path": "assets/victory_screen_solo_match/SMILE GUY.png",
+      "bytes": 25821,
+      "sha256": "9f0f9261b6cfab12b3ac95e78b6140178a613185936b5d38c2c21e1a96f42f0e",
+      "width": 1932,
+      "height": 2520,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1932,
+        2520
+      ]
+    },
+    {
+      "path": "assets/victory_screen_solo_match/STAR BLOCKS-1.png",
+      "bytes": 19313,
+      "sha256": "83c40be9f2bc7b39cf6c70f496a433045252de5c477ddc6ddacb7c4e515ec392",
+      "width": 431,
+      "height": 414,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        7,
+        90,
+        401,
+        414
+      ]
+    },
+    {
+      "path": "assets/victory_screen_solo_match/STAR BLOCKS-2.png",
+      "bytes": 19798,
+      "sha256": "d488e8ad5e82ad5869efd32a0d70dc8012226954b5b73608ae112cb0975d27f3",
+      "width": 431,
+      "height": 414,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        7,
+        346,
+        392
+      ]
+    },
+    {
+      "path": "assets/victory_screen_solo_match/STAR BLOCKS.png",
+      "bytes": 17986,
+      "sha256": "40364171c084f5e88f4d05576fe89e4bbb430527ddae0144cfb74433ae847573",
+      "width": 402,
+      "height": 377,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        4,
+        347,
+        363
+      ]
+    },
+    {
+      "path": "assets/victory_screen_solo_match/Stone.png",
+      "bytes": 13327,
+      "sha256": "5ebb1ebb8001dd79a2806c1f59efaab932cf53da271f911a1ecc95567d1b9667",
+      "width": 339,
+      "height": 270,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        30,
+        30,
+        321,
+        258
+      ]
+    },
+    {
+      "path": "assets/victory_screen_solo_match/Victory Stadium.png",
+      "bytes": 7283,
+      "sha256": "568ec1d7e96429edcb80094ec77f617b84377d25892f9852cc1d46311dc8437c",
+      "width": 972,
+      "height": 1089,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        972,
+        1089
+      ]
+    },
+    {
+      "path": "assets/victory_screen_solo_match/victory.png",
+      "bytes": 2020,
+      "sha256": "540a879399b5565713e226881eda12ac81e5d13418f8b287fefa2a36433ca9ea",
+      "width": 1152,
+      "height": 188,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "contentBounds": [
+        0,
+        0,
+        1148,
+        188
+      ]
+    }
+  ]
+}

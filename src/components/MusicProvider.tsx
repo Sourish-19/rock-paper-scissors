@@ -1,162 +1,38 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { Platform } from 'react-native';
+import { useAudioPlayer } from 'expo-audio';
 
 interface MusicContextType {
   isMuted: boolean;
   toggleMute: () => Promise<void>;
   soundVolume: number;
   musicVolume: number;
-  setSoundVolume: (vol: number) => void;
-  setMusicVolume: (vol: number) => Promise<void>;
+  setSoundVolume: (volume: number) => void;
+  setMusicVolume: (volume: number) => Promise<void>;
 }
-
 const MusicContext = createContext<MusicContextType | undefined>(undefined);
-
-export const MusicProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [player, setPlayer] = useState<any>(null);
-  const [isMuted, setIsMuted] = useState(false);
-  const [soundVolume, setSoundVolumeState] = useState(4);
-  const [musicVolume, setMusicVolumeState] = useState(4);
-
+export function MusicProvider({children}: {children: React.ReactNode}) {
+  const player = useAudioPlayer(require('../../assets/sounds/retro_bgm.wav'));
+  const [isMuted,setMuted] = useState(false);
+  const [soundVolume,setSound] = useState(4);
+  const [musicVolume,setMusic] = useState(4);
   useEffect(() => {
-    let active = true;
-    let loadedPlayer: any = null;
-
-    async function loadAudio() {
-      try {
-        // Safe require to prevent crashes if expo-audio is missing/incompatible
-        const expoAudio = require('expo-audio');
-        if (!expoAudio || !expoAudio.createAudioPlayer) {
-          throw new Error('expo-audio is not available in this client');
-        }
-
-        const initialVol = isMuted ? 0 : (musicVolume * 0.1);
-        
-        // createAudioPlayer creates a new player instance from the asset
-        const playerInstance = expoAudio.createAudioPlayer(
-          require('../../assets/sounds/retro_bgm.wav')
-        );
-
-        playerInstance.isLooping = true;
-        
-        // Handle volume setting (which can be a property or a method)
-        if (typeof playerInstance.setVolume === 'function') {
-          playerInstance.setVolume(initialVol);
-        } else {
-          playerInstance.volume = initialVol;
-        }
-
-        if (active) {
-          setPlayer(playerInstance);
-          loadedPlayer = playerInstance;
-
-          if (!isMuted && musicVolume > 0) {
-            try {
-              playerInstance.play();
-            } catch (playError) {
-              // Web autoplay block policy handler
-              if (Platform.OS === 'web') {
-                const resumeBGM = () => {
-                  try {
-                    if (loadedPlayer) {
-                      loadedPlayer.play();
-                    }
-                  } catch (e) {
-                    console.warn('Failed to play BGM on interaction:', e);
-                  }
-                  window.removeEventListener('click', resumeBGM);
-                  window.removeEventListener('touchstart', resumeBGM);
-                };
-                window.addEventListener('click', resumeBGM);
-                window.addEventListener('touchstart', resumeBGM);
-              } else {
-                console.warn('Failed to autoplay:', playError);
-              }
-            }
-          }
-        } else {
-          if (typeof playerInstance.release === 'function') {
-            playerInstance.release();
-          }
-        }
-      } catch (error) {
-        console.warn('Failed to load audio:', error);
-      }
-    }
-
-    loadAudio();
-
-    return () => {
-      active = false;
-      if (loadedPlayer) {
-        try {
-          loadedPlayer.pause();
-          if (typeof loadedPlayer.release === 'function') {
-            loadedPlayer.release();
-          }
-        } catch (e) {
-          console.warn('Failed to release audio player:', e);
-        }
-      }
-    };
-  }, []);
-
-  const toggleMute = async () => {
-    const newMuted = !isMuted;
-    setIsMuted(newMuted);
-    if (!player) return;
-    try {
-      const targetVol = newMuted ? 0 : (musicVolume * 0.1);
-      if (typeof player.setVolume === 'function') {
-        player.setVolume(targetVol);
-      } else {
-        player.volume = targetVol;
-      }
-      if (newMuted || musicVolume === 0) {
-        player.pause();
-      } else {
-        player.play();
-      }
-    } catch (error) {
-      console.warn('Error toggling mute:', error);
-    }
-  };
-
-  const setMusicVolume = async (vol: number) => {
-    setMusicVolumeState(vol);
-    if (!player) return;
-    try {
-      const targetVol = isMuted ? 0 : (vol * 0.1);
-      if (typeof player.setVolume === 'function') {
-        player.setVolume(targetVol);
-      } else {
-        player.volume = targetVol;
-      }
-      if (vol === 0 || isMuted) {
-        player.pause();
-      } else {
-        player.play();
-      }
-    } catch (error) {
-      console.warn('Error setting music volume:', error);
-    }
-  };
-
-  const setSoundVolume = (vol: number) => {
-    setSoundVolumeState(vol);
-  };
-
-  return (
-    <MusicContext.Provider value={{ isMuted, toggleMute, soundVolume, musicVolume, setSoundVolume, setMusicVolume }}>
-      {children}
-    </MusicContext.Provider>
-  );
-};
-
-export const useMusic = () => {
+    // Expo Audio exposes mutable native player properties by design.
+    // eslint-disable-next-line react-hooks/immutability
+    player.loop = true;
+    player.volume = isMuted ? 0 : musicVolume / 10;
+    if (isMuted || !musicVolume) { player.pause(); return; }
+    if (Platform.OS !== 'web') { player.play(); return; }
+    // Start within a user gesture: browsers reject autoplay before interaction.
+    const resume = () => { player.play(); };
+    window.addEventListener('pointerdown',resume);
+    window.addEventListener('keydown',resume);
+    return () => { window.removeEventListener('pointerdown',resume); window.removeEventListener('keydown',resume); };
+  },[player,isMuted,musicVolume]);
+  return <MusicContext.Provider value={{isMuted,toggleMute:async()=>setMuted(v=>!v),soundVolume,musicVolume,setSoundVolume:v=>setSound(Math.max(0,Math.min(5,v))),setMusicVolume:async v=>setMusic(Math.max(0,Math.min(5,v)))}}>{children}</MusicContext.Provider>;
+}
+export function useMusic() {
   const context = useContext(MusicContext);
-  if (!context) {
-    throw new Error('useMusic must be used within a MusicProvider');
-  }
+  if (!context) throw new Error('useMusic requires MusicProvider');
   return context;
-};
+}

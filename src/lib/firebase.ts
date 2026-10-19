@@ -6,13 +6,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Platform } from 'react-native';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBGR4d_8MmKEZ84wHQKtPyEcoynvwsFNso",
-  authDomain: "rock-paper-scissors-bolte.firebaseapp.com",
-  projectId: "rock-paper-scissors-bolte",
-  storageBucket: "rock-paper-scissors-bolte.firebasestorage.app",
-  messagingSenderId: "665416890839",
-  appId: "1:665416890839:web:211e356f7e10f062b1f392",
-  measurementId: "G-R8H6WQN1XE"
+  apiKey: "AIzaSyBbJStjaM4xvoWgFaIXuEvibfmxRebQDjU",
+  authDomain: "rock-paper-scissors-8e52b.firebaseapp.com",
+  projectId: "rock-paper-scissors-8e52b",
+  storageBucket: "rock-paper-scissors-8e52b.firebasestorage.app",
+  messagingSenderId: "997687220059",
+  appId: "1:997687220059:web:fe73ba7100ed4becb86c7e",
+  measurementId: "G-PJWTRHXTT2"
 };
 
 let app;

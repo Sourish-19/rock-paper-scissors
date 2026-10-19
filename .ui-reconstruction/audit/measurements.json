@@ -1,0 +1,928 @@
+{
+  "Home Screen.png": [
+    {
+      "asset": "assets/home_screen/CROWN BLOCKS.png",
+      "x": 90,
+      "y": 54,
+      "width": 13,
+      "height": 11,
+      "error": 0.00563
+    },
+    {
+      "asset": "assets/home_screen/logo.png",
+      "x": 24,
+      "y": 79,
+      "width": 345,
+      "height": 282,
+      "error": 0.05279
+    },
+    {
+      "asset": "assets/home_screen/male_profile_pic.png",
+      "x": 34,
+      "y": 35,
+      "width": 31,
+      "height": 32,
+      "error": 0.02725
+    },
+    {
+      "asset": "assets/home_screen/Settings Button.png",
+      "x": 320,
+      "y": 26,
+      "width": 46,
+      "height": 46,
+      "error": 0.0
+    },
+    {
+      "asset": "assets/home_screen/SMILE_GUY.png",
+      "x": 136,
+      "y": 367,
+      "width": 121,
+      "height": 158,
+      "error": 0.00822
+    }
+  ],
+  "Game Mode.png": [
+    {
+      "asset": "assets/game_mode_screen/cloud_1.png",
+      "x": 0,
+      "y": 702,
+      "width": 320,
+      "height": 150,
+      "error": 0.04756
+    },
+    {
+      "asset": "assets/game_mode_screen/cloud_2.png",
+      "x": 168,
+      "y": 614,
+      "width": 225,
+      "height": 115,
+      "error": 0.03606
+    },
+    {
+      "asset": "assets/game_mode_screen/Paper.png",
+      "x": 304,
+      "y": 302,
+      "width": 48,
+      "height": 45,
+      "error": 0.00203
+    },
+    {
+      "asset": "assets/game_mode_screen/select_game_mode.png",
+      "x": 40,
+      "y": 227,
+      "width": 313,
+      "height": 186,
+      "error": 0.0003
+    }
+  ],
+  "Gender Section - Male.png": [
+    {
+      "asset": "assets/gender_screen/girl_on_the_tower.png",
+      "x": 207,
+      "y": 472,
+      "width": 170,
+      "height": 380,
+      "error": 0.00068
+    },
+    {
+      "asset": "assets/gender_screen/guy_on_the_tower.png",
+      "x": 207,
+      "y": 472,
+      "width": 180,
+      "height": 380,
+      "error": 0.07392
+    },
+    {
+      "asset": "assets/gender_screen/next_button.png",
+      "x": 320,
+      "y": 26,
+      "width": 46,
+      "height": 46,
+      "error": 0.0
+    },
+    {
+      "asset": "assets/gender_screen/Paper.png",
+      "x": 300,
+      "y": 190,
+      "width": 48,
+      "height": 45,
+      "error": 0.00165
+    },
+    {
+      "asset": "assets/gender_screen/select_ur_gender.png",
+      "x": 40,
+      "y": 109,
+      "width": 314,
+      "height": 192,
+      "error": 0.00407
+    },
+    {
+      "asset": "assets/gender_screen/STAR BLOCKS-1.png",
+      "x": 169,
+      "y": 609,
+      "width": 36,
+      "height": 34,
+      "error": 0.00063
+    },
+    {
+      "asset": "assets/gender_screen/STAR BLOCKS-2.png",
+      "x": 160,
+      "y": 412,
+      "width": 35,
+      "height": 33,
+      "error": 0.00053
+    },
+    {
+      "asset": "assets/gender_screen/STAR BLOCKS.png",
+      "x": 3,
+      "y": 551,
+      "width": 39,
+      "height": 38,
+      "error": 0.01697
+    }
+  ],
+  "Loading Screen.png": [
+    {
+      "asset": "assets/loading_screen/Paper.png",
+      "x": 162,
+      "y": 443,
+      "width": 40,
+      "height": 38,
+      "error": 0.00565
+    },
+    {
+      "asset": "assets/loading_screen/Scissors.png",
+      "x": 242,
+      "y": 419,
+      "width": 43,
+      "height": 45,
+      "error": 0.02389
+    },
+    {
+      "asset": "assets/loading_screen/Stone.png",
+      "x": 69,
+      "y": 428,
+      "width": 53,
+      "height": 28,
+      "error": 0.00557
+    }
+  ],
+  "LOG-IN PAGE.png": [
+    {
+      "asset": "assets/authentiction_screen/button.png",
+      "x": 43,
+      "y": 558,
+      "width": 306,
+      "height": 72,
+      "error": 0.07977
+    },
+    {
+      "asset": "assets/authentiction_screen/GOOGLE LOGO.png",
+      "x": 286,
+      "y": 713,
+      "width": 26,
+      "height": 26,
+      "error": 0.00011
+    },
+    {
+      "asset": "assets/authentiction_screen/Paper.png",
+      "x": 340,
+      "y": 90,
+      "width": 48,
+      "height": 45,
+      "error": 0.00145
+    },
+    {
+      "asset": "assets/authentiction_screen/PASSWORD TEXT INPUT BOX.png",
+      "x": 43,
+      "y": 445,
+      "width": 306,
+      "height": 72,
+      "error": 0.02512
+    },
+    {
+      "asset": "assets/authentiction_screen/Scissors.png",
+      "x": 80,
+      "y": 141,
+      "width": 46,
+      "height": 48,
+      "error": 0.03413
+    },
+    {
+      "asset": "assets/authentiction_screen/Stone.png",
+      "x": 5,
+      "y": 48,
+      "width": 84,
+      "height": 63,
+      "error": 0.00366
+    },
+    {
+      "asset": "assets/authentiction_screen/Vector.png",
+      "x": 40,
+      "y": 93,
+      "width": 313,
+      "height": 49,
+      "error": 0.02438
+    }
+  ],
+  "SIGN-UP PAGE.png": [
+    {
+      "asset": "assets/authentiction_screen/button.png",
+      "x": 43,
+      "y": 537,
+      "width": 306,
+      "height": 72,
+      "error": 0.07999
+    },
+    {
+      "asset": "assets/authentiction_screen/GOOGLE LOGO.png",
+      "x": 286,
+      "y": 692,
+      "width": 26,
+      "height": 26,
+      "error": 0.0
+    },
+    {
+      "asset": "assets/authentiction_screen/Paper.png",
+      "x": 339,
+      "y": 90,
+      "width": 48,
+      "height": 45,
+      "error": 0.00148
+    },
+    {
+      "asset": "assets/authentiction_screen/PASSWORD TEXT INPUT BOX.png",
+      "x": 43,
+      "y": 445,
+      "width": 306,
+      "height": 72,
+      "error": 0.02512
+    },
+    {
+      "asset": "assets/authentiction_screen/Scissors.png",
+      "x": 79,
+      "y": 141,
+      "width": 46,
+      "height": 48,
+      "error": 0.03404
+    },
+    {
+      "asset": "assets/authentiction_screen/sign_up.png",
+      "x": 39,
+      "y": 94,
+      "width": 312,
+      "height": 48,
+      "error": 0.02117
+    },
+    {
+      "asset": "assets/authentiction_screen/Stone.png",
+      "x": 4,
+      "y": 48,
+      "width": 84,
+      "height": 63,
+      "error": 0.00367
+    }
+  ],
+  "Onboarding Screen 1.png": [
+    {
+      "asset": "assets/onboarding_screen/dot_fil.png",
+      "x": 159,
+      "y": 501,
+      "width": 12,
+      "height": 10,
+      "error": 0.0
+    },
+    {
+      "asset": "assets/onboarding_screen/dots.png",
+      "x": 155,
+      "y": 497,
+      "width": 84,
+      "height": 18,
+      "error": 0.0
+    },
+    {
+      "asset": "assets/onboarding_screen/hand_thought.png",
+      "x": 164,
+      "y": 149,
+      "width": 65,
+      "height": 67,
+      "error": 0.00282
+    },
+    {
+      "asset": "assets/onboarding_screen/next_button.png",
+      "x": 320,
+      "y": 779,
+      "width": 46,
+      "height": 46,
+      "error": 0.0
+    },
+    {
+      "asset": "assets/onboarding_screen/question_thought.png",
+      "x": 164,
+      "y": 149,
+      "width": 65,
+      "height": 67,
+      "error": 0.09615
+    },
+    {
+      "asset": "assets/home_screen/cloud_1.png",
+      "x": 19,
+      "y": 635,
+      "width": 320,
+      "height": 150,
+      "error": 0.01078
+    },
+    {
+      "asset": "assets/home_screen/cloud_2.png",
+      "x": 142,
+      "y": 39,
+      "width": 225,
+      "height": 115,
+      "error": 0.0123
+    },
+    {
+      "asset": "assets/home_screen/SMILE_GUY.png",
+      "x": 136,
+      "y": 220,
+      "width": 121,
+      "height": 158,
+      "error": 1e-05
+    }
+  ],
+  "Onboarding Screen 2.png": [
+    {
+      "asset": "assets/onboarding_screen/dot_fil.png",
+      "x": 191,
+      "y": 501,
+      "width": 12,
+      "height": 10,
+      "error": 0.0
+    },
+    {
+      "asset": "assets/onboarding_screen/dots_2.png",
+      "x": 155,
+      "y": 497,
+      "width": 84,
+      "height": 18,
+      "error": 0.0
+    },
+    {
+      "asset": "assets/onboarding_screen/duel_sword.png",
+      "x": 139,
+      "y": 272,
+      "width": 115,
+      "height": 115,
+      "error": 0.0
+    },
+    {
+      "asset": "assets/onboarding_screen/next_button.png",
+      "x": 320,
+      "y": 779,
+      "width": 46,
+      "height": 46,
+      "error": 0.0
+    },
+    {
+      "asset": "assets/onboarding_screen/question_thought.png",
+      "x": 164,
+      "y": 201,
+      "width": 65,
+      "height": 67,
+      "error": 0.11409
+    },
+    {
+      "asset": "assets/onboarding_screen/vs_thought.png",
+      "x": 164,
+      "y": 201,
+      "width": 65,
+      "height": 67,
+      "error": 0.0023
+    }
+  ],
+  "SETTINGS PAGE.png": [
+    {
+      "asset": "assets/settings_screen/edit_button.png",
+      "x": 320,
+      "y": 26,
+      "width": 46,
+      "height": 46,
+      "error": -0.0
+    },
+    {
+      "asset": "assets/settings_screen/go_back_button.png",
+      "x": 27,
+      "y": 26,
+      "width": 46,
+      "height": 46,
+      "error": 0.0
+    },
+    {
+      "asset": "assets/settings_screen/LEFT ARROW.png",
+      "x": 180,
+      "y": 339,
+      "width": 15,
+      "height": 21,
+      "error": 0.01784
+    },
+    {
+      "asset": "assets/settings_screen/minus_button.png",
+      "x": 44,
+      "y": 560,
+      "width": 48,
+      "height": 48,
+      "error": 0.0
+    },
+    {
+      "asset": "assets/settings_screen/one_unit_sound_music_notation.png",
+      "x": 124,
+      "y": 455,
+      "width": 24,
+      "height": 24,
+      "error": 0.01126
+    },
+    {
+      "asset": "assets/settings_screen/Paper.png",
+      "x": 337,
+      "y": 177,
+      "width": 48,
+      "height": 45,
+      "error": 0.00165
+    },
+    {
+      "asset": "assets/settings_screen/Pencil.png",
+      "x": 328,
+      "y": 34,
+      "width": 30,
+      "height": 30,
+      "error": 1e-05
+    },
+    {
+      "asset": "assets/settings_screen/PLUS BUTTON.png",
+      "x": 302,
+      "y": 560,
+      "width": 48,
+      "height": 48,
+      "error": 2e-05
+    },
+    {
+      "asset": "assets/settings_screen/RIGHT ARROW.png",
+      "x": 303,
+      "y": 339,
+      "width": 15,
+      "height": 21,
+      "error": 0.01629
+    },
+    {
+      "asset": "assets/settings_screen/Scissors.png",
+      "x": 96,
+      "y": 169,
+      "width": 46,
+      "height": 48,
+      "error": 0.03453
+    },
+    {
+      "asset": "assets/settings_screen/Settings Button.png",
+      "x": 320,
+      "y": 26,
+      "width": 46,
+      "height": 46,
+      "error": 0.02497
+    },
+    {
+      "asset": "assets/settings_screen/settings_vector.png",
+      "x": 30,
+      "y": 137,
+      "width": 334,
+      "height": 48,
+      "error": 0.01598
+    },
+    {
+      "asset": "assets/settings_screen/SOUND_MUSIC_BATTERY.png",
+      "x": 100,
+      "y": 431,
+      "width": 192,
+      "height": 72,
+      "error": 0.01006
+    },
+    {
+      "asset": "assets/settings_screen/Stone.png",
+      "x": 0,
+      "y": 92,
+      "width": 82,
+      "height": 63,
+      "error": 0.00371
+    }
+  ],
+  "Game page.png": [
+    {
+      "asset": "assets/game_screen/control_buttons.png",
+      "x": 39,
+      "y": 754,
+      "width": 72,
+      "height": 72,
+      "error": 0.09454
+    },
+    {
+      "asset": "assets/game_screen/empty_score.png",
+      "x": 330,
+      "y": 591,
+      "width": 36,
+      "height": 32,
+      "error": 0.0
+    },
+    {
+      "asset": "assets/game_screen/lost_point.png",
+      "x": 330,
+      "y": 627,
+      "width": 36,
+      "height": 32,
+      "error": 0.00247
+    },
+    {
+      "asset": "assets/game_screen/Settings Button.png",
+      "x": 320,
+      "y": 26,
+      "width": 46,
+      "height": 46,
+      "error": 0.0
+    },
+    {
+      "asset": "assets/game_screen/settings_icon.png",
+      "x": 327,
+      "y": 34,
+      "width": 32,
+      "height": 30,
+      "error": 0.00392
+    },
+    {
+      "asset": "assets/game_screen/won_point.png",
+      "x": 27,
+      "y": 111,
+      "width": 36,
+      "height": 32,
+      "error": 0.00127
+    }
+  ],
+  "Start of the game - 3.png": [
+    {
+      "asset": "assets/game_screen/control_buttons.png",
+      "x": 39,
+      "y": 754,
+      "width": 72,
+      "height": 72,
+      "error": 0.09454
+    },
+    {
+      "asset": "assets/game_screen/empty_score.png",
+      "x": 330,
+      "y": 591,
+      "width": 36,
+      "height": 32,
+      "error": 0.0
+    },
+    {
+      "asset": "assets/game_screen/lost_point.png",
+      "x": 330,
+      "y": 627,
+      "width": 36,
+      "height": 32,
+      "error": 0.00247
+    },
+    {
+      "asset": "assets/game_screen/Settings Button.png",
+      "x": 320,
+      "y": 26,
+      "width": 46,
+      "height": 46,
+      "error": 0.0
+    },
+    {
+      "asset": "assets/game_screen/settings_icon.png",
+      "x": 327,
+      "y": 34,
+      "width": 32,
+      "height": 30,
+      "error": 0.00392
+    },
+    {
+      "asset": "assets/game_screen/won_point.png",
+      "x": 27,
+      "y": 111,
+      "width": 36,
+      "height": 32,
+      "error": 0.00127
+    }
+  ],
+  "VICTORY PAGE - SOLO CHALLENGE.png": [
+    {
+      "asset": "assets/victory_screen_solo_match/next_button.png",
+      "x": 320,
+      "y": 779,
+      "width": 46,
+      "height": 46,
+      "error": 0.0
+    },
+    {
+      "asset": "assets/victory_screen_solo_match/Paper.png",
+      "x": 338,
+      "y": 44,
+      "width": 48,
+      "height": 45,
+      "error": 0.00154
+    },
+    {
+      "asset": "assets/victory_screen_solo_match/SMILE GUY.png",
+      "x": 81,
+      "y": 427,
+      "width": 242,
+      "height": 315,
+      "error": 0.07838
+    },
+    {
+      "asset": "assets/victory_screen_solo_match/STAR BLOCKS-1.png",
+      "x": 28,
+      "y": 555,
+      "width": 108,
+      "height": 104,
+      "error": 0.01122
+    },
+    {
+      "asset": "assets/victory_screen_solo_match/STAR BLOCKS-2.png",
+      "x": 285,
+      "y": 654,
+      "width": 108,
+      "height": 104,
+      "error": 0.0204
+    },
+    {
+      "asset": "assets/victory_screen_solo_match/STAR BLOCKS.png",
+      "x": 292,
+      "y": 368,
+      "width": 100,
+      "height": 94,
+      "error": 0.00719
+    },
+    {
+      "asset": "assets/victory_screen_solo_match/victory.png",
+      "x": 50,
+      "y": 46,
+      "width": 288,
+      "height": 47,
+      "error": 0.00051
+    }
+  ],
+  "DEFEAT PAGE - SOLO CHALLENGE.png": [
+    {
+      "asset": "assets/defeat_screen_solo_match/Blue Balloon.png",
+      "x": 264,
+      "y": 542,
+      "width": 108,
+      "height": 132,
+      "error": 0.06218
+    },
+    {
+      "asset": "assets/defeat_screen_solo_match/cry_guy.png",
+      "x": 86,
+      "y": 427,
+      "width": 242,
+      "height": 315,
+      "error": 0.08223
+    },
+    {
+      "asset": "assets/defeat_screen_solo_match/defeat.png",
+      "x": 70,
+      "y": 46,
+      "width": 248,
+      "height": 47,
+      "error": 0.0215
+    },
+    {
+      "asset": "assets/defeat_screen_solo_match/Green Balloon.png",
+      "x": 52,
+      "y": 336,
+      "width": 108,
+      "height": 132,
+      "error": 0.07992
+    },
+    {
+      "asset": "assets/defeat_screen_solo_match/Group 33.png",
+      "x": 116,
+      "y": 388,
+      "width": 162,
+      "height": 101,
+      "error": 0.00159
+    },
+    {
+      "asset": "assets/defeat_screen_solo_match/next_button.png",
+      "x": 320,
+      "y": 779,
+      "width": 46,
+      "height": 46,
+      "error": 0.0
+    },
+    {
+      "asset": "assets/defeat_screen_solo_match/Paper.png",
+      "x": 318,
+      "y": 38,
+      "width": 48,
+      "height": 45,
+      "error": 0.00155
+    },
+    {
+      "asset": "assets/defeat_screen_solo_match/Red Balloon.png",
+      "x": 22,
+      "y": 558,
+      "width": 108,
+      "height": 132,
+      "error": 0.07097
+    }
+  ],
+  "DRAW PAGE.png": [
+    {
+      "asset": "assets/draw_screen_solo_match/draw.png",
+      "x": 110,
+      "y": 46,
+      "width": 168,
+      "height": 47,
+      "error": 0.0246
+    },
+    {
+      "asset": "assets/draw_screen_solo_match/next_button.png",
+      "x": 320,
+      "y": 779,
+      "width": 46,
+      "height": 46,
+      "error": 0.0
+    },
+    {
+      "asset": "assets/draw_screen_solo_match/Paper.png",
+      "x": 268,
+      "y": 48,
+      "width": 48,
+      "height": 45,
+      "error": 0.00143
+    },
+    {
+      "asset": "assets/draw_screen_solo_match/SAD GUY.png",
+      "x": 86,
+      "y": 427,
+      "width": 242,
+      "height": 315,
+      "error": 0.01463
+    }
+  ],
+  "Online Duel.png": [
+    {
+      "asset": "assets/online_duel_screen/cloud_1.png",
+      "x": 0,
+      "y": 702,
+      "width": 320,
+      "height": 150,
+      "error": 0.04756
+    },
+    {
+      "asset": "assets/online_duel_screen/cloud_2.png",
+      "x": 0,
+      "y": 737,
+      "width": 225,
+      "height": 115,
+      "error": 0.04601
+    },
+    {
+      "asset": "assets/online_duel_screen/online_duel_vector.png",
+      "x": 44,
+      "y": 242,
+      "width": 312,
+      "height": 124,
+      "error": 0.00442
+    },
+    {
+      "asset": "assets/online_duel_screen/roin_room_button.png",
+      "x": 49,
+      "y": 581,
+      "width": 300,
+      "height": 72,
+      "error": 0.11087
+    },
+    {
+      "asset": "assets/online_duel_screen/start_match_button.png",
+      "x": 49,
+      "y": 581,
+      "width": 300,
+      "height": 72,
+      "error": 0.11087
+    }
+  ],
+  "Online Duel - Hosted a Room.png": [
+    {
+      "asset": "assets/online_duel_screen/cloud_1.png",
+      "x": 0,
+      "y": 702,
+      "width": 320,
+      "height": 150,
+      "error": 0.08309
+    },
+    {
+      "asset": "assets/online_duel_screen/cloud_2.png",
+      "x": 0,
+      "y": 737,
+      "width": 225,
+      "height": 115,
+      "error": 0.04601
+    },
+    {
+      "asset": "assets/online_duel_screen/female_player.png",
+      "x": 245,
+      "y": 375,
+      "width": 132,
+      "height": 180,
+      "error": 0.10938
+    },
+    {
+      "asset": "assets/online_duel_screen/male_player.png",
+      "x": 16,
+      "y": 375,
+      "width": 132,
+      "height": 180,
+      "error": 0.08944
+    },
+    {
+      "asset": "assets/online_duel_screen/room_ready.png",
+      "x": 2,
+      "y": 169,
+      "width": 389,
+      "height": 120,
+      "error": 0.00298
+    }
+  ],
+  "Online Duel - Victory Page.png": [
+    {
+      "asset": "assets/victory_defeat_draw_screen_online_duel_match/Paper.png",
+      "x": 338,
+      "y": 44,
+      "width": 48,
+      "height": 45,
+      "error": 0.00154
+    },
+    {
+      "asset": "assets/victory_defeat_draw_screen_online_duel_match/victory.png",
+      "x": 50,
+      "y": 46,
+      "width": 288,
+      "height": 47,
+      "error": 0.00051
+    }
+  ],
+  "No Internet Screen.png": [
+    {
+      "asset": "assets/No_Internet_Screen/no_internet.png",
+      "x": 16,
+      "y": 335,
+      "width": 362,
+      "height": 154,
+      "error": 0.03151
+    },
+    {
+      "asset": "assets/No_Internet_Screen/no_wifi_icon.png",
+      "x": 123,
+      "y": 179,
+      "width": 148,
+      "height": 136,
+      "error": 0.0
+    },
+    {
+      "asset": "assets/No_Internet_Screen/retry_home_button.png",
+      "x": 113,
+      "y": 601,
+      "width": 168,
+      "height": 72,
+      "error": 0.10936
+    }
+  ],
+  "Oops Screen.png": [
+    {
+      "asset": "assets/Oops_Screen/ok_button.png",
+      "x": 113,
+      "y": 549,
+      "width": 168,
+      "height": 72,
+      "error": 0.05527
+    },
+    {
+      "asset": "assets/Oops_Screen/oops.png",
+      "x": 16,
+      "y": 375,
+      "width": 362,
+      "height": 154,
+      "error": 0.03572
+    },
+    {
+      "asset": "assets/Oops_Screen/warning.png",
+      "x": 131,
+      "y": 231,
+      "width": 132,
+      "height": 124,
+      "error": 0.0
+    }
+  ]
+}

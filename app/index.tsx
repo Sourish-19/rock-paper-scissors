@@ -1,34 +1,16 @@
-import { useEffect, useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { useEffect } from 'react';
 import { useRouter } from 'expo-router';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '@/lib/firebase';
 import { useGameStore } from '@/store/gameStore';
 
-export default function RootIndex() {
+export default function Index() {
   const router = useRouter();
-  const { userSession } = useGameStore();
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!isMounted) return;
-    
-    // For now, if no session, go to loading/onboarding. If session, go to home.
-    if (userSession) {
-      router.replace('/home');
-    } else {
-      router.replace('/loading');
-    }
-  }, [userSession, isMounted, router]);
-
-  return <View style={styles.container} />;
+  useEffect(() => onAuthStateChanged(auth,user => {
+    const store = useGameStore.getState();
+    store.setUserSession(user);
+    if (user) store.setUserProfile({...store.userProfile,username:user.displayName || store.userProfile.username});
+    router.replace(user ? '/home' : '/loading');
+  }),[router]);
+  return null;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#4DB8FF',
-  },
-});

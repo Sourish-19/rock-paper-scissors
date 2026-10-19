@@ -44,3 +44,6 @@ example
 
 # IDE / environment metadata files
 *.metadata.json
+
+# Local Chrome profile used for UI screenshot automation
+.ui-reconstruction/chrome/

@@ -1,0 +1,270 @@
+{
+ "DEFEAT PAGE - SOLO CHALLENGE.png": {
+  "screenshot": "f_defeat",
+  "meanAbsDiff": 7.0
+ },
+ "DEFEAT PAGE.png": {
+  "screenshot": "f_defeat",
+  "meanAbsDiff": 7.7
+ },
+ "DRAW PAGE.png": {
+  "screenshot": "f_draw",
+  "meanAbsDiff": 4.9
+ },
+ "Game Mode.png": {
+  "screenshot": "f_mode",
+  "meanAbsDiff": 4.1
+ },
+ "Game page - Draw State.png": {
+  "screenshot": "f_game_draw",
+  "meanAbsDiff": 3.8
+ },
+ "Game page - Round Result.png": {
+  "screenshot": "f_game_feedback",
+  "meanAbsDiff": 2.2
+ },
+ "Game page-1.png": {
+  "screenshot": "f_game_feedback",
+  "meanAbsDiff": 2.1
+ },
+ "Game page.png": {
+  "screenshot": "f_game_reveal",
+  "meanAbsDiff": 10.2
+ },
+ "Gender Section - Female.png": {
+  "screenshot": "f_gender_f",
+  "meanAbsDiff": 8.7
+ },
+ "Gender Section - Male.png": {
+  "screenshot": "f_gender_m",
+  "meanAbsDiff": 8.3
+ },
+ "Gender Section.png": {
+  "screenshot": "f_gender",
+  "meanAbsDiff": 5.9
+ },
+ "Home Screen.png": {
+  "screenshot": "f_home",
+  "meanAbsDiff": 7.9
+ },
+ "LOG-IN PAGE - ERROR STATE.png": {
+  "screenshot": "f_login_error",
+  "meanAbsDiff": 60.9
+ },
+ "LOG-IN PAGE - Empty Fields.png": {
+  "screenshot": "f_login_empty",
+  "meanAbsDiff": 14.7
+ },
+ "LOG-IN PAGE - Invalid password..png": {
+  "screenshot": "f_login_badpass",
+  "meanAbsDiff": 12.0
+ },
+ "LOG-IN PAGE - Password Reset Sent.png": {
+  "screenshot": "f_login_reset",
+  "meanAbsDiff": 12.1
+ },
+ "LOG-IN PAGE.png": {
+  "screenshot": "f_login",
+  "meanAbsDiff": 6.1
+ },
+ "LOGIN-IN PAGE - Invalid username..png": {
+  "screenshot": "f_login_badpass",
+  "meanAbsDiff": 12.2
+ },
+ "Loading Screen.png": {
+  "screenshot": "f_loading",
+  "meanAbsDiff": 3.0
+ },
+ "No Internet Screen.png": {
+  "screenshot": "f_offline",
+  "meanAbsDiff": 2.5
+ },
+ "Onboarding Screen 1.png": {
+  "screenshot": "f_onb1",
+  "meanAbsDiff": 5.9
+ },
+ "Onboarding Screen 2.png": {
+  "screenshot": "f_onb2",
+  "meanAbsDiff": 8.6
+ },
+ "Onboarding Screen 3.png": {
+  "screenshot": "f_onb3",
+  "meanAbsDiff": 8.7
+ },
+ "Online Duel - Create Room.png": {
+  "screenshot": "f_create",
+  "meanAbsDiff": 7.0
+ },
+ "Online Duel - Defeat Page-1.png": {
+  "screenshot": "f_online_post_defeat",
+  "meanAbsDiff": 41.1
+ },
+ "Online Duel - Defeat Page.png": {
+  "screenshot": "f_online_defeat",
+  "meanAbsDiff": 42.9
+ },
+ "Online Duel - Entering a match.png": {
+  "screenshot": "f_entering",
+  "meanAbsDiff": 3.4
+ },
+ "Online Duel - Hosted a Room.png": {
+  "screenshot": "f_hosted",
+  "meanAbsDiff": 7.5
+ },
+ "Online Duel - Join Room.png": {
+  "screenshot": "f_online_join",
+  "meanAbsDiff": 6.3
+ },
+ "Online Duel - Joined a Room-1.png": {
+  "screenshot": "f_entering_guest",
+  "meanAbsDiff": 3.7
+ },
+ "Online Duel - Joined a Room.png": {
+  "screenshot": "f_joined",
+  "meanAbsDiff": 8.2
+ },
+ "Online Duel - Joining Room.png": {
+  "screenshot": "f_joining",
+  "meanAbsDiff": 2.9
+ },
+ "Online Duel - Post Victory Page.png": {
+  "screenshot": "f_online_post",
+  "meanAbsDiff": 8.9
+ },
+ "Online Duel - Rematch Request Page.png": {
+  "screenshot": "f_online_rematch",
+  "meanAbsDiff": 13.5
+ },
+ "Online Duel - Victory Page.png": {
+  "screenshot": "f_online_victory",
+  "meanAbsDiff": 10.5
+ },
+ "Online Duel.png": {
+  "screenshot": "f_online",
+  "meanAbsDiff": 4.8
+ },
+ "Oops Screen.png": {
+  "screenshot": "f_oops",
+  "meanAbsDiff": 1.9
+ },
+ "POST DEFEAT PAGE - SOLO CHALLENGE.png": {
+  "screenshot": "f_post_defeat",
+  "meanAbsDiff": 5.3
+ },
+ "POST DEFEAT PAGE.png": {
+  "screenshot": "f_post_defeat",
+  "meanAbsDiff": 5.2
+ },
+ "POST DRAW PAGE.png": {
+  "screenshot": "f_post_draw",
+  "meanAbsDiff": 3.3
+ },
+ "POST VICTORY PAGE - SOLO CHALLENGE.png": {
+  "screenshot": "f_post_victory",
+  "meanAbsDiff": 4.6
+ },
+ "POST VICTORY PAGE.png": {
+  "screenshot": "f_post_victory",
+  "meanAbsDiff": 5.0
+ },
+ "Quit Screen.png": {
+  "screenshot": "f_quit",
+  "meanAbsDiff": 3.2
+ },
+ "Restart Screen.png": {
+  "screenshot": "f_restart",
+  "meanAbsDiff": 5.4
+ },
+ "SETTINGS PAGE - 3.png": {
+  "screenshot": "f_settings",
+  "meanAbsDiff": 7.4
+ },
+ "SETTINGS PAGE - 4.png": {
+  "screenshot": "f_settings_edit",
+  "meanAbsDiff": 7.4
+ },
+ "SETTINGS PAGE - EDIT STATE.png": {
+  "screenshot": "f_settings_edit",
+  "meanAbsDiff": 7.2
+ },
+ "SETTINGS PAGE.png": {
+  "screenshot": "f_settings",
+  "meanAbsDiff": 7.6
+ },
+ "SHARE PAGE - Online Duel.png": {
+  "screenshot": "f_online_share",
+  "meanAbsDiff": 23.2
+ },
+ "SHARE PAGE - SOLO CHALLENGE.png": {
+  "screenshot": "f_share",
+  "meanAbsDiff": 16.6
+ },
+ "SHARE PAGE.png": {
+  "screenshot": "f_share",
+  "meanAbsDiff": 16.2
+ },
+ "SIGN-UP PAGE - Account Created.png": {
+  "screenshot": "f_signup_created",
+  "meanAbsDiff": 13.1
+ },
+ "SIGN-UP PAGE - ERROR STATE.png": {
+  "screenshot": "f_signup_error",
+  "meanAbsDiff": 66.1
+ },
+ "SIGN-UP PAGE - Password Too Short.png": {
+  "screenshot": "f_signup_error",
+  "meanAbsDiff": 66.1
+ },
+ "SIGN-UP PAGE - Username Already Taken.png": {
+  "screenshot": "f_signup_taken",
+  "meanAbsDiff": 12.7
+ },
+ "SIGN-UP PAGE.png": {
+  "screenshot": "f_signup",
+  "meanAbsDiff": 9.4
+ },
+ "Settings - Mid Game - 1.png": {
+  "screenshot": "f_pause",
+  "meanAbsDiff": 13.3
+ },
+ "Settings - Mid Game - 2.png": {
+  "screenshot": "f_pause_off",
+  "meanAbsDiff": 12.7
+ },
+ "Settings - Mid Game-1.png": {
+  "screenshot": "f_pause_off",
+  "meanAbsDiff": 8.2
+ },
+ "Settings - Mid Game.png": {
+  "screenshot": "f_pause",
+  "meanAbsDiff": 8.8
+ },
+ "Start of the game - 1.png": {
+  "screenshot": "f_game1",
+  "meanAbsDiff": 3.0
+ },
+ "Start of the game - 2.png": {
+  "screenshot": "f_game2",
+  "meanAbsDiff": 2.6
+ },
+ "Start of the game - 3.png": {
+  "screenshot": "f_game3",
+  "meanAbsDiff": 2.6
+ },
+ "Start of the game - Shoot.png": {
+  "screenshot": "f_game_shoot",
+  "meanAbsDiff": 2.7
+ },
+ "Start of the game.png": {
+  "screenshot": "f_game0",
+  "meanAbsDiff": 2.4
+ },
+ "VICTORY PAGE - SOLO CHALLENGE.png": {
+  "screenshot": "f_victory",
+  "meanAbsDiff": 6.2
+ },
+ "VICTORY PAGE.png": {
+  "screenshot": "f_victory",
+  "meanAbsDiff": 7.6
+ }
+}

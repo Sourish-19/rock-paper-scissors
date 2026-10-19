@@ -1,0 +1,11 @@
+/* Preserve original pixel artwork when the reference canvas scales on web. */
+[data-testid="game-canvas"] img { image-rendering: pixelated; }
+html, body, #root { height: 100%; margin: 0; overflow: hidden; background: #0087ed; }
+/* No browser focus rings or tap highlights on game controls: the pixel artwork provides its own states. */
+[data-testid="game-canvas"] *, [data-testid="game-canvas"] *:focus, [data-testid="game-canvas"] *:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+/* Inputs keep their own text invisible; the app draws the selection highlight on the pixel text itself. */
+[data-testid="game-canvas"] input::selection { background: transparent; }
